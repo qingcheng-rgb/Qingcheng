@@ -2078,3 +2078,4 @@ def GRU_framework_means_update_para(node_num, dt):
     valuation_models["model"] = f"gru_{direction_tag}_{hidden_size}h_{num_layers}L_mean_only"
 
     return valuation_models
+    
