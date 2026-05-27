@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -c ':*)"
+      "Bash(python3 -c ':*)",
+      "Bash(grep -r \"reserve.*zone\\\\|SPP.*zone\\\\|zone.*=.*\\\\[\" /var/www/python/Prod/nighthawk/nighthawk/data/network/ -i 2>/dev/null | head -20)",
+      "Read(//var/www/python/Prod/nighthawk/nighthawk/data/network/**)",
+      "Bash(grep -r \"res_zone\\\\|reserve_zone\\\\|rz.*=.*[0-9]\\\\|ReserveZone\" /var/www/python/Prod/nighthawk/nighthawk/data/pipeline/common_functions/*.py /var/www/python/Prod/nighthawk/nighthawk/data/pipeline/var_handler/*.py 2>/dev/null | grep -E \"=.*[0-9]|^\\\\s*[0-9]\" | head -30)",
+      "Read(//var/www/python/Prod/nighthawk/nighthawk/data/pipeline/var_handler/**)",
+      "Bash(grep -r \"RZ\\\\|reszone\\\\|res_zone.*=.*[0-9]\\\\|reserve_zone.*in\\\\|ReserveZone.*in\" /var/www/python/Prod/nighthawk/nighthawk/data/pipeline/ 2>/dev/null | grep -E \"[0-9]\\\\s*[,\\\\\\)]|in\\\\s*\\\\[[0-9]\" | head -20)",
+      "Read(//var/www/python/Prod/nighthawk/nighthawk/data/pipeline/**)"
     ]
   }
 }

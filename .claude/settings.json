@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR>=80 && NR<=140')",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -)",
+      "Bash(grep -r \"get_daily_gas_price\\\\|Gas\\('SPP'\\)\\\\|Gas\\(\\\\\"SPP\\\\\"\\)\" /var/www/python/ --include=\"*.py\" -l 2>/dev/null | head -10)",
+      "Read(//var/www/python/**)",
+      "Bash(/opt/venvs/prod-py312/bin/python -c ' *)",
+      "Read(//mnt/disks/filedisk1/**)",
+      "Bash(xargs ls -lt)"
+    ]
+  }
+}

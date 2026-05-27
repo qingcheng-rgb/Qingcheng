@@ -38,8 +38,7 @@ from nighthawk.data.network.node import Node
 from nighthawk.data.product.ve import DailyBidsManager
 from nighthawk.data.network.node import Node
 import math
-import matplotlib.pyplot as plt
-
+from google.cloud import storage
 
 def eval_valuation_model(df):
     idx      = ['dt', 'hr', 'node_num']
@@ -69,24 +68,55 @@ def eval_valuation_model(df):
     merged = df_new.merge(actuals_df, on=idx)
     return merged
 
-def get_metrics(df):
-    # Compare with_dayzer vs without_dayzer predictions
+def get_metrics(df, mape_floor=5):
     metrics = {}
-    for target in ['da_total', 'rt_total']:
-        pred = df[f'{target}_mean']
+    min_dt = df.groupby('node_num')['dt'].min().reset_index().rename(columns={'dt': 'min_dt'})
+    df_first = df.merge(min_dt, on='node_num').query('dt == min_dt').drop(columns='min_dt')
+    min_dt['max_first_week_dt'] = pd.to_datetime(min_dt['min_dt']) + pd.Timedelta(days=6)
+    df_first_week = df.merge(min_dt, on='node_num')
+    df_first_week = df_first_week[pd.to_datetime(df_first_week['dt']) <= df_first_week['max_first_week_dt']].drop(columns=['min_dt', 'max_first_week_dt'])
+
+
+    da_col = next(c for c in df.columns if c.startswith('da'))
+    da_idx = df.columns.get_loc(da_col)
+    targets = list(df.columns[da_idx:da_idx+2])  
+
+    for target in targets:
+        pred   = df[f'{target}_mean']
         actual = df[target]
-        diff = pred - actual
-        metrics[( f'{target}_ME')]  = np.mean(diff).round(2),
-        metrics[( f'{target}_MSE')]  = np.mean(diff**2).round(2),
-        metrics[( f'{target}_MAE')]  = np.mean(np.abs(diff)).round(2),
-        metrics[( f'{target}_RMSE')] = np.sqrt(np.mean(diff ** 2)).round(2)
+        diff   = pred - actual
+        metrics[f'{target}_ME']         = np.mean(diff).round(2),
+        metrics[f'{target}_MSE']        = np.mean(diff**2).round(2),
+        metrics[f'{target}_MAE']        = np.mean(np.abs(diff)).round(2),
+        metrics[f'{target}_RMSE']       = np.sqrt(np.mean(diff**2)).round(2)
+        metrics[f'{target}_MAPE']       = (np.mean(np.abs(diff) / np.maximum(np.abs(actual), mape_floor))).round(2)
+
+        diff_first = df_first[f'{target}_mean'] - df_first[target]
+        metrics[f'{target}_RMSE_first'] = np.sqrt(np.mean(diff_first**2)).round(2)
+
+        diff_first_week = df_first_week[f'{target}_mean'] - df_first_week[target]
+        metrics[f'{target}_RMSE_first_week'] = np.sqrt(np.mean(diff_first_week**2)).round(2)
+
+    pred_spread   = df[f'{targets[1]}_mean'] - df[f'{targets[0]}_mean']
+    actual_spread = df[targets[1]] - df[targets[0]]
+    metrics['da_rt_spread_ME'] = np.mean(abs(pred_spread - actual_spread)).round(2)
+
+    pred_spread_first   = df_first[f'{targets[1]}_mean'] - df_first[f'{targets[0]}_mean']
+    actual_spread_first = df_first[targets[1]] - df_first[targets[0]]
+    metrics['da_rt_first_spread_ME'] = np.mean(abs(pred_spread_first - actual_spread_first)).round(2)
+
+    pred_spread_first_week   = df_first_week[f'{targets[1]}_mean'] - df_first_week[f'{targets[0]}_mean']
+    actual_spread_first_week = df_first_week[targets[1]] - df_first_week[targets[0]]
+    metrics['da_rt_first_week_spread_ME'] = np.mean(abs(pred_spread_first_week - actual_spread_first_week)).round(2)
+    
 
     met = pd.DataFrame(metrics).T
-    met.columns = ['Prod']
+    met.columns = ['Valuation Result']
     return met
 
-def run_in_kubernetes(node_time_list, training_fn):
-    fn_source = inspect.getsource(training_fn)
+def run_in_kubernetes(node_time_list, training_fn, record_id):
+    import textwrap
+    fn_source = textwrap.dedent(inspect.getsource(training_fn))
     fn_name   = training_fn.__name__
 
     work_str = f'''
@@ -128,10 +158,16 @@ from sklearn.model_selection import train_test_split
 from nighthawk.models.valuation import ve_model_functions
 import math
 import torch.nn.functional as F
+import subprocess; subprocess.run(["pip", "install", "shap", "-q"], check=True)
+import shap
 
 {fn_source}
 
-df = {fn_name}(node_num, dt)
+result = {fn_name}(node_num, dt)
+if isinstance(result, tuple):
+    df = pd.concat([r.assign(_df_idx=i) for i, r in enumerate(result)], ignore_index=True)
+else:
+    df = result
 
 testing_data_file_name = "gs://" + bucket_name + "/" + save_file_folder + "/record_" + str(record_id) + "/prediction/jobId_" + str(job_id) + ".csv"
 df.to_csv(testing_data_file_name, index=False)
@@ -143,10 +179,10 @@ print(str(datetime.now()))
     daily_node_df = pd.DataFrame(node_time_list, columns=['dt','node_num'])
     daily_node_df['dt'] = daily_node_df['dt'].astype(str)
 
-    npp = node_price_predictor.NodePricePredictor(opexchange, daily_node_df[['dt', 'node_num']])
+    npp = node_price_predictor.NodePricePredictor(opexchange, daily_node_df[['dt', 'node_num']], record_id=record_id)
     print('  record_id', npp.get_record_id())
 
-    yaml_dict = {'spec': {'parallelism': 800, 'template': {'spec': {
+    yaml_dict = {'spec': {'parallelism': 300, 'template': {'spec': {
         'containers': [{'resources': {
             'limits':   {'cpu': '1.5', 'memory': '11Gi'},
             'requests': {'cpu': '1.5', 'memory': '11Gi'}
@@ -159,8 +195,15 @@ print(str(datetime.now()))
                             install_basic_pkgs=False)
     print('  predict_table:', predict_table)
 
-    df = bigquery_functions.download_df_from_bq(f"SELECT * FROM `{predict_table[0]}`")
-    return df
+    raw = bigquery_functions.download_df_from_bq(f"SELECT * FROM `{predict_table[0]}`")
+
+    if '_df_idx' not in raw.columns:
+        return raw
+
+    return tuple(
+        raw[raw['_df_idx'] == i].drop(columns='_df_idx').reset_index(drop=True)
+        for i in sorted(raw['_df_idx'].unique())
+    )
 
 def fourier_port(df, start_date='2020-01-01', end_date='2026-09-01', saved='temp_file'):
     def hourly_lwg_cut(df, bid_date):
@@ -327,9 +370,6 @@ def fourier_port(df, start_date='2020-01-01', end_date='2026-09-01', saved='temp
         final_portfolio = pd.DataFrame()
     return final_portfolio
 
-
-
-
 def simulate_total_ftp(table):
 
     MARKET_CONFIG = {
@@ -436,7 +476,6 @@ def simulate_total_ftp(table):
     summ_data = df_sim.agg(agg_dict).to_frame().T.rename(columns=renamer).to_dict('records')
     return df_sim
 
-
 def pnl_metrics(df):
     # nogo full days
     nogo_days = pd.date_range(start='2026-01-23', end='2026-01-28').strftime('%Y-%m-%d').tolist()
@@ -484,17 +523,16 @@ def pnl_metrics(df):
     print(f'Loss Days Total:    ${loss_days:,.2f}')
     print(f'Win Rate:           {(daily_pnl["daily_pnl"] > 0).mean():.1%}')
 
-
-def select_unique_nodes_across_dates(start_date,end_date, nodes_per_day=3, seed=42):
+def select_unique_nodes_across_dates(start_date, end_date, nodes_per_day=3, allow_duplicates=False):
     daily_node_df = sql_functions.download_df_from_sql_db(
     f"SELECT DISTINCT dt, node_num FROM Fourier_SPP.nodeSelection WHERE dt >= '{start_date}' AND dt <= '{end_date}'")
-    rng = np.random.default_rng(seed)
+    rng = np.random.default_rng(42)
     selected_rows = []
     used_nodes = set()
 
     for dt in sorted(daily_node_df['dt'].unique()):
         available = daily_node_df[daily_node_df['dt'] == dt]['node_num'].tolist()
-        candidates = [n for n in available if n not in used_nodes]
+        candidates = available if allow_duplicates else [n for n in available if n not in used_nodes]
 
         if len(candidates) < nodes_per_day:
             chosen = candidates
@@ -503,19 +541,24 @@ def select_unique_nodes_across_dates(start_date,end_date, nodes_per_day=3, seed=
 
         for node in chosen:
             selected_rows.append({'dt': dt, 'node_num': node})
-            used_nodes.add(node)
-    
-    result =  pd.DataFrame(selected_rows, columns=['dt', 'node_num'])
-    result.to_csv(f'/var/www/python/Qingcheng/WFiles/Ultra/{start_date}_{end_date}_node_selection')
+            if not allow_duplicates:
+                used_nodes.add(node)
+
+    result = pd.DataFrame(selected_rows, columns=['dt', 'node_num'])
+    result.to_csv(f'/var/www/python/Qingcheng/WFiles/Ultra/node_selection/{start_date}_{end_date}_node_selection.csv')
     return result
 
-def run_valuation_backtest(function_call, num_of_nodes=1000):
-    opexchange = 'SPP'
-    daily_node_df = pd.read_csv('/var/www/python/Qingcheng/WFiles/Ultra/node_selection_42_0121_0421.csv')
-    daily_node_df = daily_node_df[6:][:num_of_nodes]
-    dataframe = run_in_kubernetes(daily_node_df, function_call)
-    print('Valuation result is: ', get_metrics(dataframe))
-    return dataframe, get_metrics(dataframe)
+def run_valuation_backtest(function_call, node_selection, record_id=50793, num_of_nodes=1000):
+    daily_node_df = pd.read_csv(f'/var/www/python/Qingcheng/WFiles/Ultra/node_selection/{node_selection}')
+    daily_node_df = daily_node_df[:num_of_nodes]
+    result = run_in_kubernetes(daily_node_df, function_call, record_id)
+
+    if isinstance(result, tuple):
+        print('Valuation result is: ', get_metrics(result[0]))
+        return (*result, get_metrics(result[0]))
+    else:
+        print('Valuation result is: ', get_metrics(result))
+        return result, get_metrics(result)
 
 def run_portfolio_backtest(df):
     dataframe = fourier_port(df)
@@ -523,3 +566,13 @@ def run_portfolio_backtest(df):
     pnl = simulate_total_ftp(dataframe)
     pnl_metrics(pnl)
     return dataframe, pnl
+
+def load_from_ve_strategy(record_id):
+    bucket = storage.Client().bucket('ve-strategy')
+    blobs = list(bucket.list_blobs(prefix=f'spp/nodePrice/record_{record_id}/prediction/'))
+
+    df = pd.concat(
+        [pd.read_csv(f'gs://ve-strategy/{b.name}') for b in blobs],
+        ignore_index=True
+    )
+    return df
