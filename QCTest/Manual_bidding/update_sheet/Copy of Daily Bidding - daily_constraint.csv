@@ -1,0 +1,32 @@
+bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_name,comment on this constraint,start_date,end_date,wind,reserve_zone,today's wind,opportunity
+5/28/2026,lnjarb-166thstr,0,-6898.0,KCPL,high wind,"Midland Junction - Pentagon 115 kV, 6/19/2026",outage plus high wind ,3/9,6/19,high,,low,
+5/28/2026,lnpayne_wf-paoli2,-3800,-7500.0,South OKGE,high wind,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW",outage plus high wind ,1/9,6/5,high,"3,4",low,
+5/28/2026,lnmidj-pent,-1217,0.0,KCPL,,"Lawrence Hill - Swissvale, 6/5/2026",close lnjarb highly influence by its congestion ,5/11,6/5,,,low,
+5/29/2026,lnfirstcrk-roanrdge,-1000,-7000.0,Near Kansa City ,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",outage driven plus high wind time ,5/19,6/16,high ,4,low,
+5/29/2026,lnhuron-hurontap,-200,-2700.0,East of South Dakota ,DA binds more during hour 11-17 and RT binds more on 18-22,"Hay Creek - North Bismark 115 kv, 5/26-6/5, +22 MW ",outage driven ,5/26,6/5,,5,low,
+5/29/2026,lncorntp4-naples1,-1331,-3600.0,South OKGE ,high wind driven ,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW","outage driven plus the high wind, DA binds more on 21-23",1/9,6/5,high ,"3,4",low,
+5/29/2026,xfmrsiouxcy-siouxcy,-2068,0.0,Sioux City Nebraska ,high wind driven ,,,,,high ,1,low,
+5/29/2026,lnpaoli2-lexngt2_rev23,-1976,0.0,South OKGE,"high wind from reserve zone 3,4 ","Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW","happend today DA,connect with con payne_paoli",1/9,6/5,high ,"3,4",low,
+5/29/2026,ln70_bluf-sub1214,-1880,0.0,Right at Lincoln OPPD ,high wind driven ,S3455 - S3740 345 kV,"outage driven, end in 5/29 has future planned date",10/23,12/18,high ,4,low,
+5/29/2026,lnsnrpmpt4-osage_og,0,-1500.0,"North OKGE, near Tulsa","RT binds more during hour11-14, 18-22","Morrison - Sooner 138 kV, 5/7-6/30, +42MW",outage driven ,5/7,6/30,NA ,4,low,
+5/29/2026,lnwardwa-bismark2,-2147,-1500.0,"Bismark, ND ",RT happens when low wind and lwg high ,"Hay Creek - North Bismark 115 kv, 5/26-6/5, +22 MW ",outage driven ,5/26,6/5,,5,low,
+5/30/2026,lnosage_og-webbtap4,-2885,-12020.0,"North Texas, near Tulsa",hgih wind driven,"Morrison - Sooner 138 kV, 5/7-6/30, +42MW",outage driven ,5/7,6/30,high ,"3,4",high ,new
+5/30/2026,xfmrnowst1-nowst1,-661,-6390.0,,,,,,,,,,new
+5/30/2026,lnfirstcrk-roanrdge,-4167,-8685.0,Near Kansa City ,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",outage driven plus high wind time ,5/19,6/16,high ,4,high ,5/29/2026
+5/30/2026,lnpayne_wf-paoli2,-5107,-1681.0,South OKGE,high wind,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW",,1/9,6/5,high,"3,4",high ,5/28/2026
+5/30/2026,lnraun-tekamho,-2310,-5725.0,Sioux City Nebraska ,high wind driven,,,,,high ,1,high ,new
+5/30/2026,lncorntp4-naples1,-4119,-6805.0,South OKGE ,high wind driven ,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW","outage driven plus the high wind, DA binds more on 21-23",1/9,6/5,high ,"3,4",high ,5/29/2026
+5/30/2026,lnquail-skyln,-1725,0.0,North OKC,"high wind, DA binds when wind's high, RT occasionally binds. ","Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW","outage driven plus the high wind, DA binds more on 21-23",1/9,6/5,high ,4,high ,new
+5/30/2026,lngord-maiz,-1891,-3198.0,,,,,,,,,,new
+5/30/2026,xfmrlaw_es-law_es,-1503,-1581.0,,,,,,,,,,new
+5/30/2026,lngracmont-anadarko,-2617,-2593.0,"Near SPS, South WFEC",high wind driven,"Lawton Eastside - Oklaunion 345 kV, 4/6-6/24, +100",outage driven plus high wind time ,4/6,6/4,high ,"3,2",high ,new
+5/31/2026,lnfirstcrk-roanrdge,-4902,-144.0,Near Kansa City ,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",outage driven plus high wind time ,5/19,6/16,high ,4,,5/30/2026
+5/31/2026,lnosage_og-webbtap4,-2975,-6086.0,"North Texas, near Tulsa",hgih wind driven,"Morrison - Sooner 138 kV, 5/7-6/30, +42MW",outage driven ,5/7,6/30,high ,"3,4",,5/30/2026
+5/31/2026,lnraun-tekamho,0,-2996.0,Sioux City Nebraska ,high wind driven,,,,,high ,1,,5/30/2026
+5/31/2026,lnpayne_wf-paoli2,-2215,0.0,South OKGE,high wind,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW",,1/9,6/5,high,"3,4",,5/30/2026
+5/31/2026,lnbrookngs-aurorawa,0,-1612.0,,,,,,,,,,new
+5/31/2026,lncorntp4-naples1,-2177,-3010.0,South OKGE ,high wind driven ,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW","outage driven plus the high wind, DA binds more on 21-23",1/9,6/5,high ,"3,4",,5/30/2026
+6/1/2026,xfmrduncan-duncan,-1791,0.0,,,,,,,,,,new
+6/1/2026,lncorntp4-naples1,-1578,0.0,South OKGE ,high wind driven ,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW","outage driven plus the high wind, DA binds more on 21-23",1/9,6/5,high ,"3,4",,5/31/2026
+6/1/2026,xfmrsiouxcy-siouxcy,-1566,0.0,Sioux City Nebraska ,high wind driven ,,,,,high ,1,,5/29/2026
+6/1/2026,xfmrsub975-sub975,-1501,0.0,,,,,,,,,,new

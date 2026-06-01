@@ -8,7 +8,15 @@
       "Read(//var/www/python/**)",
       "Bash(/opt/venvs/prod-py312/bin/python -c ' *)",
       "Read(//mnt/disks/filedisk1/**)",
-      "Bash(xargs ls -lt)"
+      "Bash(xargs ls -lt)",
+      "Bash(python3)",
+      "Bash(find /var/www /home/qingcheng /etc -name \"*.json\" 2>/dev/null | xargs grep -l '\"type\": \"service_account\"' 2>/dev/null | head -10)",
+      "Read(//var/www/**)",
+      "Bash(gcloud auth *)",
+      "Read(//home/qingcheng/.gemini/**)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "Bash(curl -s \"http://127.0.0.1:8050/ftr_analysis/constraints/constraint_analysis\")",
+      "Bash(curl -sv \"http://127.0.0.1:8050/ftr_analysis/constraints/constraint_analysis\")"
     ]
   }
 }
