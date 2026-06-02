@@ -1097,6 +1097,337 @@ def NN_training_with_post_cnn(node_num, dt):
     valuation_models["model"] = f"post_cnn_{conv_hidden}conv_{hidden_size_1}h1_{hidden_size_2}h2"
     return valuation_models
 
+def NN_training_module_shuffle_reorder_CNN(node_num, dt):
+    run_number   = 1
+    opexchange   = 'SPP'
+
+    if int(run_number) == 1:
+        data_location = 'training'
+    else:
+        data_location = 'secondRun'
+
+    opexchange    = "SPP"
+    data_location = "training"  # 1=training, 2=secondRun
+    gs_loc        = f"gs://ve_fourier/production/SPP/{data_location}"
+
+    max_retries = 1
+    retry_delay = 1
+    for attempt in range(max_retries):
+        try:
+            data_df = pd.read_csv(f"{gs_loc}/{node_num}_{dt}.csv")
+            data_df["dt"] = pd.to_datetime(data_df["dt"]).dt.strftime("%Y-%m-%d")
+            break
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+            else:
+                raise
+
+    selected_columns = [
+        col for col in data_df.columns
+        if "iirGen" not in col and "txoutage" not in col and "topGen" not in col
+    ]
+    data_df = data_df[selected_columns]
+
+    feb2021_dates = (
+        pd.DataFrame(pd.date_range("2021-02-13", "2021-02-19", freq="D"), columns=["dt"])["dt"]
+        .dt.strftime("%Y-%m-%d")
+        .tolist()
+    )
+    if dt not in feb2021_dates:
+        data_df = data_df[~data_df["dt"].isin(feb2021_dates)]
+
+    if "dtHr" not in data_df.columns:
+        data_df.insert(
+            0, column="dtHr",
+            value=pd.to_datetime(data_df["dt"]) + pd.to_timedelta(data_df["hr"] - 1, unit="h")
+        )
+
+    lags = list(range(3, 25, 3))
+
+    groups = {
+        'da':           ['da_total', 'da_congestion'],
+        'rt':           ['rt_total', 'rt_congestion'],
+        'wind_f':       ['spp_wind_total_forecast_f'],
+        'load_f':       ['spp_load_total_forecast_f'],
+        'loadwindgen':  ['spp_loadwindgen_actual_a', 'spp_loadwindgen_forecast_f'],
+        'genoutage':    ['spp_genoutage_total_actual_a', 'spp_genoutage_total_forecast_f'],
+        'zonal_wind_f': [c for c in data_df.columns if '_spp_res_zonal_wind_forecast' in c],
+    }
+
+    for group, base_cols in groups.items():
+        for col in base_cols:
+            if col not in data_df.columns:
+                continue
+            for lag in lags:
+                data_df[f'{col}_t{lag}'] = data_df.groupby('node_num')[col].shift(lag)
+
+    # ── Reorder: group matching columns together
+    group_keywords = [
+        lambda c: c.startswith('da_') or c.endswith('_da_total') or c.endswith('_da_congestion'),
+        lambda c: c.startswith('rt_') or c.endswith('_rt_total') or c.endswith('_rt_congestion'),
+        lambda c: 'wind' in c and 'loadwindgen' not in c,
+        lambda c: 'load' in c and 'loadwindgen' not in c,
+        lambda c: 'loadwindgen' in c,
+        lambda c: 'genoutage' in c,
+    ]
+
+    id_cols     = [c for c in ['dtHr', 'dt', 'hr', 'node_num'] if c in data_df.columns]
+    ordered_cols = id_cols.copy()
+    used        = set(id_cols)
+
+    for match in group_keywords:
+        block = [c for c in data_df.columns if c not in used and match(c)]
+        ordered_cols += block
+        used.update(block)
+
+    ordered_cols += [c for c in data_df.columns if c not in used]
+    data_df = data_df[ordered_cols]
+
+    # ── CNN feature extractor ──────────────────────────────────────────────────
+    class CNNFeatureExtractor(nn.Module):
+        """
+        Treats the flat input vector as a 1-D sequence (1 channel, N features).
+        Two Conv1d layers → ReLU → MaxPool → Flatten → Linear → cnn_out_dim.
+        The resulting feature vector is concatenated with the original raw input
+        before being passed to the dense layers.
+        """
+        def __init__(self, input_size, cnn_out_dim=32, num_filters=64, kernel_size=3):
+            super().__init__()
+            # Sequence length after each operation (no padding)
+            l1       = input_size - kernel_size + 1   # after conv1
+            l2       = l1 // 2                        # after maxpool(k=2, s=2)
+            l3       = max(l2 - kernel_size + 1, 1)   # after conv2 (guard tiny inputs)
+            flat_dim = num_filters * l3
+
+            self.net = nn.Sequential(
+                nn.Conv1d(in_channels=1, out_channels=num_filters,
+                          kernel_size=kernel_size),        # (B, num_filters, L1)
+                nn.ReLU(),
+                nn.MaxPool1d(kernel_size=2, stride=2),     # (B, num_filters, L2)
+                nn.Conv1d(in_channels=num_filters, out_channels=num_filters,
+                          kernel_size=kernel_size),        # (B, num_filters, L3)
+                nn.ReLU(),
+                nn.Flatten(),                              # (B, flat_dim)
+                nn.Linear(flat_dim, cnn_out_dim),          # (B, cnn_out_dim)
+                nn.ReLU(),
+            )
+
+        def forward(self, x):
+            # x: (B, N_features) → add channel dim → (B, 1, N_features)
+            return self.net(x.unsqueeze(1))
+
+    # ── DNN (mean predictions) ─────────────────────────────────────────────────
+    class DNN(nn.Module):
+        """
+        CNN extracts a 32-dim feature vector from the raw input.
+        That vector is concatenated with the original raw features,
+        giving fc1 an input of size (cnn_out_dim + input_size).
+        Both CNN and DNN parameters are updated together each epoch.
+        """
+        def __init__(self, input_size, hidden_size_1, hidden_size_2, output_size,
+                     cnn_out_dim=32):
+            super().__init__()
+            self.cnn   = CNNFeatureExtractor(input_size, cnn_out_dim=cnn_out_dim)
+            # fc1 receives CNN features (cnn_out_dim) + raw features (input_size)
+            self.fc1   = nn.Linear(cnn_out_dim + input_size, hidden_size_1)
+            self.relu  = nn.ReLU()
+            self.fc2   = nn.Linear(hidden_size_1, hidden_size_2)
+            self.relu2 = nn.ReLU()
+            self.fc3   = nn.Linear(hidden_size_2, output_size)
+
+        def forward(self, x):
+            cnn_features = self.cnn(x)                       # (B, 32)
+            combined     = torch.cat([cnn_features, x], dim=1)  # (B, 32 + input_size)
+            out = self.relu(self.fc1(combined))
+            out = self.relu2(self.fc2(out))
+            return self.fc3(out)
+
+    # ── QuantileDNN ────────────────────────────────────────────────────────────
+    class QuantileDNN(nn.Module):
+        """
+        Same CNN-concat pattern as DNN but outputs (B, output_size, n_quantiles).
+        """
+        def __init__(self, input_size, hidden_size_1, hidden_size_2, output_size,
+                     quantiles, cnn_out_dim=32):
+            super().__init__()
+            self.quantiles   = quantiles
+            self.output_size = output_size
+            self.cnn   = CNNFeatureExtractor(input_size, cnn_out_dim=cnn_out_dim)
+            # fc1 receives CNN features (cnn_out_dim) + raw features (input_size)
+            self.fc1   = nn.Linear(cnn_out_dim + input_size, hidden_size_1)
+            self.relu  = nn.ReLU()
+            self.fc2   = nn.Linear(hidden_size_1, hidden_size_2)
+            self.relu2 = nn.ReLU()
+            self.fc3   = nn.Linear(hidden_size_2, output_size * len(quantiles))
+
+        def forward(self, x):
+            cnn_features = self.cnn(x)                       # (B, 32)
+            combined     = torch.cat([cnn_features, x], dim=1)  # (B, 32 + input_size)
+            out = self.relu(self.fc1(combined))
+            out = self.relu2(self.fc2(out))
+            out = self.fc3(out)                              # (B, output_size * Q)
+            return out.view(out.size(0), self.output_size, len(self.quantiles))
+
+    # ── Quantile loss ──────────────────────────────────────────────────────────
+    class QuantileLoss(nn.Module):
+        def __init__(self, quantiles):
+            super().__init__()
+            self.quantiles = quantiles
+
+        def forward(self, predictions, targets):
+            losses = []
+            for i, q in enumerate(self.quantiles):
+                errors = targets - predictions[:, :, i]
+                losses.append(torch.max((q - 1) * errors, q * errors).unsqueeze(2))
+            return torch.mean(torch.cat(losses, dim=2))
+
+    # ── Predict & collect ──────────────────────────────────────────────────────
+    def predict_and_collect(model, data_loader, criterion, scaler_y=None):
+        model.eval()
+        total_loss  = 0.0
+        predictions = []
+        with torch.no_grad():
+            for inputs, labels in data_loader:
+                inputs, labels = inputs.to(device), labels.to(device)
+                outputs = model(inputs)
+                total_loss += criterion(outputs, labels).item()
+                predictions.append(outputs.cpu().numpy())
+        predictions = np.concatenate(predictions, axis=0)
+        if normalize and scaler_y is not None:
+            if predictions.ndim == 3:
+                num_samples, num_outputs, num_quantiles = predictions.shape
+                transposed = np.transpose(predictions, (0, 2, 1)).reshape(-1, num_outputs)
+                transposed = scaler_y.inverse_transform(transposed)
+                predictions = np.transpose(
+                    transposed.reshape(num_samples, num_quantiles, num_outputs), (0, 2, 1)
+                )
+            else:
+                predictions = scaler_y.inverse_transform(predictions)
+        return predictions, total_loss / len(data_loader)
+
+    # ── Hyperparameters ────────────────────────────────────────────────────────
+    quantiles      = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5,
+                      0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 0.97, 0.99]
+    quantile_names = [f"q{int(q * 100)}" for q in quantiles]
+    cnn_out_dim    = 32       # dimension of CNN feature vector
+    hidden_size_1  = 32
+    hidden_size_2  = 8
+    learning_rate  = 0.0001
+    num_epochs     = 200
+    normalize      = True
+    device         = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    mean_criterion     = nn.MSELoss()
+    quantile_criterion = QuantileLoss(quantiles)
+
+    valuation_models = pd.DataFrame()
+
+    for y_var in [["da_total", "rt_total"]]:
+        trainingPeriod = int(
+            min((pd.to_datetime(dt) - pd.to_datetime("2017-01-01")) / np.timedelta64(1, "D"), 730)
+        )
+        xtrain, ytrain, xtest, ytest = ve_model_functions.getTrainTestData(
+            opexchange, data_df, y=y_var, bidDt=dt, hour_gap=18,
+            trainingPeriod=str(trainingPeriod) + "D", train_a_or_f="f"
+        )
+
+        # 3-way split: ~6/8 train, 1/8 validate, 1/8 test
+        xtrain, xtest,     ytrain, ytest     = train_test_split(xtrain, ytrain, test_size=1/8,  shuffle=False)
+        xtrain, xvalidate, ytrain, yvalidate = train_test_split(xtrain, ytrain, test_size=1/7,  shuffle=False)
+
+        scaler_x, scaler_y = None, None
+        if normalize:
+            scaler_x = StandardScaler()
+            scaler_y = StandardScaler()
+            xtrain    = pd.DataFrame(scaler_x.fit_transform(xtrain),    columns=xtrain.columns,    index=xtrain.index)
+            xvalidate = pd.DataFrame(scaler_x.transform(xvalidate),     columns=xvalidate.columns, index=xvalidate.index)
+            xtest     = pd.DataFrame(scaler_x.transform(xtest),         columns=xtest.columns,     index=xtest.index)
+            ytrain    = pd.DataFrame(scaler_y.fit_transform(ytrain),    columns=ytrain.columns,    index=ytrain.index)
+            yvalidate = pd.DataFrame(scaler_y.transform(yvalidate),     columns=yvalidate.columns, index=yvalidate.index)
+            ytest     = pd.DataFrame(scaler_y.transform(ytest),         columns=ytest.columns,     index=ytest.index)
+
+        X_train_tensor    = torch.tensor(xtrain.values,     dtype=torch.float32).to(device)
+        Y_train_tensor    = torch.tensor(ytrain.values,     dtype=torch.float32).to(device)
+        X_validate_tensor = torch.tensor(xvalidate.values,  dtype=torch.float32).to(device)
+        Y_validate_tensor = torch.tensor(yvalidate.values,  dtype=torch.float32).to(device)
+        X_test_tensor     = torch.tensor(xtest.values,      dtype=torch.float32).to(device)
+        Y_test_tensor     = torch.tensor(ytest.values,      dtype=torch.float32).to(device)
+
+        g = torch.Generator()
+        g.manual_seed(42)
+        train_loader    = DataLoader(TensorDataset(X_train_tensor,    Y_train_tensor),    batch_size=128, shuffle=True,  generator=g)
+        validate_loader = DataLoader(TensorDataset(X_validate_tensor, Y_validate_tensor), batch_size=128, shuffle=False)
+        test_loader     = DataLoader(TensorDataset(X_test_tensor,     Y_test_tensor),     batch_size=128, shuffle=False)
+
+        input_size, output_size = X_train_tensor.shape[1], Y_train_tensor.shape[1]
+
+        # Instantiation unchanged — input_size flows through to CNNFeatureExtractor automatically
+        mean_model     = DNN(input_size, hidden_size_1, hidden_size_2, output_size,
+                             cnn_out_dim=cnn_out_dim).to(device)
+        quantile_model = QuantileDNN(input_size, hidden_size_1, hidden_size_2, output_size,
+                                     quantiles, cnn_out_dim=cnn_out_dim).to(device)
+
+        # Single optimizer per model — covers CNN + DNN params together
+        mean_optimizer     = optim.Adam(mean_model.parameters(),     lr=learning_rate)
+        quantile_optimizer = optim.Adam(quantile_model.parameters(), lr=learning_rate)
+
+        for model, optimizer, criterion in [
+            (mean_model,     mean_optimizer,     mean_criterion),
+            (quantile_model, quantile_optimizer, quantile_criterion),
+        ]:
+            best_val_loss, patience, no_improve = float("inf"), 5, 0
+            for epoch in range(num_epochs):
+                model.train()
+                for inputs, labels in train_loader:
+                    optimizer.zero_grad()
+                    loss = criterion(model(inputs), labels)
+                    loss.backward()
+                    optimizer.step()   # updates CNN + DNN weights simultaneously
+
+                model.eval()
+                val_loss = (
+                    sum(criterion(model(inp), lbl).item() for inp, lbl in validate_loader)
+                    / len(validate_loader)
+                )
+                if val_loss < best_val_loss:
+                    best_val_loss, no_improve = val_loss, 0
+                else:
+                    no_improve += 1
+                    if no_improve >= patience:
+                        print(f"Early stopping at epoch {epoch + 1}")
+                        break
+
+        mean_preds,     _ = predict_and_collect(mean_model,     test_loader, mean_criterion,     scaler_y)
+        quantile_preds, _ = predict_and_collect(quantile_model, test_loader, quantile_criterion, scaler_y)
+
+        if normalize and scaler_y is not None:
+            ytest = pd.DataFrame(
+                scaler_y.inverse_transform(ytest), columns=ytest.columns, index=ytest.index
+            )
+
+        mean_df     = pd.DataFrame(mean_preds, columns=[f"{y}_mean" for y in y_var])
+        q_cols      = [f"{y}_{n}" for y in y_var for n in quantile_names]
+        quantile_df = pd.DataFrame(
+            quantile_preds.reshape(-1, output_size * len(quantiles)), columns=q_cols
+        )
+
+        result          = pd.concat([ytest.reset_index(), mean_df, quantile_df], axis=1)
+        result["dtHr"]  = pd.to_datetime(result["dtHr"])
+        result["dt"]    = result["dtHr"].dt.strftime("%Y-%m-%d")
+        result["hr"]    = result["dtHr"].dt.hour + 1
+        valuation_models = pd.concat([valuation_models, result])
+
+    valuation_models = valuation_models.groupby(["dt", "hr", "node_num"]).max().reset_index()
+    keep_cols = (
+        ["dt", "hr", "node_num", "da_total_mean", "rt_total_mean"]
+        + [f"da_total_{n}" for n in quantile_names]
+        + [f"rt_total_{n}" for n in quantile_names]
+    )
+    valuation_models["model"] = f"cnn{cnn_out_dim}_dnn_{hidden_size_1}h1_{hidden_size_2}h2"
+
+    return valuation_models
+
 def pure_CNN(node_num, dt):
 
     run_number    = 1
