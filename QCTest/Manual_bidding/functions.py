@@ -94,6 +94,9 @@ def get_hourly_mvalue_for_constraint_num(result, weeks=104):
 
     con_df = result[['oops_constraint_num']].drop_duplicates()
 
+    if con_df.empty:
+        return pd.DataFrame()
+
     # Step 1: daily mvalues to find active days
     mv_rt_daily = Constraint(oops_constraint_num_df=con_df, market=opex).get_mvalues(
         start_dt=start_dt2, end_dt=end_dt2, type='RT', granularity='daily')
@@ -328,7 +331,7 @@ def predict_tomorrow_percentile(fundamentals, bid_dt):
         print(f"No forecast data for {bid_dt}")
         return pd.DataFrame()
 
-    cutoff = (pd.Timestamp(bid_dt) - pd.DateOffset(months=3)).strftime('%Y-%m-%d')
+    cutoff = (pd.Timestamp(bid_dt) - pd.DateOffset(months=1)).strftime('%Y-%m-%d')
     fundamentals = fundamentals[(fundamentals['dt'] >= cutoff) & (fundamentals['dt'] < bid_dt)]
 
     zones = sorted(set(
