@@ -135,36 +135,97 @@ bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_nam
 6/6/2026,xfmrsiouxcy-siouxcy,-3747.0,-4581.0,Sioux City Nebraska,high wind driven,,,,high,1,,6/2/2026
 6/6/2026,xfmrbelfeld-belfeld,-1161.0,-333.0,East of Bismark,"high wind in 5, DA 40%, RT 25%, load all level, long term",Charlie Creek - Rough Rider 115 kV,2026-06-08 10:00,2026-06-13 16:00,high,5,,new
 6/6/2026,lnfirstcrk-roanrdge,-388.0,-939.0,Near Kansa City,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",5/19,6/16,high,4,,6/3/2026
-6/7/2026,lnsibly161-orrick9,0.0,-6015.0,,,,,,,,,new
-6/7/2026,lneeur-vaug_rev23,-2167.0,0.0,,,,,,,,"1: ow: 61, fw: 62, ol: 74, fl: 79
+6/7/2026,lnsibly161-orrick9,0.0,-6254.0,East of Kansa,"high wind and load at 4 but not obvious, 345 kv, outage driven","Cooper NPPD - Fairport 345 kV, +11.6%",2026-04-10 8:30,2026-10-16 16:00,mid-high,4,"1: ow: 61, fw: 62, ol: 74, fl: 79
 2: ow: 21, fw: 17, ol: 87, fl: 50
 3: ow: 58, fw: 41, ol: 83, fl: 22
 4: ow: 32, fw: 22, ol: 71, fl: 72
 5: ow: 79, fw: 90, ol: 100, fl: 93
-21: ow: 75, fw: 88, ol: 87, fl: 22",new
-6/7/2026,xfmrover-over,0.0,-2016.0,,,,,,,,,new
-6/7/2026,lnfirstcrk-roanrdge,-1746.0,-336.0,Near Kansa City,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",5/19,6/16,high,4,,6/3/2026
-6/7/2026,lnmulgre2-ellswtp3,-115.0,-1503.0,,,,,,,,,new
-6/7/2026,lntekamho-sub1226,0.0,-1150.0,,,,,,,,,new
-6/7/2026,lnwardwa-bismark2,0.0,-1130.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ","Hay Creek - North Bismark 115 kv, 5/26-6/5, +22 MW ",5/26,6/5/2026 16:00:00,low,5,,6/6/2026
+21: ow: 75, fw: 88, ol: 87, fl: 22",6/6/2026
+6/7/2026,lneeur-vaug_rev23,-2167.0,0.0,"West of Kansa, near Wichita ","81 kv, only DA happens for now ",,,,,,,new
+6/7/2026,xfmrover-over,0.0,-2034.0,,,,,,,,,new
+6/7/2026,lnrussett-sbrown,-322.0,-2108.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,"3,4",,6/5/2026
+6/7/2026,lnmulgre2-ellswtp3,-115.0,-1811.0,"Middle Kansas St, South-N","101kv, DA 12% high wind at 2, RT high wind at 2 ",,,,high ,2,,new
+6/7/2026,lntekamho-sub1226,0.0,-1591.0,"Sioux City Nebraska, N-S","273kv, high wind and low load at 1 ",,,,high ,1,,new
+6/7/2026,lnfirstcrk-roanrdge,-1746.0,-336.0,Near Kansa City,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",5/19,6/16,high,4,,6/6/2026
+6/7/2026,xfmrduncan-duncan,-1803.0,-3151.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Walters City (OMPA) - Walters Junction 69 kV, +7%",2026-06-10 8:00,2026-06-10 16:00,,2,,6/6/2026
+6/7/2026,lnwardwa-bismark2,0.0,-1237.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ","Hay Creek - North Bismark 115 kv, 5/26-6/5, +22 MW ",5/26,6/5/2026 16:00:00,low,5,,6/6/2026
 6/7/2026,lnraun-tekamho,-1060.0,0.0,Sioux City Nebraska,high wind driven,,,,high,1,,5/31/2026
-6/7/2026,xfmrftthomp-ftthomp,-937.0,-327.0,,,,,,,,,new
-6/7/2026,xfmrduncan-duncan,-1803.0,-1485.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Walters City (OMPA) - Walters Junction 69 kV, +7%",2026-05-26 7:32,2026-06-05 15:00,,2,,6/6/2026
-6/8/2026,xfmrduncan-duncan,-4658.0,0.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Walters City (OMPA) - Walters Junction 69 kV, +7%",2026-05-26 7:32,2026-06-05 15:00,,2,,6/7/2026
-6/8/2026,lncimarron-haymakr4,-2579.0,0.0,,,,,,,,,new
-6/8/2026,lnrussett-sbrown,-2171.0,0.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,"3,4",,6/5/2026
-6/8/2026,lnctnwd1-pine,-2076.0,0.0,,,,,,,,,6/4/2026
-6/8/2026,lnstilwell-redel5,-1636.0,0.0,South Kansas,"binds in very high wind DA 50%, RT 20%, no obvious outage",,,,high,4,,6/5/2026
-6/8/2026,lnommarlo4-rsh_sprg_rev23,-1626.0,0.0,,,,,,,,,new
-6/8/2026,xfmrsub975-sub975,-1506.0,0.0,South of Omaha,"low wind and high natural gas generation, high load at 5",,,,low,1,,6/6/2026
-6/8/2026,xfmrnowst1-nowst1,-1396.0,0.0,OKC,high load plus mid high wind,,,,mid-high,4,,6/4/2026
-6/8/2026,lnlenexa-shwnmsn5,-1254.0,0.0,Kansas City,high wind plus outage driven,"Kenilworth - Reeder 161 kV, +47",2026-05-04 9:15,2026-06-05 16:00,high,4,,6/5/2026
-6/8/2026,lnweav-tallgras,-1202.0,0.0,"Wichita, Kansas ","binds in DA in two days only, flow not close to limit, high wind and load at 4","East Eureka - Vaughn 115 kV, +12MW ",2026-05-31 2:17,2026-06-05 16:00,high,4,,6/5/2026
-6/8/2026,lnmaud_tap-earlsbrh,-911.0,0.0,"West of OKC, near Norman",high wind plus outage for 138kv,Canadian River 345/138 kV Transformer,2026-04-17 8:56,2026-08-14 16:00,high,4,,6/2/2026
-6/8/2026,lnosage_og-webbtap4,-906.0,0.0,"North Texas, near Tulsa",hgih wind driven,"Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,6/30,high,"3,4",,6/5/2026
-6/8/2026,,,,,,,,,,,"1: ow: 14, fw: 41, ol: 100, fl: 96
+6/7/2026,xfmrftthomp-ftthomp,-937.0,-327.0,Middle SD,high wind at 5,,,,high ,5,,new
+6/8/2026,lnlenexa-shwnmsn5,-1254.0,-9577.0,Kansas City,high wind plus outage driven,"Kenilworth - Reeder 161 kV, +47",2026-05-04 9:15,2026-06-05 16:00,high,4,,6/5/2026
+6/8/2026,lnrussett-sbrown,-2171.0,-6353.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,"3,4",,6/7/2026
+6/8/2026,lndovrt-turcrk2,0.0,-3635.0,South AK ,,,,,,,"1: ow: 14, fw: 41, ol: 100, fl: 96
 2: ow: 27, fw: 71, ol: 100, fl: 100
 3: ow: 69, fw: 93, ol: 100, fl: 100
 4: ow: 80, fw: 71, ol: 96, fl: 98
 5: ow: 17, fw: 77, ol: 96, fl: 69
-21: ow: 33, fw: 35, ol: 90, fl: 62",
+21: ow: 33, fw: 35, ol: 90, fl: 62",new
+6/8/2026,lncimarron-haymakr4,-2579.0,0.0,West of OKC,"308kv, high load and high wind at 2 ",,,,high ,2,,new
+6/8/2026,lnsshreve-wallace3,0.0,-2115.0,,,,,,,,,new
+6/8/2026,lnsw_sta-anadarko,0.0,-2102.0,"South West OKC, North Lawton","outage driven, high wind at 3 ","353kv, Gracemont - Anadarko 138kV, +60kv",2026-06-01 10:09,2026-06-30 16:00,high ,3,,new
+6/8/2026,lnsugr_crk-sub_h,0.0,-2071.0,,,,,,,,,new
+6/8/2026,lnstilwell-redel5,-1636.0,0.0,South Kansas,"binds in very high wind DA 50%, RT 20%, no obvious outage",,,,high,4,,6/5/2026
+6/8/2026,lnommarlo4-rsh_sprg_rev23,-1626.0,0.0,,,,,,,,,new
+6/8/2026,xfmrduncan-duncan,-4658.0,-6020.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Walters City (OMPA) - Walters Junction 69 kV, +7%",2026-06-10 8:00,2026-06-10 16:00,,2,,6/7/2026
+6/8/2026,lnweav-tallgras,-1202.0,0.0,"Wichita, Kansas ","binds in DA in two days only, flow not close to limit, high wind and load at 4","East Eureka - Vaughn 115 kV, +12MW ",2026-05-31 2:17,2026-06-05 16:00,high,4,,6/5/2026
+6/8/2026,xfmrsub975-sub975,-1506.0,-2019.0,South of Omaha,"low wind and high natural gas generation, high load at 5",,,,low,1,,6/6/2026
+6/8/2026,lnwashit1-sw_sta,-588.0,-1059.0,,,,,,,,,new
+6/8/2026,lnctnwd1-pine,-2076.0,-1674.0,"Norht OKC, S-N","194kv, high wind at 2 ","Morrison - Sooner 138 kV, +60kv",2026-05-07 12:30,2026-06-30 13:00,mid-high,2,,6/4/2026
+6/8/2026,xfmrnowst1-nowst1,-1396.0,-1084.0,OKC,high load plus mid high wind,,,,mid-high,4,,6/4/2026
+6/8/2026,lnmaud_tap-earlsbrh,-911.0,-693.0,"West of OKC, near Norman",high wind plus outage for 138kv,Canadian River 345/138 kV Transformer,2026-04-17 8:56,2026-08-14 16:00,high,4,,6/2/2026
+6/8/2026,lnnebrcty-sub3456,-809.0,-1003.0,,,,,,,,,new
+6/8/2026,lnosage_og-webbtap4,-906.0,-922.0,"North Texas, near Tulsa",hgih wind driven,"Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,6/30,high,"3,4",,6/5/2026
+6/9/2026,lnlenexa-shwnmsn5,-883.0,-7427.0,Kansas City,high wind plus outage driven,"Kenilworth - Reeder 161 kV, +47",2026-05-04 9:15,2026-06-05 16:00,high,4,,6/8/2026
+6/9/2026,lnmaud_tap-earlsbrh,-5567.0,0.0,"West of OKC, near Norman",high wind plus outage for 138kv,Canadian River 345/138 kV Transformer,2026-04-17 8:56,2026-08-14 16:00,high,4,"1: ow: 14, fw: 41, ol: 100, fl: 96
+2: ow: 27, fw: 71, ol: 100, fl: 100
+3: ow: 69, fw: 93, ol: 100, fl: 100
+4: ow: 80, fw: 71, ol: 96, fl: 98
+5: ow: 17, fw: 77, ol: 96, fl: 69
+21: ow: 33, fw: 35, ol: 90, fl: 62",6/8/2026
+6/9/2026,lnctnwd1-pine,-2550.0,-6675.0,"Norht OKC, S-N","194kv, high wind at 2 ","Morrison - Sooner 138 kV, +60kv",2026-05-07 12:30,2026-06-30 13:00,mid-high,2,,6/8/2026
+6/9/2026,lnquail-skyln,-4073.0,0.0,North OKC,"high wind, DA binds when wind's high, RT occasionally binds. ","Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW",1/9,2026-06-12 16:00,high,4,,5/30/2026
+6/9/2026,xfmrnowst1-nowst1,-5358.0,-1812.0,OKC,high load plus mid high wind,,,,mid-high,4,,6/8/2026
+6/9/2026,xfmrsibley-sibley,-3110.0,0.0,,,,,,,,,new
+6/9/2026,xfmrsiouxcy-siouxcy,-1116.0,-3706.0,Sioux City Nebraska,high wind driven,,,,high,1,,6/6/2026
+6/9/2026,lnrussett-sbrown,-3076.0,-510.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,"3,4",,6/8/2026
+6/9/2026,lncorntp4-naples1,-2398.0,0.0,South OKGE,high wind driven,"Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW",1/9,2026-06-12 16:00,high,"3,4",,6/2/2026
+6/9/2026,lnosage_og-webbtap4,-2449.0,-385.0,"North Texas, near Tulsa",hgih wind driven,"Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,6/30,high,"3,4",,6/8/2026
+6/9/2026,lnweav-tallgras,-1994.0,0.0,"Wichita, Kansas ","binds in DA in two days only, flow not close to limit, high wind and load at 4","East Eureka - Vaughn 115 kV, +12MW ",2026-05-31 2:17,2026-06-05 16:00,high,4,,6/8/2026
+6/9/2026,xfmrftsmth-ftsmth,-1949.0,0.0,"Fort Smith, AK ","500kv, high wind at 4 RT 35%, low load at 2. ",,,,extra high,4,,new
+6/9/2026,lnraun-tekamho,-1922.0,0.0,Sioux City Nebraska,high wind driven,,,,high,1,,6/7/2026
+6/9/2026,lnlar3821-sprgfld,0.0,-1586.0,,,,,,,,,6/4/2026
+6/9/2026,lntekamho-sub1226,-1575.0,0.0,,,,,,,,,6/7/2026
+6/9/2026,lnnorfk_n-norfolk,0.0,-1554.0,,,,,,,,,new
+6/9/2026,lncartr2-cksaw1,-1465.0,0.0,,,,,,,,,new
+6/9/2026,xfmrsub1214-sub1214,-1430.0,0.0,North Lincoln ,100mw,,,,,,,new
+6/9/2026,lngord-maiz,-1666.0,-313.0,"Wichita, Kansas ",high wind plus small outage,"Walters City (OMPA) - Walters Junction 69 kV, +10 ",2026-05-26 7:32,2026-06-05 15:00,high,4,,6/4/2026
+6/9/2026,lnommarlo4-rsh_sprg_rev23,-1312.0,0.0,,,,,,,,,6/8/2026
+6/9/2026,lntulsa_no-46_st_tp,0.0,-1309.0,,,,,,,,,new
+6/9/2026,lnpenn1-sntfe,-1216.0,-38.0,,,,,,,,,new
+6/9/2026,lnsshreve-wallace3,0.0,-1156.0,,,,,,,,,new
+6/9/2026,lnjay_hawk-frankln5,-1138.0,-47.0,,,,,,,,,new
+6/9/2026,lnfirstcrk-roanrdge,-4395.0,-5477.0,Near Kansa City,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",5/19,6/16,high,4,,6/7/2026
+6/9/2026,lnwardwa-bismark2_rev23,-916.0,0.0,,,,,,,,,new
+6/9/2026,lnwashit1-sw_sta,-1505.0,-933.0,,,,,,,,,new
+6/9/2026,xfmrduncan-duncan,-5360.0,-4831.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Walters City (OMPA) - Walters Junction 69 kV, +7%",2026-06-10 8:00,2026-06-10 16:00,,2,,6/8/2026
+6/9/2026,lndawsonc-lewiswp,-1118.0,-914.0,,,,,,,,,new
+6/10/2026,lnlenexa-shwnmsn5,-9498.0,0.0,Kansas City,high wind plus outage driven,"Kenilworth - Reeder 161 kV, +47",2026-05-04 9:15,2026-06-05 16:00,high,4,,6/8/2026
+6/10/2026,xfmrduncan-duncan,-6262.0,0.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Walters City (OMPA) - Walters Junction 69 kV, +7%",2026-06-10 8:00,2026-06-10 16:00,,2,,6/9/2026
+6/10/2026,lnquail-skyln,-5061.0,0.0,North OKC,"high wind, DA binds when wind's high, RT occasionally binds. ","Johnston County - Sunnyside 345kV, 6/2/2026, +20 MW",1/9,2026-06-12 16:00,high,4,,6/9/2026
+6/10/2026,lnmaud_tap-earlsbrh,-4868.0,0.0,"West of OKC, near Norman",high wind plus outage for 138kv,Canadian River 345/138 kV Transformer,2026-04-17 8:56,2026-08-14 16:00,high,4,,6/9/2026
+6/10/2026,lnrussett-sbrown,-3806.0,0.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,"3,4",,6/9/2026
+6/10/2026,lneeur-vaug_rev23,-3500.0,0.0,"West of Kansa, near Wichita ","81 kv, only DA happens for now ",,,,,,,6/7/2026
+6/10/2026,xfmrsiouxcy-siouxcy,-2490.0,0.0,Sioux City Nebraska,high wind driven,,,,high,1,,6/9/2026
+6/10/2026,lnfirstcrk-roanrdge,-2281.0,0.0,Near Kansa City,"RT binds more in 13-14, 22-24, DA binds more on 13-21","Hallmark MPS - Liberty West 161 kV, 5/19-6-16, +31 MW",5/19,6/16,high,4,,6/9/2026
+6/10/2026,xfmrnowst1-nowst1,-2164.0,0.0,OKC,high load plus mid high wind,,,,mid-high,4,,6/9/2026
+6/10/2026,lnosage_og-webbtap4,-2065.0,0.0,"North Texas, near Tulsa",hgih wind driven,"Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,6/30,high,"3,4",,6/9/2026
+6/10/2026,xfmrlex1611-lex1611,-1907.0,0.0,,,,,,,,,new
+6/10/2026,lnwashit1-sw_sta,-1463.0,0.0,,,,,,,,,6/9/2026
+6/10/2026,lnaur1241-rdspg5,-1453.0,0.0,"AURORA, SPRM ","load mid-high at SPRM and wind mid-high, outage driven most",Beaver SPA - Eureka Springs 161 kV,2026-09-25 8:00,2026-12-14 17:00,mid-high,4,,6/4/2026
+6/10/2026,lnommarlo4-rsh_sprg_rev23,-1202.0,0.0,,,,,,,,,6/9/2026
+6/10/2026,lnftthomp-ftrandl,-1042.0,0.0,,,,,,,,,new
+6/10/2026,lnctnwd1-pine,-1034.0,0.0,"Norht OKC, S-N","194kv, high wind at 2 ","Morrison - Sooner 138 kV, +60kv",2026-05-07 12:30,2026-06-30 13:00,mid-high,2,,6/9/2026
+6/10/2026,,,,,,,,,,,"1: ow: 14, fw: 41, ol: 100, fl: 96
+2: ow: 27, fw: 71, ol: 100, fl: 100
+3: ow: 69, fw: 93, ol: 100, fl: 100
+4: ow: 80, fw: 71, ol: 96, fl: 98
+5: ow: 17, fw: 77, ol: 96, fl: 69",
