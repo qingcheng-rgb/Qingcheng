@@ -2659,6 +2659,267 @@ def GRU_framework_means_update_para(node_num, dt):
 
     return valuation_models
 
+def GRU_framework_mean_and_quantile_para(node_num, dt):
+
+    run_number    = 1
+    opexchange    = 'SPP'
+
+    if int(run_number) == 1:
+        data_location = 'training'
+    else:
+        data_location = 'secondRun'
+
+    opexchange     = "SPP"
+    data_location  = "training"
+    gs_loc         = f"gs://ve_fourier/production/SPP/{data_location}"
+
+    max_retries = 1
+    retry_delay = 3
+    for attempt in range(max_retries):
+        try:
+            data_df = pd.read_csv(f"{gs_loc}/{node_num}_{dt}.csv")
+            data_df["dt"] = pd.to_datetime(data_df["dt"]).dt.strftime("%Y-%m-%d")
+            break
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+            else:
+                raise
+
+    selected_columns = [col for col in data_df.columns if "iirGen" not in col and "txoutage" not in col and "topGen" not in col]
+    data_df = data_df[selected_columns]
+
+    feb2021_dates = pd.DataFrame(pd.date_range("2021-02-13", "2021-02-19", freq="D"), columns=["dt"])["dt"].dt.strftime("%Y-%m-%d").tolist()
+    if dt not in feb2021_dates:
+        data_df = data_df[~data_df["dt"].isin(feb2021_dates)]
+
+    if "dtHr" not in data_df.columns:
+        data_df.insert(0, column="dtHr", value=pd.to_datetime(data_df["dt"]) + pd.to_timedelta(data_df["hr"] - 1, unit="h"))
+
+
+    # ── model classes (all inside function) ─────────────────────
+
+    class GRUMean(nn.Module):
+        """
+        GRU-based network for mean prediction.
+        Treats the flat feature vector as a length-input_size sequence with 1 feature per step,
+        runs a bidirectional multi-layer GRU, then projects the attention-pooled hidden state to outputs.
+        """
+        def __init__(self, input_size, output_size, hidden_size=64, num_layers=2,
+                bidirectional=True, dropout=0.1):
+            super(GRUMean, self).__init__()
+            self.hidden_size   = hidden_size
+            self.num_layers    = num_layers
+            self.bidirectional = bidirectional
+            self.gru = nn.GRU(
+                input_size=1,
+                hidden_size=hidden_size,
+                num_layers=num_layers,
+                batch_first=True,
+                bidirectional=bidirectional,
+                dropout=dropout if num_layers > 1 else 0.0,
+            )
+            out_dim = hidden_size * (2 if bidirectional else 1)
+            # Attention pooling layer — produces a scalar weight per sequence position
+            self.attention = nn.Linear(out_dim, 1)
+            self.fc = nn.Linear(out_dim, output_size)
+
+        def forward(self, x):
+            # x shape: (B, input_size)
+            x = x.unsqueeze(-1)                                # (B, seq_len, 1)
+            out, _ = self.gru(x)                               # (B, seq_len, hidden*dirs)
+            # Attention pooling: learned weighted sum of positions
+            attn_logits = self.attention(out)                  # (B, seq_len, 1)
+            attn_weights = torch.softmax(attn_logits, dim=1)   # (B, seq_len, 1)
+            pooled = (out * attn_weights).sum(dim=1)           # (B, hidden*dirs)
+            return self.fc(pooled)
+
+    class GRUQuantile(nn.Module):
+        """
+        Same GRU + attention-pooling backbone as GRUMean, but the head emits one value
+        per (output, quantile) pair and reshapes to (B, output_size, n_quantiles).
+        """
+        def __init__(self, input_size, output_size, quantiles, hidden_size=64, num_layers=2,
+                bidirectional=True, dropout=0.1):
+            super(GRUQuantile, self).__init__()
+            self.quantiles     = quantiles
+            self.output_size   = output_size
+            self.hidden_size   = hidden_size
+            self.num_layers    = num_layers
+            self.bidirectional = bidirectional
+            self.gru = nn.GRU(
+                input_size=1,
+                hidden_size=hidden_size,
+                num_layers=num_layers,
+                batch_first=True,
+                bidirectional=bidirectional,
+                dropout=dropout if num_layers > 1 else 0.0,
+            )
+            out_dim = hidden_size * (2 if bidirectional else 1)
+            self.attention = nn.Linear(out_dim, 1)
+            self.fc = nn.Linear(out_dim, output_size * len(quantiles))
+
+        def forward(self, x):
+            # x shape: (B, input_size)
+            x = x.unsqueeze(-1)                                # (B, seq_len, 1)
+            out, _ = self.gru(x)                               # (B, seq_len, hidden*dirs)
+            attn_logits = self.attention(out)                  # (B, seq_len, 1)
+            attn_weights = torch.softmax(attn_logits, dim=1)   # (B, seq_len, 1)
+            pooled = (out * attn_weights).sum(dim=1)           # (B, hidden*dirs)
+            out = self.fc(pooled)                              # (B, output_size * n_quantiles)
+            return out.view(out.size(0), self.output_size, len(self.quantiles))
+
+    class QuantileLoss(nn.Module):
+        def __init__(self, quantiles):
+            super(QuantileLoss, self).__init__()
+            self.quantiles = quantiles
+        def forward(self, predictions, targets):
+            # predictions: (B, output_size, n_quantiles), targets: (B, output_size)
+            losses = []
+            for i, q in enumerate(self.quantiles):
+                errors = targets - predictions[:, :, i]
+                losses.append(torch.max((q - 1) * errors, q * errors).unsqueeze(2))
+            return torch.mean(torch.cat(losses, dim=2))
+
+    def predict_and_collect(model, data_loader, criterion, scaler_y=None):
+        model.eval()
+        total_loss = 0.0
+        predictions = []
+        with torch.no_grad():
+            for inputs, labels in data_loader:
+                inputs, labels = inputs.to(device), labels.to(device)
+                outputs = model(inputs)
+                total_loss += criterion(outputs, labels).item()
+                predictions.append(outputs.cpu().numpy())
+        predictions = np.concatenate(predictions, axis=0)
+        if normalize and scaler_y is not None:
+            if predictions.ndim == 3:
+                num_samples, num_outputs, num_quantiles = predictions.shape
+                transposed = np.transpose(predictions, (0, 2, 1)).reshape(-1, num_outputs)
+                transposed = scaler_y.inverse_transform(transposed)
+                predictions = np.transpose(transposed.reshape(num_samples, num_quantiles, num_outputs), (0, 2, 1))
+            else:
+                predictions = scaler_y.inverse_transform(predictions)
+        return predictions, total_loss / len(data_loader)
+
+
+    # ── hyper-parameters ────────────────────────────────────────
+    learning_rate  = 0.001
+    num_epochs     = 50
+    normalize      = True
+    device         = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    # ── GRU hyper-parameters ────────────────────────────────────
+    hidden_size   = 16
+    num_layers    = 2
+    bidirectional = True
+    dropout       = 0.2
+
+    # ── quantile config ─────────────────────────────────────────
+    quantiles      = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 0.97, 0.99]
+    quantile_names = [f"q{int(q * 100)}" for q in quantiles]
+
+    mean_criterion     = nn.HuberLoss(delta=1)
+    quantile_criterion = QuantileLoss(quantiles)
+
+    valuation_models = pd.DataFrame()
+
+    for y_var in [["da_total", "rt_total"]]:
+        trainingPeriod = int(min((pd.to_datetime(dt) - pd.to_datetime("2017-01-01")) / np.timedelta64(1, "D"), 730))
+        xtrain, ytrain, xtest, ytest = ve_model_functions.getTrainTestData(
+            opexchange, data_df, y=y_var, bidDt=dt, hour_gap=18,
+            trainingPeriod=str(trainingPeriod) + "D", train_a_or_f="f")
+
+        # 3-way split: 1/2 train, 1/4 validate, 1/4 test
+        xtrain, xtest, ytrain, ytest = train_test_split(xtrain, ytrain, test_size=1/8, shuffle=False)
+        xtrain, xvalidate, ytrain, yvalidate = train_test_split(xtrain, ytrain, test_size=1/7, shuffle=False)
+        scaler_x, scaler_y = None, None
+        if normalize:
+            scaler_x = StandardScaler()
+            scaler_y = StandardScaler()
+            xtrain    = pd.DataFrame(scaler_x.fit_transform(xtrain),    columns=xtrain.columns,    index=xtrain.index)
+            xvalidate = pd.DataFrame(scaler_x.transform(xvalidate),     columns=xvalidate.columns, index=xvalidate.index)
+            xtest     = pd.DataFrame(scaler_x.transform(xtest),         columns=xtest.columns,     index=xtest.index)
+            ytrain    = pd.DataFrame(scaler_y.fit_transform(ytrain),    columns=ytrain.columns,    index=ytrain.index)
+            yvalidate = pd.DataFrame(scaler_y.transform(yvalidate),     columns=yvalidate.columns, index=yvalidate.index)
+            ytest     = pd.DataFrame(scaler_y.transform(ytest),         columns=ytest.columns,     index=ytest.index)
+        X_train_tensor    = torch.tensor(xtrain.values,    dtype=torch.float32).to(device)
+        Y_train_tensor    = torch.tensor(ytrain.values,    dtype=torch.float32).to(device)
+        X_validate_tensor = torch.tensor(xvalidate.values, dtype=torch.float32).to(device)
+        Y_validate_tensor = torch.tensor(yvalidate.values, dtype=torch.float32).to(device)
+        X_test_tensor     = torch.tensor(xtest.values,     dtype=torch.float32).to(device)
+        Y_test_tensor     = torch.tensor(ytest.values,     dtype=torch.float32).to(device)
+
+        g = torch.Generator()
+        g.manual_seed(42)
+        train_loader    = DataLoader(TensorDataset(X_train_tensor, Y_train_tensor),       batch_size=128, shuffle=True, generator=g)
+        validate_loader = DataLoader(TensorDataset(X_validate_tensor, Y_validate_tensor), batch_size=128, shuffle=False)
+        test_loader     = DataLoader(TensorDataset(X_test_tensor, Y_test_tensor),         batch_size=128, shuffle=False)
+        input_size, output_size = X_train_tensor.shape[1], Y_train_tensor.shape[1]
+
+        # ── build models ────────────────────────────────────────
+        mean_model = GRUMean(input_size, output_size,
+                             hidden_size=hidden_size, num_layers=num_layers,
+                             bidirectional=bidirectional, dropout=dropout).to(device)
+        quantile_model = GRUQuantile(input_size, output_size, quantiles,
+                             hidden_size=hidden_size, num_layers=num_layers,
+                             bidirectional=bidirectional, dropout=dropout).to(device)
+
+        mean_optimizer     = optim.AdamW(mean_model.parameters(),     lr=learning_rate, weight_decay=1e-4)
+        quantile_optimizer = optim.AdamW(quantile_model.parameters(), lr=learning_rate, weight_decay=1e-4)
+        mean_scheduler     = torch.optim.lr_scheduler.CosineAnnealingLR(mean_optimizer,     T_max=num_epochs, eta_min=1e-6)
+        quantile_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(quantile_optimizer, T_max=num_epochs, eta_min=1e-6)
+
+        # ── train mean + quantile models (same loop, own optimizer/scheduler/criterion) ──
+        for model, optimizer, scheduler, criterion in [
+            (mean_model,     mean_optimizer,     mean_scheduler,     mean_criterion),
+            (quantile_model, quantile_optimizer, quantile_scheduler, quantile_criterion),
+        ]:
+            best_val_loss, patience, no_improve = float("inf"), 5, 0
+            for epoch in range(num_epochs):
+                model.train()
+                for inputs, labels in train_loader:
+                    optimizer.zero_grad()
+                    loss = criterion(model(inputs), labels)
+                    loss.backward()
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+                    optimizer.step()
+                model.eval()
+                val_loss = sum(criterion(model(inp), lbl).item() for inp, lbl in validate_loader) / len(validate_loader)
+                if val_loss < best_val_loss:
+                    best_val_loss, no_improve = val_loss, 0
+                else:
+                    no_improve += 1
+                    if no_improve >= patience:
+                        print(f"Early stopping at epoch {epoch + 1}")
+                        break
+                scheduler.step()
+
+        mean_preds, _     = predict_and_collect(mean_model,     test_loader, mean_criterion,     scaler_y)
+        quantile_preds, _ = predict_and_collect(quantile_model, test_loader, quantile_criterion, scaler_y)
+
+        if normalize and scaler_y is not None:
+            ytest = pd.DataFrame(scaler_y.inverse_transform(ytest), columns=ytest.columns, index=ytest.index)
+
+        mean_df     = pd.DataFrame(mean_preds, columns=[f"{y}_mean" for y in y_var])
+        q_cols      = [f"{y}_{n}" for y in y_var for n in quantile_names]
+        quantile_df = pd.DataFrame(quantile_preds.reshape(-1, output_size * len(quantiles)), columns=q_cols)
+
+        result = pd.concat([ytest.reset_index(), mean_df, quantile_df], axis=1)
+        result["dtHr"] = pd.to_datetime(result["dtHr"])
+        result["dt"]   = result["dtHr"].dt.strftime("%Y-%m-%d")
+        result["hr"]   = result["dtHr"].dt.hour + 1
+        valuation_models = pd.concat([valuation_models, result])
+
+    valuation_models = valuation_models.groupby(["dt", "hr", "node_num"]).max().reset_index()
+    keep_cols = ["dt", "hr", "node_num", "da_total_mean", "rt_total_mean"] + \
+                [f"da_total_{n}" for n in quantile_names] + [f"rt_total_{n}" for n in quantile_names]
+    direction_tag = "bi" if bidirectional else "uni"
+    valuation_models["model"] = f"gru_{direction_tag}_{hidden_size}h_{num_layers}L_mean_quantile"
+
+    return valuation_models
+
 def GRU_feature_importance(node_num, dt, n_repeats=3):
     """
     Runs the same data prep and model training as GRU_framework_means_update_para,
