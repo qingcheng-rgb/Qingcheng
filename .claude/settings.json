@@ -18,7 +18,9 @@
       "Bash(curl -s \"http://127.0.0.1:8050/ftr_analysis/constraints/constraint_analysis\")",
       "Bash(curl -sv \"http://127.0.0.1:8050/ftr_analysis/constraints/constraint_analysis\")",
       "Bash(timeout 180 /opt/venvs/prod-py312/bin/python -c ' *)",
-      "Bash(timeout 150 /opt/venvs/prod-py312/bin/python -c ' *)"
+      "Bash(timeout 150 /opt/venvs/prod-py312/bin/python -c ' *)",
+      "Bash(PYTHONPATH=/var/www/python/Prod/nighthawk python -)",
+      "Bash(python -)"
     ]
   }
 }
