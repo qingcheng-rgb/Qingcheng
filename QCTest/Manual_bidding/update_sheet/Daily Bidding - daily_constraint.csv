@@ -415,8 +415,8 @@ bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_nam
 6/21/2026,lngord-maiz,-1384.0,0.0,"Wichita, Kansas ","high wind plus small outage, middle wind, all load will happen ",,,,mid,,4,,6/20/2026
 6/21/2026,lncorntp4-naples1,-1328.0,0.0,South OKGE,high wind driven,"Minco - Norman Hills 345kV Line, flow+66mw, 2026-06-01 8:00:00-2026-07-02 15:30:00+00:00",2026-06-01 8:00:00,2026-07-02 15:30:00+00:00,high,,"3,4",,6/13/2026
 6/21/2026,lnommarlo4-rsh_sprg_rev23,-1103.0,0.0,"East Lawton, N-S","106kv, outage driven ","DNCNELDT - MRLOWTAP 138 kV, +16%",2026-06-02 14:00,2026-06-30 16:00,,,,,6/17/2026
-6/21/2026,lnnebrcty-sub3456,-154.0,-1209.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low ,high ,1,,6/8/2026
-6/21/2026,lnstonewsw-tupelo2,-936.0,0.0,"SE OKC, W-E ","169kv, 14% RT high wind, low load","Pittsburg 345 (PSO) - Valliant 345 345 kV, +4%",2026-06-22 8:00,2026-06-26 16:00,high ,low ,4,,new
+6/21/2026,lnnebrcty-sub3456,-154.0,-1209.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,high,1,,6/8/2026
+6/21/2026,lnstonewsw-tupelo2,-936.0,0.0,"SE OKC, W-E ","169kv, 14% RT high wind, low load","Pittsburg 345 (PSO) - Valliant 345 345 kV, +4%",2026-06-22 8:00,2026-06-26 16:00,high,low,4,,new
 6/21/2026,lnrussett-sbrown,-3315.0,-3429.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,,"3,4",,6/20/2026
 6/22/2026,xfmrduncan-duncan,-1351.0,-37.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Minco - Norman Hills 345kV Line, flow+9mw (constraint rating 72mw), 2026-06-01 8:00:00-2026-07-02 15:30:00+00:00",2026-06-01 8:00:00,2026-07-02 15:30:00,,,2,"""1: ow: 3, fw: 11, ol: 21, fl: 38
 2: ow: 25, fw: 35, ol: 32, fl: 46
@@ -424,16 +424,28 @@ bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_nam
 4: ow: 21, fw: 41, ol: 37, fl: 62
 5: ow: 16, fw: 12, ol: 43, fl: 11""",6/21/2026
 6/22/2026,lnrussett-sbrown,-1117.0,-1791.0,South OKGE,"binds high wind, no obvious outage nearby ","Pittsburg 345 (PSO) - Valliant 345 345 kV, +15%",2026-06-22 8:00,2026-06-26 16:00,high,,"3,4",,6/21/2026
-6/23/2026,lnrussett-sbrown,-1151.0,-3868.0,South OKGE,"binds high wind, no obvious outage nearby ","Pittsburg 345 (PSO) - Valliant 345 345 kV, +15%",2026-06-22 8:00,2026-06-26 16:00,high,,"3,4","1: ow: 35, fw: 51, ol: 46, fl: 46
+6/23/2026,lnrussett-sbrown,-1151.0,-5677.0,South OKGE,"binds high wind, no obvious outage nearby ","Pittsburg 345 (PSO) - Valliant 345 345 kV, +15%",2026-06-22 8:00,2026-06-26 16:00,high,,"3,4","1: ow: 35, fw: 51, ol: 46, fl: 46
 2: ow: 45, fw: 33, ol: 58, fl: 72
 3: ow: 61, fw: 67, ol: 85, fl: 69
 4: ow: 32, fw: 19, ol: 62, fl: 53
 5: ow: 45, fw: 32, ol: 51, fl: 37",6/22/2026
-6/23/2026,lnmanfl7-clec_pel,0.0,-2582.0,,,,,,,,,,new
+6/23/2026,lnmanfl7-clec_pel,0.0,-2730.0,,,,,,,,,,new
 6/23/2026,xfmrfremont-fremont,0.0,-1222.0,,,,,,,,,,new
+6/24/2026,lnsugr_crk-sub_h,0.0,-3992.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,6/19/2026
 6/24/2026,,,,,,,,,,,,"1: ow: 12, fw: 8, ol: 71, fl: 54
 2: ow: 9, fw: 21, ol: 80, fl: 75
 3: ow: 33, fw: 91, ol: 96, fl: 93
 4: ow: 9, fw: 25, ol: 75, fl: 67
 5: ow: 24, fw: 21, ol: 56, fl: 46
 21: ow: 35, fw: 12, ol: 69, fl: 74",
+6/25/2026,lnrussett-sbrown,-2259.0,0.0,South OKGE,"binds high wind, no obvious outage nearby ","Pittsburg 345 (PSO) - Valliant 345 345 kV, +15%",2026-06-22 8:00,2026-06-26 16:00,high,,"3,4",,6/23/2026
+6/25/2026,lnt_brmghm-lbrtyst5,-1410.0,0.0,,,,,,,,,,new
+6/25/2026,lnwolffort-sundown2,-1092.0,0.0,,,,,,,,,,new
+6/25/2026,lnnebrcty-sub3456,-1043.0,0.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,6/21/2026
+6/25/2026,lnommarlo4-rsh_sprg_rev23,-1038.0,0.0,"East Lawton, N-S","106kv, outage driven ","DNCNELDT - MRLOWTAP 138 kV, +16%",2026-06-02 14:00,2026-06-30 16:00,,,,,6/21/2026
+6/25/2026,xfmrsub975-sub975,-958.0,0.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,6/17/2026
+6/25/2026,,,,,,,,,,,,"1: ow: 22, fw: 17, ol: 45, fl: 64
+2: ow: 32, fw: 25, ol: 58, fl: 91
+3: ow: 71, fw: 50, ol: 83, fl: 93
+4: ow: 64, fw: 33, ol: 77, fl: 80
+5: ow: 0, fw: 0, ol: 50, fl: 29",
