@@ -697,7 +697,11 @@ bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_nam
 7/3/2026,lnoahe-ftthomp,-2196.0,-1673.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/2/2026
 7/3/2026,lnosage_og-webbtap4,-2245.0,-2122.0,"North Texas, near Tulsa","180kv, high wind driven, Sooner XF 2026-06-19 17:00 end ","Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,2026-07-16 13:00,high,,"3,4",,7/2/2026
 7/3/2026,lnrussett-sbrown,-1038.0,-917.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,,"3,4",,7/2/2026
-7/4/2026,lnsub_f-sugr_crk,-6205.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/3/2026
+7/4/2026,lnsub_f-sugr_crk,-6205.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,"""1: ow: 0, fw: 0, ol: 63, fl: 66
+2: ow: 3, fw: 5, ol: 68, fl: 78
+3: ow: 16, fw: 31, ol: 95, fl: 95
+4: ow: 3, fw: 23, ol: 63, fl: 66
+5: ow: 36, fw: 43, ol: 88, fl: 73""",7/3/2026
 7/4/2026,ln29eveng3-29ga,-4439.0,0.0,West Kansas City,"outage drive, high load, all wind ",Auburn WR - Jeffrey Energy Center 230 kV,2026-06-04 23:33,2026-06-05 16:00,mid,,4,,7/3/2026
 7/4/2026,xfmrduncan-duncan,-1945.0,0.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Minco - Norman Hills 345kV Line, flow+9mw (constraint rating 72mw), 2026-06-01 8:00:00-2026-07-02 15:30:00+00:00",2026-06-01 8:00:00,2026-07-02 15:30:00,,,2,,7/3/2026
 7/4/2026,lnt_brmghm-lbrtyst5,0.0,-1416.0,,,,,,,,,,7/2/2026
@@ -707,11 +711,6 @@ bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_nam
 7/4/2026,xfmrnowst1-nowst1,-342.0,-1290.0,OKC,"393kv, high load plus mid high wind",,,,mid-high,,4,,7/3/2026
 7/4/2026,lnmdwst-frnkln1,-980.0,-285.0,,,,,,,,,,7/3/2026
 7/4/2026,lnrussett-sbrown,-882.0,-923.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,,"3,4",,7/3/2026
-7/4/2026,,,,,,,,,,,,"1: ow: 0, fw: 0, ol: 63, fl: 66
-2: ow: 3, fw: 5, ol: 68, fl: 78
-3: ow: 16, fw: 31, ol: 95, fl: 95
-4: ow: 3, fw: 23, ol: 63, fl: 66
-5: ow: 36, fw: 43, ol: 88, fl: 73",
 7/5/2026,lnsugr_crk-sub_h,0.0,-6192.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/3/2026
 7/5/2026,lnleeds2-penn_tap,0.0,-4333.0,,,,,,,,,,new
 7/5/2026,lnsub_f-sugr_crk,-2691.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/4/2026
@@ -720,13 +719,148 @@ bid_date,constraints ,DA_mvalue,RT_mvalue,location,physical_condition,outage_nam
 7/5/2026,lnskst-idalia,0.0,-919.0,,,,,,,,,,7/3/2026
 7/5/2026,xfmrsub975-sub975,-901.0,-584.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,7/4/2026
 7/5/2026,lnoahe-ftthomp,-1865.0,-1840.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/3/2026
-7/6/2026,lnbrookngs-aurorawa,0.0,-7382.0,,,,,,,,,,6/12/2026
-7/6/2026,lnsugr_crk-sub_h,0.0,-4413.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/5/2026
+7/6/2026,lnbrookngs-aurorawa,0.0,-10164.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,6/12/2026
+7/6/2026,lnsugr_crk-sub_h,0.0,-10047.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/5/2026
 7/6/2026,lnpenn_tap-devilsl,-3775.0,0.0,,,,,,,,,,6/26/2026
-7/6/2026,lnleeds2-penn_tap,0.0,-3566.0,,,,,,,,,,7/5/2026
+7/6/2026,lnleeds2-penn_tap,0.0,-3701.0,ND,"99 kv, line rating drops, wind and coal driven ",,,,,,,,7/5/2026
+7/6/2026,lnnebrcty-sub3456,-982.0,-4435.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/4/2026
+7/6/2026,lnt_brmghm-lbrtyst5,0.0,-2352.0,,,,,,,,,,7/4/2026
+7/6/2026,lnoahe-ftthomp,-1690.0,-3604.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/5/2026
 7/6/2026,lnsub_f-sugr_crk,-1876.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/5/2026
-7/6/2026,lnoahe-ftthomp,-1690.0,-1156.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/5/2026
-7/6/2026,lnnebrcty-sub3456,-982.0,-1485.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/4/2026
+7/6/2026,xfmrvalliant-valliant,0.0,-1817.0,,,,,,,,,,new
+7/6/2026,lnwardwa-bismark2,0.0,-1670.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ","Hay Creek - North Bismark 115 kv, 5/26-6/5, +22 MW ",5/26,6/5/2026 16:00:00,low,,5,,6/30/2026
+7/6/2026,lnftrandl-spence1,0.0,-1617.0,,,,,,,,,,new
+7/6/2026,lnsidney-ogalala,-199.0,-1320.0,,,,,,,,,,new
+7/7/2026,lnsugr_crk-sub_h,0.0,-11019.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/6/2026
 7/7/2026,lnsub_f-sugr_crk,-5862.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/6/2026
-7/7/2026,xfmrsham-sham,-1898.0,0.0,,,,,,,,,,new
+7/7/2026,lnskst-idalia,0.0,-4845.0,,,,,,,,,,7/5/2026
+7/7/2026,lnt_brmghm-lbrtyst5,0.0,-4672.0,,,,,,,,,,7/6/2026
+7/7/2026,xfmrfremont-fremont,0.0,-1975.0,,,,,,,,,,6/27/2026
+7/7/2026,lnbrookngs-aurorawa,-264.0,-2213.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,7/6/2026
+7/7/2026,lngroton-bristol3,0.0,-1605.0,,,,,,,,,,new
 7/7/2026,xfmrsiouxcy-siouxcy,-1186.0,0.0,Sioux City Nebraska,high wind driven,,,,high,,1,,7/2/2026
+7/7/2026,xfmrlaw_es-law_es,0.0,-1022.0,Lawton,"high load plus outage, high wind also ","Sunnyside - Terry Road 345 kV, +59",2026-05-07 15:42,2026-06-02 16:00,high,,"3,4",,6/28/2026
+7/7/2026,xfmrsham-sham,-1898.0,-1515.0,Amarillo,,,,,,,,,new
+7/7/2026,lnftrandl-spence1,-706.0,-993.0,,,,,,,,,,7/6/2026
+7/7/2026,lnoahe-ftthomp,-788.0,-1049.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/6/2026
+7/8/2026,lnsugr_crk-sub_h,0.0,-9955.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/7/2026
+7/8/2026,lnsub_f-sugr_crk,-10038.0,-221.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/7/2026
+7/8/2026,lnskst-idalia,0.0,-8325.0,,,,,,,,,,7/7/2026
+7/8/2026,lnt_brmghm-lbrtyst5,0.0,-6668.0,,,,,,,,,,7/7/2026
+7/8/2026,lnvinetap3-nhays,-134.0,-5889.0,Middle Kansas,"100kv, 50% high load DA, 14% RT high load, high wind in 2 ",,,,high,,2,,6/29/2026
+7/8/2026,lncraig-lenexa,-367.0,-4425.0,"Kansas, S-N ","330kv, wind driven, 25% high wind RT, 40% DA, load mid-high ",,,,high,,4,,7/2/2026
+7/8/2026,xfmrduncan-duncan,-2326.0,-119.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Minco - Norman Hills 345kV Line, flow+9mw (constraint rating 72mw), 2026-06-01 8:00:00-2026-07-02 15:30:00+00:00",2026-06-01 8:00:00,2026-07-02 15:30:00,,,2,,7/4/2026
+7/8/2026,lnosage_og-webbtap4,-1335.0,-2932.0,"North Texas, near Tulsa","180kv, high wind driven, Sooner XF 2026-06-19 17:00 end ","Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,2026-07-16 13:00,high,,"3,4",,7/3/2026
+7/8/2026,xfmrsub975-sub975,-2418.0,-3930.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,7/5/2026
+7/8/2026,lnweav-tallgras,-1482.0,0.0,"Wichita, Kansas ","binds in DA in two days only, flow not close to limit, high wind and load at 4",,,,high,,4,,7/4/2026
+7/8/2026,lnnebrcty-sub3456,-1189.0,-93.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/6/2026
+7/8/2026,xfmrnowst1-nowst1,-1249.0,-2334.0,OKC,"393kv, high load plus mid high wind",,,,mid-high,,4,,7/4/2026
+7/8/2026,lnfirstcrk-roanrdge,-375.0,-1409.0,Near Kansa City,"300 kv, high wind driven",,,,high,,4,,7/3/2026
+7/8/2026,lnstilwell-redel5,-451.0,-1470.0,South Kansas,"binds in very high wind DA 50%, RT 20%, no obvious outage",,,,high,,4,,6/30/2026
+7/8/2026,lnatl1091-carthage,0.0,-922.0,,,,,,,,,,new
+7/8/2026,lnmaud_tap-earlsbrh,-800.0,-1464.0,"West of OKC, near Norman",high wind plus outage for 138kv,Canadian River 345/138 kV Transformer,2026-04-17 8:56,2026-08-14 16:00,high,,4,,7/2/2026
+7/8/2026,xfmrpotter_s-potter_s,-790.0,-1167.0,Amarillo,,,,,,,,,7/1/2026
+7/8/2026,lnoahe-ftthomp,-1143.0,-770.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/7/2026
+7/8/2026,ln29eveng3-29ga,-1703.0,-1444.0,West Kansas City,"outage drive, high load, all wind ",Auburn WR - Jeffrey Energy Center 230 kV,2026-06-04 23:33,2026-06-05 16:00,mid,,4,,7/4/2026
+7/8/2026,lnrussett-sbrown,-787.0,-903.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,,"3,4",,7/4/2026
+7/9/2026,lnsugr_crk-sub_h,0.0,-8672.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/8/2026
+7/9/2026,lnkildr-nukrkat4,-338.0,-5880.0,,,,,,,,,,new
+7/9/2026,lnsub_f-sugr_crk,-4908.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/8/2026
+7/9/2026,lnnebrcty-sub3456,-526.0,-5150.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/8/2026
+7/9/2026,lnrussett-sbrown,-1033.0,-5002.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,,"3,4",,7/8/2026
+7/9/2026,lnholcom1-jones3,0.0,-3844.0,,,,,,,,,,new
+7/9/2026,lnwalkmy1-cim-pl1,-119.0,-2940.0,,,,,,,,,,6/30/2026
+7/9/2026,lnskst-idalia,0.0,-2279.0,,,,,,,,,,7/8/2026
+7/9/2026,lnosage_og-webbtap4,-908.0,-3123.0,"North Texas, near Tulsa","180kv, high wind driven, Sooner XF 2026-06-19 17:00 end ","Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,2026-07-16 13:00,high,,"3,4",,7/8/2026
+7/9/2026,xfmrduncan-duncan,-1617.0,0.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv","Minco - Norman Hills 345kV Line, flow+9mw (constraint rating 72mw), 2026-06-01 8:00:00-2026-07-02 15:30:00+00:00",2026-06-01 8:00:00,2026-07-02 15:30:00,,,2,,7/8/2026
+7/9/2026,lnskst-nmad_spa,-1587.0,0.0,,,,,,,,,,new
+7/9/2026,lncoms_amr-minr,0.0,-1441.0,,,,,,,,,,new
+7/9/2026,lnlacygne-stilwell,-307.0,-1413.0,,,,,,,,,,6/4/2026
+7/9/2026,xfmrssiouxcy-ssiouxcy,-954.0,0.0,,,,,,,,,,new
+7/9/2026,xfmrturk_pp-turk_pp,-944.0,0.0,,,,,,,,,,7/1/2026
+7/9/2026,lnwardwa-bismark2,-1732.0,-791.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ","Hay Creek - North Bismark 115 kv, 5/26-6/5, +22 MW ",5/26,6/5/2026 16:00:00,low,,5,,7/6/2026
+7/9/2026,lnt_brmghm-lbrtyst5,-6668.0,-7110.0,,,,,,,,,,7/8/2026
+7/9/2026,lnsnrpmpt4-osage_og,-620.0,-991.0,"North OKGE, near Tulsa","RT binds more during hour11-14, 18-22","Morrison - Sooner 138 kV, 5/7-6/30, +42MW",5/7,6/30,,,4,,6/17/2026
+7/9/2026,lnoahe-ftthomp,-2269.0,-1941.0,Central SD,"345kv, high wind driven ",,,,,,5,,7/8/2026
+7/9/2026,lnmonett-aur1241,-970.0,-1275.0,SPRM,"high wind and high load, DA binds at high wind 40%",,,,mid-high,,4,,7/3/2026
+7/9/2026,xfmrsub975-sub975,-945.0,-1202.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,7/8/2026
+7/10/2026,lnsugr_crk-sub_h,0.0,-8956.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,"""1: ow: 10, fw: 15, ol: 65, fl: 53
+2: ow: 8, fw: 10, ol: 58, fl: 65
+3: ow: 11, fw: 21, ol: 63, fl: 75
+4: ow: 16, fw: 28, ol: 51, fl: 65
+5: ow: 60, fw: 85, ol: 86, fl: 85""",7/9/2026
+7/10/2026,lnsub_f-sugr_crk,-6209.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/9/2026
+7/10/2026,lnnebrcty-sub3456,-1792.0,-4534.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/9/2026
+7/10/2026,lnskst-idalia,0.0,-2731.0,,,,,,,,,,7/9/2026
+7/10/2026,lnt_brmghm-lbrtyst5,-3150.0,-449.0,Kansas,"200kv, S-N, load driven ",,,,mid,high,4,,7/9/2026
+7/10/2026,lnkildr-nukrkat4,-329.0,-2804.0,,,,,,,,,,7/9/2026
+7/10/2026,lnskst-nmad_spa,-1930.0,0.0,,,,,,,,,,7/9/2026
+7/10/2026,lnwalkmy1-cim-pl1,0.0,-1749.0,,,,,,,,,,7/9/2026
+7/10/2026,lncommtap4-bois_tap,0.0,-1734.0,,,,,,,,,,new
+7/10/2026,lndiscvry4-selndtap_rev23,-1577.0,0.0,,,,,,,,,,new
+7/10/2026,lnbrookngs-aurorawa,-164.0,-1550.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,7/7/2026
+7/10/2026,xfmrduncan-duncan,-1378.0,0.0,"South OKGE, Lawton ","high load driven, ng generation up, 64kv",,,,,,2,,7/9/2026
+7/10/2026,lnbuln-kel,0.0,-1105.0,,,,,,,,,,7/3/2026
+7/10/2026,xfmrturk_pp-turk_pp,-952.0,0.0,,,,,,,,,,7/9/2026
+7/10/2026,xfmrsub975-sub975,-1573.0,-718.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,7/9/2026
+7/10/2026,lnrussett-sbrown,-1965.0,-1558.0,South OKGE,"binds high wind, no obvious outage nearby ",,,,high,,"3,4",,7/9/2026
+7/11/2026,lnsugr_crk-sub_h,0.0,-13087.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/10/2026
+7/11/2026,lnbuln-kel,-8692.0,-463.0,,,,,,,,,,7/10/2026
+7/11/2026,lnt_brmghm-lbrtyst5,-5276.0,-216.0,Kansas,"200kv, S-N, load driven ",,,,mid,,4,,7/10/2026
+7/11/2026,lnsub_f-sugr_crk,-3778.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/10/2026
+7/11/2026,lnwardwa-bismark2,-2830.0,-550.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ",,,,high ,low,5,,7/9/2026
+7/11/2026,lnbrookngs-aurorawa,-6840.0,-6129.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,7/10/2026
+7/11/2026,lnsidney-ogalala,-916.0,-289.0,,,,,,,,,,7/6/2026
+7/11/2026,lnftrandl-spence1,-1164.0,-1102.0,,,,,,,,,,7/7/2026
+7/12/2026,lnbrookngs-aurorawa,-3462.0,-16084.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,7/11/2026
+7/12/2026,lnsugr_crk-sub_h,0.0,-9556.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/11/2026
+7/12/2026,lnsub_f-sugr_crk,-7579.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/11/2026
+7/12/2026,lnbuln-kel,-6456.0,-480.0,,,,,,,,,,7/11/2026
+7/12/2026,lnt_brmghm-lbrtyst5,-669.0,-4486.0,Kansas,"200kv, S-N, load driven ",,,,mid,,4,,7/11/2026
+7/12/2026,xfmrflandru-flandru,-2180.0,0.0,,,,,,,,,,new
+7/12/2026,lnstilwell-redel5,0.0,-1641.0,South Kansas,"binds in very high wind DA 50%, RT 20%, no obvious outage",,,,high,,4,,7/8/2026
+7/12/2026,lnraun-tekamho,-1416.0,-114.0,Sioux City Nebraska,"217 kv, line drops, mid-high wind in 1, load mid-high in 1 ",,,,mid-high,,1,,6/29/2026
+7/12/2026,lnpat_wx-fulton_c_rev23,-1244.0,0.0,,,,,,,,,,new
+7/12/2026,xfmrftsmth-ftsmth,-997.0,0.0,"Fort Smith, AK ","500kv, high wind at 4 RT 35%, low load at 2. ",,,,extra high,,4,,7/3/2026
+7/12/2026,lnst_fran-grn_frst,-951.0,0.0,,,,,,,,,,new
+7/12/2026,lnsulphspr-newell2,-187.0,-1061.0,,,,,,,,,,new
+7/12/2026,lnftrandl-spence1,-1656.0,-1111.0,,,,,,,,,,7/11/2026
+7/12/2026,lnwardwa-bismark2,-1244.0,-1279.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ",,,,high ,,5,,7/11/2026
+7/12/2026,,,,,,,,,,,,"1: ow: 43, fw: 55, ol: 70, fl: 63
+2: ow: 30, fw: 13, ol: 66, fl: 68
+3: ow: 10, fw: 3, ol: 40, fl: 56
+4: ow: 11, fw: 6, ol: 48, fl: 46
+5: ow: 78, fw: 93, ol: 100, fl: 100",
+7/13/2026,lnsub_f-sugr_crk,-12319.0,0.0,Kansas City,"58kv, line drops, wind driven ",,,,,,4,,7/12/2026
+7/13/2026,lnbuln-kel,-4690.0,-423.0,,,,,,,,,,7/12/2026
+7/13/2026,lnbrookngs-aurorawa,-6965.0,-3118.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,7/12/2026
+7/13/2026,lnt_brmghm-lbrtyst5,-3616.0,-820.0,Kansas,"200kv, S-N, load driven ",,,,mid,,4,,7/12/2026
+7/13/2026,xfmrsub975-sub975,-514.0,-2806.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,7/10/2026
+7/13/2026,lnnebrcty-sub3456,-1702.0,-5.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/10/2026
+7/13/2026,lnst_joe-avectytp,-17.0,-1504.0,,,,,,,,,,new
+7/13/2026,lnjamestn-valleyc,-1170.0,0.0,,,,,,,,,,new
+7/13/2026,lncraig-lenexa,-1105.0,0.0,"Kansas, S-N ","330kv, wind driven, 25% high wind RT, 40% DA, load mid-high ",,,,high,,4,,7/8/2026
+7/13/2026,lnftrandl-spence1,-4513.0,-5410.0,,,,,,,,,,7/12/2026
+7/13/2026,lnseminole-maud_tap,-1247.0,-406.0,,,,,,,,,,7/5/2026
+7/13/2026,,,,,,,,,,,,"1: ow: 60, fw: 73, ol: 96, fl: 71
+2: ow: 33, fw: 16, ol: 96, fl: 90
+3: ow: 6, fw: 0, ol: 40, fl: 48
+4: ow: 16, fw: 6, ol: 56, fl: 48
+5: ow: 73, fw: 93, ol: 100, fl: 100",
+7/14/2026,lnt_brmghm-lbrtyst5,-7172.0,0.0,Kansas,"200kv, S-N, load driven ",,,,mid,,4,,7/11/2026
+7/14/2026,lnsugr_crk-sub_h,-6364.0,0.0,W-E Kansas City,"52 kv, line rating drops, wind and ng driven ",,,,,,4,,7/10/2026
+7/14/2026,lnbuln-kel,-5411.0,0.0,,,,,,,,,,7/11/2026
+7/14/2026,lncraig-lenexa,-4424.0,0.0,"Kansas, S-N ","330kv, wind driven, 25% high wind RT, 40% DA, load mid-high ",,,,high,,4,,7/8/2026
+7/14/2026,lnftrandl-spence1,-3660.0,0.0,,,,,,,,,,7/11/2026
+7/14/2026,lnuticajc-mennojt,-3656.0,0.0,,,,,,,,,,new
+7/14/2026,xfmrflandru-flandru,-3381.0,0.0,,,,,,,,,,new
+7/14/2026,xfmrsub975-sub975,-2694.0,0.0,South of Omaha,"low wind and high natural gas generation, high load at 1",,,,low,,1,,7/10/2026
+7/14/2026,lnwardwa-bismark2,-2687.0,0.0,"Bismark, ND ","RT happens when high wind and lwg high at 5, RT lower load happens ",,,,high ,,5,,7/11/2026
+7/14/2026,lnseminole-maud_tap,-1390.0,0.0,,,,,,,,,,7/5/2026
+7/14/2026,lnbrookngs-aurorawa,-1137.0,0.0,"Sioux Falls, N-S","121kv, rating drops ",,,,,,,,7/11/2026
+7/14/2026,lnnebrcty-sub3456,-1031.0,0.0,"S-N, Omaha","984kv, low wind, 35% RT low wind, 25% high load",,,,low,,1,,7/10/2026
+7/14/2026,,,,,,,,,,,,"1: ow: 50, fw: 75, ol: 100, fl: 98
+2: ow: 18, fw: 35, ol: 95, fl: 88
+3: ow: 33, fw: 6, ol: 38, fl: 53
+4: ow: 13, fw: 6, ol: 60, fl: 60
+5: ow: 65, fw: 73, ol: 100, fl: 100",
