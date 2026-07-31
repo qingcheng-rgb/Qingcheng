@@ -21,7 +21,8 @@
       "Bash(timeout 150 /opt/venvs/prod-py312/bin/python -c ' *)",
       "Bash(PYTHONPATH=/var/www/python/Prod/nighthawk python -)",
       "Bash(python -)",
-      "Bash(grep -rnB2 -A2 \"segment_portfolio_details\" --include=\"*.py\" nighthawk/)"
+      "Bash(grep -rnB2 -A2 \"segment_portfolio_details\" --include=\"*.py\" nighthawk/)",
+      "Bash(timeout 300 python3 -c ' *)"
     ]
   }
 }
