@@ -1,0 +1,141 @@
+Analysis complete. Both passes ran clean (exit 0). Here's the briefing.
+
+---
+
+# SPP Daily Bid Analysis — bid date 2026-08-04
+
+**`bid_dt` = 2026-08-04**, **`dt` = 2026-08-03** (the day whose DA has cleared; its RT has *not* settled). RT figures for 08-03 are treated as non-evidence throughout — RT is used only from 08-02 and earlier.
+
+**20 monitored constraints** cleared the 500 threshold: **18 on the DA side**, plus 2 that qualified RT-only (`lntoyne_cb-carlntcb`, `xfmrmcleodn-mcleodn`). Sheet has 968 rows, latest `bid_date` 2026-08-03 — today's entries are already in.
+
+## 1. Zonal setup — the day is defined by a wind collapse everywhere except Zone 3
+
+| zone | ow | fw | ol | fl | read |
+|---|---|---|---|---|---|
+| 1 | 83 | **93** | 62 | 72 | high wind, moderate load |
+| 2 | 54 | **93** | 59 | 75 | overnight wind only |
+| **3** | **96** | **100** | **93** | 80 | **high wind AND high load, all 24 h** |
+| 4 | 51 | **96** | 72 | 64 | overnight wind, afternoon load |
+| 5 | 50 | 62 | **16** | 37 | load unusually weak |
+| 21 | 37 | 71 | **17** | 35 | load unusually weak |
+
+Flagged: **Zone 3 is the outlier of the day** — wind sits at 96–100th percentile every hour *and* load hits the 100th percentile at hrs 9 and 12–15. Both drivers extreme simultaneously is rare and it carries the two highest-conviction names below.
+
+Zone 4's shape matters more than its medians: wind is 12–14 GW at 96.8 pct overnight (hrs 1–8) then **collapses to 3.1–3.5 GW / 42–48 pct through hrs 14–18**, exactly when load peaks at 33.9 GW (hrs 16–17, 77–81 pct). So zone-4 wind-driven constraints are an overnight story and zone-4 load-driven constraints are an afternoon story — they do not overlap tomorrow. Zone 2 has the same collapse (100 pct at hr 1 → 35–51 pct hrs 15–20). Zones 5 and 21 have load down at 6.5–16 pct mid-afternoon.
+
+## 2. Outages
+
+**`linked_outages` returned nothing for all 20 constraint numbers.** That is a reporting gap, not an absence — the Daily Constraints page will show a blank linkedOutage column today, yet at least two candidates below have an unambiguous scheduled outage on their own path. Do not read the empty column as "unexplained."
+
+131 outages are scheduled in effect on 08-04. The ones that matter:
+
+**Explains a candidate:**
+- **Mustang OKGE – SW 5th 138 kV**, 08-03 08:00 → 08-27 14:00. This is the answer for `lnsw51-6_me4_rev23` (monitored SW 5, contingency `okge:cunclmstng1:138` = Council–Mustang). The outage began *on* `dt` and the constraint's first-ever bind is *on* `dt`. It stays in effect on 08-04. Highest-quality causal link of the day.
+- **Morrison – Sooner 138 kV**, 07-23 08:00 → 09-17 15:30 — `lnosage_og-webbtap4`. Your sheet records this as "5/7-6/30, +42MW"; **that note is stale** — the outage has been re-taken 7/23–9/17 and is live tomorrow.
+- **Leland Olds – Logan 230 kV Ckt 1**, 06-01 → 11-15 — matches `lneastruth-minot_rev23`'s contingency `waue:loganwaminot:115` by name. Also live: Chapelle–Leland Olds 345 (→09-30), Chapelle–Fort Thompson 345 (→08-15), Beulah MDU–Halliday 115 (08-03→08-06).
+- **Jamestown KU6A 230/115 XFMR**, 08-03 → 08-20 — Devils Lake / Ramsey pocket, i.e. `lnpenn_tap-devilsl`.
+- **RIDGROTP – CIMARRON 138 kV** (→11-19) and RIDGROTP–RIDGEROA 138 kV — standing outages on the `xfmrcimarron-cimarron` path.
+- **Kereford – Northwest Leavenworth 115 kV**, 07-09 → 08-07 — KC pocket, `lnfirstcrk-roanrdge`.
+- **Split Rock – White 345 kV Ckt 1**, 07-29 → 08-20 — Sioux Falls, plausibly `xfmrsiouxcy-siouxcy`.
+
+**Scheduled on 08-04 with no constraint attached — the surprise risk:**
+- **Pittsburg 345 (PSO) – Valliant 345 kV**, 08-04 07:30 → 08-07. A 345 kV line in SE Oklahoma starting tomorrow morning, no candidate constraint anywhere in that pocket. This is the single largest un-modelled item on the list.
+- **Arbuckle – Mill Creek Tap / – Vanoss / – Sulphur 138 kV**, all 08-04 → 08-05. Three simultaneous 138 kV outages off one south-central OK station — same pocket as `lnrussett-sbrown`, nothing attached.
+- **Kiowa – Road Runner 345 kV**, 08-03 → 08-11 — 345 kV, unattached.
+- **S3459 345/161 kV XFMR** + **S3459 – S1209 161 kV**, both 08-04 07:30 → 08-05, stacking on the already-out S1209–S1250 161 kV #1/#2 and SUB1358–SUB1209 161 kV (→December). A four-element cluster in the Nebraska Sub-1209 pocket, adjacent to `xfmrsub1214-sub1214`.
+- **OKC 138 kV cluster on 08-04**: Quail Creek–Skyline (two windows), Quail Creek–Silverlake, 38th Street–Belle Isle, Cottonwood Creek–Pine Street. Directly around `xfmrnowst1-nowst1` (OKC) and `xfmrcimarron-cimarron` (W OKC).
+- **Catoosa GRDA – Maid GRDA 161 kV #1**, 08-04 07:00–10:00, on top of the standing Catoosa 161/138 XFMR outage — Tulsa pocket, `lnosage` neighbourhood.
+- Joplin/Springfield MO: Sub 360 Joplin NE–Sub 372 (08-04→08-05), Sub 170 Nichols St–Sub 345 Republic NE (08-03→08-05) — `lnmonett-aur1241` pocket.
+
+## 3. Classification
+
+**Momentum — carry these forward**
+
+| constraint | zone/driver | evidence |
+|---|---|---|
+| **`lnrussett-sbrown`** | Z3 **wind** (lift +1.08; load −0.50) | 33.4% baseline, bound DA **7 of 7** trailing days, 552 DA days in 2 y. Z3 wind at 96–100 pct all day is precisely its driver. Last-year same window: 10 DA days, max 391. Highest-conviction name. |
+| **`lnosage_og-webbtap4`** | Z3 **wind** (lift +1.41; load −0.19) | 13.7% baseline, 5 DA days + 1 RT day (max 527) in trailing week. Z3 wind extreme **and** Morrison–Sooner live. Wind-and-outage double support. |
+| **`lnt_brmghm-lbrtyst5`** | Z4 **load** (lift **+9.65**; wind −0.78) | Bound DA **7 of 7** trailing days. Z4 load 72 on-peak / 77–81 pct hrs 15–20 → its window is the afternoon, and the overnight wind spike is *unfavourable* for it. Caveat: record only starts 2026-06-25, **zero** last-year precedent — momentum without a seasonal base. |
+| **`lngord-maiz`** | Z4 **load** (lift +1.49; wind −0.11) | 2 DA + 3 RT days trailing (RT max 570). Aug/Sep are its heaviest months (17/17 and 30/25 days); last-year window 4 DA / 6 RT, RT max 758. Season is opening. |
+| **`lnwr_smkhl-summ`** | Z4 **wind** (lift +1.22) | 20.4% baseline, 330 DA / 283 RT days. But dt magnitude is small (57 DA). Z4 on-peak wind is only 51 pct while off-peak is 96 → **expect overnight binding, weak on-peak**. Time-shaped, not all-day. |
+| **`lnvinetap3-nhays`** | Z2 load +2.17 / wind +1.36 | 6 DA days trailing, 245 DA days in 2 y, last-year window 10 days. But dt_DA only 94 and Z2 is middling (54/93 wind, 59/75 load). Frequent, low-magnitude. |
+| **`lnmonett-aur1241`** | Z4 wind +2.33 / load +1.71 | 5 DA days trailing. Both drivers positive, so the Z4 overnight wind spike helps and the afternoon load helps — but the two don't coincide. July was its big month (29 days), August only 8. Last-year window 7 days, max 502. |
+
+**New**
+
+The literal bucket test (no trailing-week bind + RT bind on `dt`) matches nothing cleanly — the genuinely new names all appeared on the **DA** side. Reporting them as they actually are:
+
+- **`lnsw51-6_me4_rev23`** — first bind ever (record = 08-03 only), day total 1048, lift Z4 load **+19.0**. **Explained**: Mustang–SW 5th 138 kV outage opened 08-03 and runs to 08-27. No seasonal precedent to check because the constraint didn't exist. Carry forward with confidence.
+- **`lnlime_ck-bartonss_rev23`** — first bind ever, and the **largest constraint of the day** (day total 3686, max hourly DA 497). Lift Z4 load +11.85. Monitored is Lime Creek–Barton (north Iowa) on an ALTW Quinn–Killdeer 345 contingency. **No outage in the 131 explains it, and there is no history at all.** This is the biggest open question on the board.
+- **`lnmdwst-frnkln1`** — day total 1885, lift Z4 load +15.36, record = 08-03 only for this constraint number. No node picks possible (every node returned n=0, no price history). Sheet shows 9 prior rows for this monitored name, which must be other contingencies — see caveat in §7.
+- **`lnbois_tap-commtap4_rev23`** — record starts 2026-07-20 (7 DA days: Jul 6, Aug 1), lift Z4 load +19.0. No last-year precedent. Load-driven and new.
+- **`lnpenn_tap-devilsl`** — **did not bind in the trailing week**, then 332 DA on `dt`. Unlike the above it *has* a seasonal precedent: August is its heaviest month (7 DA days), and the last-year window carried 2 DA days at max 551. Jamestown KU6A transformer outage just opened 08-03 in that pocket. A re-awakening with precedent, not a novelty.
+- **`lneastruth-minot_rev23`** — no trailing-week bind, 295 DA on `dt`, 9 DA days back to 2025-05 (June-weighted, no August history, zero last-year). Explained by Leland Olds–Logan 230 kV. Outage-driven, no seasonal support.
+- **`lntoyne_cb-carlntcb`** and **`xfmrmcleodn-mcleodn`** — both are **RT-only constraints structurally**: 0 DA days in 104 weeks, 11 and 41 RT days respectively. Their `dt` RT prints are unusable, but their *pre-`dt`* RT is real: `lntoyne` 2 RT days last week at max 554, `mcleodn` 1 RT day at **max 1501**. Both are live RT actors on genuine recent history.
+
+**Condition mismatch — DA is likely wrong here**
+
+- **`xfmrsiouxcy-siouxcy`** — the clear one. It bound DA on `dt` (331) and your sheet records it as "high wind driven, wind: high". The Zone 1 lift says the opposite: **load +2.79, wind −0.78**. Tomorrow Zone 1 delivers high wind (83 on-peak / 93 off-peak) and only moderate load (62/72) — i.e. the driver the lift says *suppresses* it is elevated, and the driver that *drives* it is not. Both the DA print and your own sheet note point the same way, and the lift contradicts both. Name it explicitly and size down.
+- **`xfmrsub1214-sub1214`** — bound DA on `dt` (110) with essentially **no lift in either direction** (load +0.22, wind −0.40), 1 trailing day, and Nov/Dec/Feb are its real months (26/28/24 days vs Aug 11). Fundamentals give no reason to expect it. The only argument for it is the four-element Sub-1209 outage stack opening tomorrow — which is an outage story, not a conditions story.
+- **`xfmrcimarron-cimarron`** — softer case. Lift is Z2 load +1.37, and Z2 load is middling (59/75) with on-peak wind at only 54. Against that, **August is its single heaviest month (35 DA days)** and last year's window carried 7 DA days, plus the standing RIDGROTP–CIMARRON outage. Seasonality and outage say yes, conditions say unremarkable. Treat as neutral, not a mismatch.
+
+## 4. Sheet cross-reference
+
+- `lnosage_og-webbtap4` (28 rows, last 07-27) — "180kv, high wind driven" ✔ matches Z3 wind at 96–100. **Update needed**: `outage_name` still reads "Morrison - Sooner 138 kV, 5/7-6/30, +42MW"; the current window is 7/23–9/17.
+- `lnrussett-sbrown` (42 rows, last 08-03) — "binds high wind, no obvious outage nearby" ✔ conditions match exactly. Note the three Arbuckle 138 kV outages tomorrow in the same pocket; "no obvious outage" may no longer hold.
+- `lnt_brmghm-lbrtyst5` (23 rows) — "200kv, S-N, load driven" ✔ matches, and the lift (+9.65 load) strongly corroborates your note.
+- `xfmrnowst1-nowst1` (27 rows) — "393kv, high load plus mid high wind" ✔ partially: load supportive, but Z4 on-peak wind at 51 pct is *below* "mid-high".
+- `lngord-maiz` (18 rows) — "high wind plus small outage, middle wind" — ✗ tension: the lift says wind is mildly negative (−0.11) and load positive (+1.49). Your note emphasises wind; the data says load. Worth revisiting.
+- `xfmrsiouxcy-siouxcy` (17 rows) — "high wind driven" ✗ contradicted by the lift, as above.
+- `lnfirstcrk-roanrdge` (27 rows) — "300 kv, high wind driven" ✔ direction matches (wind +2.53), but Z4 on-peak wind is 51 → overnight only.
+- `lnvinetap3-nhays` (6 rows, last 07-08) — "50% high load DA, 14% RT high load" ✔ consistent with a load-lifted, DA-heavy, RT-absent constraint.
+- `xfmrcimarron-cimarron` (4 rows) — "DA 50% high load, RT 20% high load" ✔ consistent.
+- **First-time / effectively first-time** (sheet row created for bid_date 2026-08-03, no recorded condition notes): `lnlime_ck-bartonss_rev23`, `lnsw51-6_me4_rev23`, `lneastruth-minot_rev23`, `xfmrmcleodn-mcleodn`, `xfmrsub1214-sub1214` (1 row, from 06-09, notes "100mw" only), `lnbois_tap-commtap4_rev23` (2 rows), `lntoyne_cb-carlntcb` (2 rows), `lnpenn_tap-devilsl` (4 rows, no notes). No physical condition to carry forward for any of these.
+
+## 5. Node picks
+
+**`lnosage_og-webbtap4`** — the cleanest node set in the run (n=2398):
+
+| node | dfax | corr | sign_acc | mean_pred / actual |
+|---|---|---|---|---|
+| 546 | **+0.2251** | **0.858** | 0.862 | +1.90 / −0.17 |
+| 1117 | −0.2527 | 0.725 | 0.815 | −2.13 / −10.12 |
+| 549 / 547 | −0.2527 | 0.722 | 0.811 | −2.13 / −12.42 |
+| 541 | −0.2527 | 0.719 | 0.812 | −2.13 / −11.52 |
+| 582 | +0.0856 | 0.670 | 0.785 | +0.72 / −2.78 |
+
+**`lngord-maiz`** — excellent correlation, thin sample (n=151): 1504 (dfax +0.3268, corr **0.964**, sign 0.887), 1464 (+0.1667, 0.908), 1465 (+0.1524, 0.906), 1502 (+0.1168, 0.865), 1505 (+0.0898, 0.848). Well-behaved but size for the 151-hour base.
+
+**`xfmrnowst1-nowst1`** — well calibrated (n=197, mean_pred −24.5 vs actual −22.0): 1082/1081 (+0.0812, corr 0.571, sign 0.766), 1577 (+0.0870, 0.558), 1286 (+0.0574, 0.536), 1083/1084/1078/1079/1080 (+0.0868, 0.533).
+
+**`lnwr_smkhl-summ`** — large dfax, solid base (n=3547): 795, 1279, 221, 622, 623 all at dfax **−0.6309**, corr 0.575, sign 0.758, mean_pred −3.62 vs actual −7.08.
+
+**`xfmrsiouxcy-siouxcy`** (n=619) — 1176 (+0.1410, corr 0.316, sign 0.785), 1095 (−0.1168, 0.316), 1196 (−0.0975, 0.313), 1134 (−0.1002, 0.305). Moderate and broad; consistent with the mismatch flag, don't lean on it.
+
+**`lnmonett-aur1241`** (n=1178) — 133/134/136/1220/135 all dfax −0.1684, corr 0.357, sign 0.625. Sign right, magnitude over-predicted (+23.6 vs +9.9).
+
+**`lnt_brmghm-lbrtyst5`** (n=268) — 835 (+0.2005, corr 0.336, sign 0.743), 383/384 (+0.2107, 0.314), 1675 (+0.1775, 0.281). Heavy over-prediction (−47 vs −15).
+
+**`lntoyne_cb-carlntcb`** — near-perfect correlations on **only 33 hours**: 1429/1740 (+0.3158, corr **0.996**, sign 0.848), 928 (+0.3129, 0.996), 2048/2049 (−0.2619, 0.993, sign **1.000**). Calibration is genuinely tight (106.0 pred vs 104.6 actual) but n=33 cannot support size.
+
+**`xfmrmcleodn-mcleodn`** — a single node: 1163, dfax −0.0613, corr 0.509, sign 0.795, n=166, −11.5 vs −14.9.
+
+**Weak node signal despite a tradeable constraint** — flagging so these aren't taken at face value:
+- **`lnrussett-sbrown`**: best corr is only 0.112 (node 2094, dfax 0.4739), and the high-dfax nodes 1499/1532/1533 have mean_pred ≈ −74 against mean_actual **+3.7** — sign-inverted. High conviction on *binding*, low conviction on *which node*.
+- **`lnvinetap3-nhays`**: nodes 794/793 carry dfax 0.688 but corr 0.058 and mean_pred −24.9 vs actual −1.26.
+- **`xfmrcimarron-cimarron`**: best corr 0.123; several nodes at corr −0.20 to −0.24.
+- **`lnfirstcrk-roanrdge`**: best corr 0.190 (node 233); the higher-dfax 1676 (0.392) and 419/420 (0.351) have corr 0.122 and 0.063.
+
+## 6. Gaps
+
+1. **`linked_outages` is empty for all 20 constraints** — the join under-reports. Morrison–Sooner and Mustang–SW 5th are both clearly on-path and both missing from it. I reconstructed causality from `sched_outages` instead.
+2. **Ten of the 20 constraints were scored against Zone 4 by default**, not by operator choice — the sheet has no `reserve_zone` for them. Six of those ten are geographically wrong: `lneastruth-minot_rev23` and `lnpenn_tap-devilsl` (North Dakota), `xfmrmcleodn-mcleodn` (Minnesota), `lntoyne_cb-carlntcb` and `lnlime_ck-bartonss_rev23` (Iowa), `xfmrsub1214-sub1214` (Nebraska). **Their lift numbers are computed against Oklahoma/Kansas fundamentals and should not be trusted.** The other four defaults (`lnsw51-6`, `lnmdwst-frnkln1`, `lnbois_tap`, `lnwr_smkhl-summ`) are plausibly zone 4 on geography. Assigning reserve zones to the six would materially change their reads.
+3. **Five constraints returned "could not find the dfax value"** — no node picks at all: `lnlime_ck-bartonss_rev23` (the day's largest), `lnsw51-6_me4_rev23`, `lnbois_tap-commtap4_rev23`, `lneastruth-minot_rev23`, `lnpenn_tap-devilsl`, `xfmrsub1214-sub1214`. Note this hits the two best-explained new constraints, so there is no way to express them at a node from this run.
+4. **`lnmdwst-frnkln1` has a dfax table but n=0 on every one of its 59 nodes** — no price history, so no metrics.
+5. **Record depth is conditioned on today's constraint numbers, not on the monitored line.** `lnmdwst-frnkln1` shows 1 binding day in 104 weeks for constraint 401270 while the sheet holds 9 prior rows for that name — those rows are almost certainly other contingencies on the same line. So "first bind ever" means first bind *for this monitored/contingency pair*. Same caveat applies to the other `_rev23` names.
+6. **RT history is structurally absent for many DA-heavy names** — `lnrussett-sbrown` (552 DA / 0 RT days), `lnvinetap3-nhays` (245/0), `xfmrcimarron-cimarron` (242/0), `lnmonett-aur1241` (139/0). No RT-active day in two years, so these appear to be DA-enforced only. Not a fetch error, but it means no RT cross-check is available for them.
+7. `predict_tomorrow_percentile` returned data for all six zones (1, 2, 3, 4, 5, 21) — **no missing forecast dates**. No constraint raised an exception; all 20 completed.
+
+Sheet untouched — read-only, as specified. Logs at `QCTest/Manual_bidding/logs/scratch/run.log` and `history.log`.
+
+Two housekeeping notes: a stale `/tmp/inspect.py` shadows the stdlib `inspect` module and breaks any script run from `/tmp`, so I moved the scratchpad under `Manual_bidding/logs/scratch/`. And the trailing-week / last-year lookbacks in step 2's classification aren't produced by the step 1 script — I wrote a second pass (`history.py`) over the same 104-week frame to get them; worth folding into the command if you want it in one run.

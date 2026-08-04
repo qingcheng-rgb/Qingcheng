@@ -1,0 +1,117 @@
+Analysis complete. Here's the briefing.
+
+---
+
+# SPP daily bid briefing — bid date 2026-08-02
+
+**`bid_dt` = 2026-08-02, `dt` = 2026-08-01** (run at 08:00 CT, so one day out).
+
+**Constraints clearing the 500 threshold on the DA side: one.** `lnnebrcty-sub3456`, DA total −746 over 12 hours (hr10–21).
+
+The other three names on the candidate list — `lnrussett-sbrown` (−1343), `lnmryvl_sj-midway5` (−956), `xfmrover-over` (−701) — cleared on the **RT** side of `dt`, and RT on `dt` covers only hours 1–8. Those totals are 5–8 overnight hours, not a day. I am not ranking off them. `lnrussett-sbrown` did also bind DA on `dt`, at −291 over hr1–6 — real, but under threshold.
+
+## Zonal setup for 2026-08-02
+
+| zone | on-pk wind | off-pk wind | on-pk load | off-pk load |
+|---|---|---|---|---|
+| 1 | 40 | **3** | 32 | **12** |
+| 2 | **11** | **1** | 24 | **3** |
+| 3 | **3** | **8** | 69 | 40 |
+| 4 | **3** | **11** | **9** | **4** |
+| 5 | **95** | **91** | 25 | 38 |
+| 21 | 71 | 70 | 67 | 32 |
+
+The story is **wind collapse everywhere except zone 5**. Zones 2, 3, and 4 sit at the 3rd–11th percentile of the trailing month; zone 4 is at 0th percentile for hours 15–19. Zone 5 is the mirror image — 100th percentile hours 8–14, never below 80 all day. Load is soft too: zone 4 load is at the 0th percentile hours 5–13, and only zone 3 (hr17 at 90th) and zone 21 run above their norm.
+
+That combination — southern wind gone, southern load soft — is what undercuts most of the candidate list below.
+
+## Outages
+
+Two candidates have linked outages, and both are the same job:
+
+- **`lnnebrcty-sub3456`** ← Cooper to Fairport 345 kV, 2026-06-08 → **2026-08-21**
+- **`lnmryvl_sj-midway5`** ← St Joe to Fairport 345 kV, 2026-06-08 → **2026-08-21**
+
+Both are still in effect on the bid date. The Fairport 345 kV work is the physical cause behind the whole Nebraska/St Joe corridor showing up right now.
+
+`lnrussett-sbrown` and `xfmrover-over` have **no** linked outage. For Russett–Sbrown that matches your sheet note ("no obvious outage nearby"). For `xfmrover-over` it is a genuine unexplained recurrence — see below.
+
+96 outages are scheduled in effect on 08-02, 46 at ≥115 kV. **Recently-posted, no constraint attached yet** — these are the surprise candidates:
+
+- **Split Rock – White 345 kV Ckt 1** (07-29 → 08-20) — highest-voltage fresh outage on the list, three days old, nothing binding on it yet.
+- **Morrison – Sooner 138 kV** (07-23 → 09-17) — north-central OK, geographically near the OKGE paths that are already active.
+- **7THOMHL 345/161 kV XFMR** (07-29 → 08-03) — expires the day after the bid date.
+- **56th & I 80 – 70th & Bluff 115 kV** + **NORTHBLF – 56ANDI80 115 kV** (both 07-27 → 08-07) — Lincoln NE, same zone-1 area as the Nebraska City corridor that is already binding.
+- **BUTL – OTTERCRK 138 kV** (07-31 → 08-07), **Childress – Lake Pauline 138 kV** (07-31 → 08-03), **Knob Hill WR – Steele City 115 kV** (in effect all of 08-02), **Degrasse – Knob Hill 138 kV** (07-27 → 08-05).
+
+## Candidate classification
+
+### `xfmrover-over` — **New**
+Last bound RT on **2026-03-09**; nothing for five months, then −701 over hr2–8 yesterday. Never binds DA at all (0 DA days in 104 weeks, 200 RT days). Sheet: seen 7×, last 2026-07-01, no physical_condition or outage_name recorded.
+
+**Seasonal precedent: yes, but thin.** Same window last year it bound three days — 2025-07-23 (−270), 07-28 (−507), 07-29 (−155). Magnitudes an order of magnitude below its winter regime (Jan–Feb 2026 ran to −20,331 on 02-01). Its historical hourly shape is overnight-weighted (hr1–8 averaging −230 to −320) with an evening bump hr17–21, which is exactly the window it bound in yesterday.
+
+Condition check works against it: zone-4 wind lift is +1.08 (binding prob 0.150 at top-95pct wind vs 0.072 baseline), and tomorrow zone 4 wind is at the 3rd percentile. The recurrence is not condition-supported. Treat as a low-conviction repeat of a small seasonal pattern.
+
+### `lnrussett-sbrown` — **Momentum, but the driver is switching off**
+Bound on 19 of the last 21 days, both sides, peaking 07-26/07-27 (RT −5171 / −4668). Sheet: 40 sightings, last 2026-07-31, "South OKGE", "binds high wind, no obvious outage nearby", wind=high, zones 3,4. Baseline binding rate 0.353 — this thing binds a third of all hours.
+
+**But it is a high-wind constraint and tomorrow the wind is gone.** Zone-3 wind lift +1.04 (0.719 conditional vs 0.353 baseline); zone 3 on-peak wind tomorrow is at the **3rd** percentile, zone 4 at the 3rd. This qualifies as a **condition mismatch** despite the momentum, and DA is already showing it: −2012 on 07-31 collapsed to −291 on 08-01, and the six hours it kept were hr1–6 only. Expect a weak or absent day. Last year the same window carried it 20 days at up to −8663 RT, so August is its season — but the day-specific setup is against it.
+
+### `lnnebrcty-sub3456` — **Condition mismatch on its dominant driver**
+The only DA-side candidate, and DA-only by nature (0 RT days in 104 weeks, 219 DA days). Bound 12 of the last 21 days, heavy 07-27 → 07-30 (−2534, −3199, −3126, −1189), then −746 yesterday. Sheet: 23 sightings, last 2026-07-30, "S-N, Omaha", "384kv, low wind, 35% RT low wind, 25% high load", wind=low, zone 1. Linked to Cooper–Fairport, still out.
+
+Zone-1 lifts: **load +2.43** (0.407 conditional vs 0.119 baseline) — the dominant driver — and **wind −0.92** (high wind drops it to 0.009, effectively kills it).
+
+Tomorrow splits the two. **Load is the mismatch**: zone-1 load never exceeds the 48th percentile all day, well below the high-load state it needs. **Wind supports it** through the afternoon (22nd–45th percentile hours 10–17), then turns hostile late — zone-1 wind hits the 87th–97th percentile hours 22–24, which should relieve it in the evening. Your recorded condition (low wind) holds for the bidding window; the stronger statistical driver (high load) does not. Net: expect a materially weaker day than the 07-27→07-30 run, concentrated in the afternoon and gone by hr22. Last year this window gave it 11 days at −43 to −762 — the magnitude class it is in now.
+
+### `lnmryvl_sj-midway5` — **Outage-driven, escalating, RT-only**
+RT-only constraint (0 DA days ever). Bound 07-21 (−72), 07-31 (−110), 08-01 (−957) — escalating fast, and yesterday's was 8 hours, hr1–8. Sheet: seen once, 2026-06-10, no condition notes recorded. Linked to St Joe–Fairport 345 kV, out through **08-21**, so the cause persists through the bid date.
+
+**No seasonal precedent** — it did not bind at all in the 2025-07-20 → 08-16 window; first observation is 2025-02-19, and its 2026 activity is Feb, May, Jun, and now. This is outage behaviour, not seasonal behaviour. Zone-4 wind lift is +5.51 (highest lift of any candidate: 0.080 vs 0.012 baseline) and tomorrow's zone-4 wind is at the 3rd percentile, so the statistical condition is against it — but that lift is measured across 104 weeks including long non-outage stretches, and the outage is doing the work right now. I'd weight the outage over the lift here. Caveat: everything about it is RT-only and yesterday's RT is a partial day.
+
+## Node picks
+
+**`lnrussett-sbrown`** — the cleanest node structure of the four. Last 120 days, n=1244:
+
+| node | name | dfax | corr | sign_acc | mean actual |
+|---|---|---|---|---|---|
+| 1734/1735 | OGE.TWELVE.ONE / .TWO | +0.474 | 0.929 | 0.930 | +12.77 |
+| 1532/1533 | OKGE.VOLT.0208 / .0209 | +0.474 | 0.928 | 0.932 | +11.93 |
+| 1499 | OKGE.VOLT.0195 | +0.474 | 0.928 | 0.932 | +12.68 |
+| 1384 | OKGE.VOLT.0116 | −0.084 | 0.741 | 0.720 | −3.62 |
+
+Skip node 2094 (OGE.TWELVE.THREE) — corr 0.923 and sign_acc 0.952 look best-in-class but mean actual is −0.02 on n=620: it gets the direction right and pays nothing.
+
+**`lnmryvl_sj-midway5`** — two nodes matter, both strong:
+
+| node | name | dfax | corr | sign_acc | mean actual |
+|---|---|---|---|---|---|
+| 1683 | KCPL.VOLT.0271 | −0.310 | 0.858 | 0.810 | −37.74 |
+| 1008 | PSLO_AECI_MPS | +0.303 | 0.877 | 0.631 | +18.00 |
+
+KCPL.VOLT.0271 is the pick — biggest magnitude and the better hit rate. Both on n=84 hours only, so thin.
+
+**`xfmrover-over`** — all-history stats only (it has no data in the last 120 days). The high-corr long nodes have coin-flip sign accuracy:
+
+| node | name | dfax | corr | sign_acc | mean actual |
+|---|---|---|---|---|---|
+| 1054 | MPS.OSBORN | −0.088 | 0.445 | **0.739** | **−17.00** |
+| 1610 | KCPL.VOLT.0241 | +0.120 | 0.700 | 0.514 | +13.56 |
+| 390 | MO.KC.MARS6.MP | +0.119 | 0.685 | 0.473 | +8.62 |
+| 393 | MOWR_MOPEPAMMO | +0.079 | 0.621 | 0.510 | +6.30 |
+
+MPS.OSBORN is the directional pick despite the lower correlation — 0.739 sign accuracy and the largest mean move. The 0.47–0.51 sign accuracy on the long side means those nodes co-move in magnitude but not reliably in direction.
+
+**`lnnebrcty-sub3456`** — **no node picks I'd stand behind.** This is the one real problem in the set. 390 nodes clear the 0.05 dfax cutoff and max |dfax| is only 0.254 — the shift factors are diffuse. Over the last 120 days the highest correlation of any node is 0.145, and the high-dfax nodes have the sign backwards: CASS_CO_1/2 and NEBRASKA_CITY_1/2 (dfax −0.254) predict +22.9 and delivered −1.71; the LES/SARPY/OPPD.BEAR cluster (dfax +0.20) predicts −18.8 and delivered +2.05. All-history is no better (best corr 0.119, WAUE.SUEZ.TPLH). So despite this being the only constraint that actually cleared on DA, node-level pass-through has not worked on it.
+
+## Gaps
+
+- **RT on `dt` is a partial day** — hours 1–8 only. Three of four candidates entered the list purely on those overnight hours. The 500-threshold filter (`da_total < −500 OR rt_total < −500`) has no way to know the RT day is incomplete, so today's candidate ranking is skewed toward overnight RT events.
+- **`xfmrover-over` has zero observations in the last 120 days**, so every node statistic for it is drawn from a regime that ended in March. The recency-filtered table is empty.
+- **`lnnebrcty-sub3456` node metrics are unusable** as above — reported rather than dropped.
+- `lnrussett-sbrown` nodes 1292 (OKGE.VOLT.0039) and 1522 (CSWS.NUEN.MDT1) return n=0 in the last 120 days — no price data.
+- No analysis raised, and forecast data is present for all six reserve zones on the bid date.
+- **Reserve zone assumed, not known**, for two names: `xfmrover-over` and `lnmryvl_sj-midway5` have no `reserve_zone` in the sheet, so both were analysed against the zone-4 default. `lnrussett-sbrown` is recorded as "3,4" and was analysed against 3. Zone 4's wind percentiles are nearly identical to zone 3's tomorrow, so the conclusions don't hinge on that, but the lift figures would shift.
+- **Sheet is behind** — 938 rows, latest `bid_date` 2026-07-31. No row for 08-01 or 08-02 yet. I did not write to it.
+- Operational note: a stray `/tmp/inspect.py` on this box shadows the stdlib `inspect` module and breaks any Python run from `/tmp`. I ran from `QCTest/Manual_bidding/logs/scratch/` instead; scripts are there if you want to re-run.

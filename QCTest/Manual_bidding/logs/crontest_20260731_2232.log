@@ -1,0 +1,135 @@
+Analysis complete. Here's the briefing.
+
+---
+
+# SPP Daily Constraint Briefing — bid date **Sunday 2026-08-02**
+
+`bid_dt = 2026-08-02` (Sunday) · `dt = 2026-08-01` (DA cleared, RT not yet settled — **all figures for `dt` are DA-only**)
+
+**Exactly one constraint cleared the 500 threshold on the DA side: `lnnebrcty-sub3456` at −746.2.** 35 others bound DA on 08-01 but below the cut; the nearest misses were `xfmrsub975-sub975` (−476), `lnmdwst-frnkln1` (−461), `lnwillard_-yoakum_rev23` (−400).
+
+## 1. Zonal setup for 08-02
+
+`tomorrow_pct` medians vs the trailing month at the same hour (ow/fw = on/off-peak wind, ol/fl = on/off-peak load):
+
+| zone | ow | fw | ol | fl | read |
+|---|---|---|---|---|---|
+| 1 (NE/north) | 51 | **3** | 33 | 17 | dead calm overnight, big evening wind ramp (hr21–24 at 84→97 pct); load soft |
+| 2 | 25 | **1** | **12** | **1** | no wind overnight, load near the bottom of the month |
+| 3 | **4** | **8** | 61 | 37 | near-zero wind all day (hr14–20 at 0 pct); load the only firm one |
+| 4 (footprint-wide) | **6** | **11** | **6** | **3** | **wind and load both bottom-decile** |
+| 5 | **96** | **91** | 30 | 41 | wind pinned at 100th pct hr8–15 |
+| 21 | 72 | 69 | 67 | 32 | unremarkable |
+
+Two things dominate: **it is a Sunday**, which is why zone-4 load sits at the 3rd–6th percentile against a trailing month that is mostly weekdays; and **wind is bimodal** — bottom-decile in zones 3/4 and overnight zone 1, but 90th+ in zone 5 all day and in zone 1 after hr 20.
+
+## 2. Outages
+
+**Linked (what the Daily Constraints page shows):** `lnnebrcty-sub3456` → **Cooper to Fairport 345 kV, 2026-06-08 13:00 → 2026-08-21 16:00**. Still in effect on the bid date, with three weeks to run. This fully explains the constraint — it is an outage-driven binder, not a weather artefact, and the outage does not clear before 08-21.
+
+94 outages are scheduled to be in effect on 08-02. The Fairport complex is triple-booked (`Cooper NPPD – Fairport 345 kV`, `Fairport – St Joe 345 kV`, `St Joe to Fairport 345kV`), all running to 08-21 or 10-16.
+
+**Scheduled on 08-02 with no constraint attached yet** — posted in the last ~48h, so nothing has had time to bind under them:
+
+- `SUB976 - FREM_D8 69 kV` (posted 07-31 09:40, runs to 08-19) — **FREM_D8 is Fremont, NE, inside OPPD**, the same pocket as nodes FREM_7 / FREM_50T which carry dfax 0.158 on today's constraint. Closest thing to a genuine surprise risk.
+- `BUTL - OTTERCRK 138 kV` (posted 07-31 14:09), `Knob Hill WR - Steele City 115 kV` (07-31 00:48, NE/KS border), `Graham 115/69 kV XFMR` (07-30 18:55), `Warrensburg East – Warrensburg Plant 69 kV` (07-30).
+- `Kiowa - Road Runner 345 kV` (07-31 08:00 → 08-11) and `Split Rock - White 345 kV Ckt 1` (07-29 → 08-20) — the only new **345 kV** additions.
+
+Also worth noting: `lncooper-st_joe` bound DA lightly on 08-01 (−38.7). That is the same Fairport/St Joe/Cooper path — the outage is starting to express itself on a second constraint.
+
+## 3. Classification — `lnnebrcty-sub3456`: **Momentum, with a load-side condition mismatch**
+
+**Momentum** is the right bucket. It bound DA on 20 of the last 25 days and RT on 29 of the last 45. Direction is south-to-north through Omaha (OPPD), carried by zone 1, under the Cooper–Fairport outage.
+
+But tomorrow only half the driver is there. `analyze_constraint_by_zone` (zone 1, corrected fundamentals) is unambiguous:
+
+| fundamental | baseline | cond_prob top-5% | lift |
+|---|---|---|---|
+| rz1 **load** | 0.1186 | 0.4119 | **+2.47** |
+| rz1 **wind** | 0.1186 | 0.0092 | **−0.92** |
+
+It binds on high zone-1 load and is essentially extinguished by high zone-1 wind (the top-5% wind bucket kills the binding rate by 92%). Zone 4 tells the same story more weakly (load +1.83, wind −0.45), and the ordering holds at the 90% and 75% cuts too.
+
+Tomorrow: **wind is supportive** (zone 1 off-peak 3rd pct, zone 3/4 bottom-decile through the afternoon) but **load is not** (zone 1 on-peak 33rd pct, zone 4 on-peak 6th pct). And the zone-1 evening wind ramp — 84th pct at hr21 rising to 97th at hr24 — lands squarely on the hours this thing normally binds hardest.
+
+The DA operator has already made that adjustment. Look at the fade:
+
+| day | DA sum | binding hrs |
+|---|---|---|
+| 07-27 | −2534 | 13 |
+| 07-28 | −3199 | 18 |
+| 07-29 | −3126 | 19 |
+| 07-30 | −1189 | 14 |
+| **08-01** | **−746** | **12 (hr10–21)** |
+
+08-01 DA is a quarter of the 07-28/29 magnitude and the hourly shape is a clean ramp peaking at hr20 (−127). Expect 08-02 softer still — Sunday load, same wind. **This is not a day to press the position; the DA has already priced most of the decay.**
+
+Nothing qualifies as **New** — see the gap in §7, the pipeline structurally cannot produce that classification.
+
+## 4. Sheet cross-reference
+
+`lnnebrcty-sub3456` is well-known: **23 prior appearances, last bid 2026-07-30**.
+
+- `location`: S-N, Omaha
+- `physical_condition`: 384kv, low wind, 35% RT low wind, 25% high load
+- `wind`: low · `reserve_zone`: 1
+
+Your recorded condition is *low wind + high load*. Tomorrow delivers the low wind and misses on the load. The note is confirmed by the fresh lift numbers, so carry it forward unchanged — but flag that only one leg fires on 08-02.
+
+## 5. RT-side behaviour (from the true RT twin, con 550088 — see §7)
+
+RT binds harder and later than DA. Over the last 45 days, RT binding hours concentrate hr16–21 (hr18 = −8555 cumulative, hr17 = −8295), whereas DA on 08-01 peaked at hr20 and quit at hr21. Recent RT days:
+
+| day | RT sum | hours |
+|---|---|---|
+| 07-26 | −4026 | 15–23 |
+| 07-27 | −9283 | 9–22 |
+| 07-28 | −8059 | 8–21, 23 |
+| 07-29 | −645 | 9–11, 17–18 |
+
+RT − DA by day is genuinely two-sided (07-27: −6749, 07-29: +2482), so this is not a one-way fade. On the seven most recent days where DA bound and RT did not at all (07-19, 07-22, 07-25, 07-30, 08-01), DA was the overstatement.
+
+## 6. Node picks
+
+Nodes split cleanly into an OPPD (Nebraska) group and a WAUE (North Dakota) group, all `broad_zone = NORTH`.
+
+**Best signal-to-noise (positive dfax → RT settles below DA on binding days):**
+
+| node | name | dfax | corr | mean_actual RT−DA | n |
+|---|---|---|---|---|---|
+| 920/921/922 | WAUE.MRES.EXR1/2/3 | 0.0789 | 0.067–0.072 | −3.20 to −3.29 | 2072 |
+| 1746 | WAUE.TYRE.BOWMANWIND | 0.0557 | 0.068 | −4.24 | 1018 |
+| 1757 | WAUE.VOLT.0293 | 0.0594 | 0.072 | −3.13 | 784 |
+| 1749/1750/1751 | WAUE.VOLT.0285/0286/0287 | 0.0598 | 0.082–0.085 | −2.02 | 878 |
+| 1236 | WAUE.SUEZ.TPLH | 0.0705 | **0.115** | **−9.16** | 217 ⚠ thin |
+
+**Highest leverage (dfax), if you want size over precision:**
+
+| node | name | dfax | mean_actual | n |
+|---|---|---|---|---|
+| 1491 | OPPD.PLVIEW | **0.1655** | −2.82 | 2072 |
+| 181/183 | FREM_50T / FREM_7 | 0.158–0.159 | −2.36 | 2072 |
+| 942, 342, 343 | WAUE.NMCA.WS4, LES_WSEC_3 | 0.2084 | −1.09 | 2072 |
+| 44/45, 427/428 | CASS_CO_1/2, NEBRASKA_CITY_1/2 | **−0.2541** | +2.02 to +2.30 | 2072 |
+
+**In the last 30 days specifically**, the leaders shift to `899 WAUE.BEPM.STANTHONYWH` (mean_actual −3.81, n=32 6), `1444 WAUE.VOLT.0152` (−3.19), `1231/1276/1455 WAUE.AWD1.AURAWIND` etc. (−3.04) — all with mean_pred around −7.2, i.e. the model has been calling for roughly twice the spread that actually showed up. **The signal has been directionally right and magnitudinally too big.** Size accordingly.
+
+`1491 OPPD.PLVIEW` and the `FREM_*` pair are the picks I'd lead with: full 2072-hour sample, dfax three times the WAUE cluster, consistent negative RT−DA — and Fremont is where the newly-posted `SUB976 - FREM_D8` outage sits, which cuts both ways (more upside if it bites, more model risk if it reroutes flow).
+
+## 7. Gaps — read these before trusting the numbers above
+
+1. **`predict_tomorrow_percentile` returned nothing as the command scripts it.** `get_weather_date(hourly_mvalue, dt)` builds fundamentals only through `dt`, so `bid_dt` is never in the frame and the function printed `No forecast data for 2026-08-02`. I re-ran with `get_weather_date(hourly_mvalue, bid_dt)`; §1 is from that corrected run. **The command's script needs `bid_dt` there** — as written, section 2 of the report can never be produced.
+
+2. **RT and DA use different `oops_constraint_num` for the same physical constraint.** DA is 554091; RT is **550088**. The pipeline only ever carries the DA number, so `rt_mvalue` is identically zero across all 2072 rows, `RT active constraint-days: 0` over the full 104 weeks, and `rt_da` is just `−da_mvalue`. Consequences:
+   - Every "RT" figure in §6 and in `get_metrics_for_nodes` is really a **DA-only** signal. `predicted_node_rt_da = −dfax × rt_da` assumes RT does not bind, which is false on 29 of the last 45 days.
+   - The **New** bucket ("bound RT yesterday but not in the trailing week") is unreachable — the pipeline sees no RT anywhere, ever. I substituted a direct RT query (§5) to cover this.
+
+3. **`sign_acc` carries no information here.** Because `rt_da` never changes sign, `pred` has a fixed sign per node (`−sign(dfax)`), so `sign_acc` is just the unconditional base rate of `node_rt_da < 0` — hence every positive-dfax node reads ≈0.72 and every negative-dfax node ≈0.28. It is not predictive skill. **`corr` is the only discriminating column**, and its magnitudes (0.05–0.12) are weak. That said, the ~72% base rate of RT below DA at these northern nodes on binding days is itself real and tradeable.
+
+4. **`hourly_mvalue` is missing the two most recent DA days.** Its 104-week window ends at *today* (07-31), and the daily prefilter drops 07-31 and 08-01. So `analyze_constraint_by_zone` and all node metrics **exclude the day that just cleared**. §3's hourly detail for 08-01 came from a separate direct query.
+
+5. **`get_metrics_for_nodes` output is display-truncated** — 390 nodes, of which 100+ have `n = 0` (dfax exists but no overlapping binding-hour prices). §6 is from a full recomputation filtered to `n ≥ 30`.
+
+6. No RT figure is quoted for `dt = 2026-08-01`; that day has not settled. §5's RT history stops at 07-29.
+
+7. Nothing was written to the bidding sheet (latest `bid_date` there remains 2026-07-31). This was read-only.

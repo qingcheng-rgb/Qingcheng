@@ -22,7 +22,11 @@
       "Bash(PYTHONPATH=/var/www/python/Prod/nighthawk python -)",
       "Bash(python -)",
       "Bash(grep -rnB2 -A2 \"segment_portfolio_details\" --include=\"*.py\" nighthawk/)",
-      "Bash(timeout 300 python3 -c ' *)"
+      "Bash(timeout 300 python3 -c ' *)",
+      "Bash(nohup python3 /tmp/claude-1028/-var-www-python-Qingcheng/d80afbeb-74a7-4450-8315-36eb69a6cd75/scratchpad/solver_probe.py)",
+      "Bash(timeout 900 python3 /tmp/claude-1028/-var-www-python-Qingcheng/d80afbeb-74a7-4450-8315-36eb69a6cd75/scratchpad/inspect_extreme.py)",
+      "Bash(timeout 1500 python3 /tmp/claude-1028/-var-www-python-Qingcheng/d80afbeb-74a7-4450-8315-36eb69a6cd75/scratchpad/darwin_vs_eigen.py)",
+      "Bash(grep -n \"cumulativeRisk_ceil$\\\\|mergedDF\\\\['ROR'\\\\]\\\\|mergedDF\\\\['ROC'\\\\]\\\\|mergedDF\\\\['RORSq'\\\\]\\\\|mergedDF\\\\['expectedProfit'\\\\]\\\\|mergedDF\\\\['collateral'\\\\]\\\\|minimumROR\\\\]\" ve_portfolio_constructor_darwin.py)"
     ]
   }
 }
