@@ -187,7 +187,7 @@ print(str(datetime.now()))
             'limits':   {'cpu': '1.5', 'memory': '11Gi'},
             'requests': {'cpu': '1.5', 'memory': '11Gi'}
         }}],
-        'nodeSelector': {'cloud.google.com/gke-nodepool': 've-pool-e2hm4-spot'}}}}}
+        'nodeSelector': {'cloud.google.com/gke-nodepool': 've-pool-e2hm4'}}}}}
 
     predict_table = npp.run(work_str, envir='KUBERNETES', scale='FULL',
                             initialization='us-central1-docker.pkg.dev/movetocloud-999/fourier/ve_2024_nn',
