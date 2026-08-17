@@ -1,0 +1,1088 @@
+bid_dt=2026-08-14  dt(DA cleared)=2026-08-13  today=2026-08-13  yesterday=2026-08-12
+start_dt: 2026-08-13, end_dt: 2026-08-13, Market: SPP
+Fetching RT mvalues...
+Fetching DA mvalues...
+RT constraints: 20, DA constraints: 83
+Fetching constraint details...
+    oops_constraint_num   rt_total   da_total      rt_da  abs_rt_da_diff                  monitored                       contingency
+0                901009     0.0000 -7832.0747  7832.0747       7832.0747               ln6_me4-sw51         okge:cunclmstng1:138:1:12
+1                805090     0.0000 -6933.5371  6933.5371       6933.5371          xfmrnowst1-nowst1    okge:nowst1xfxf3t:34513813.8:3
+2                680789     0.0000 -5941.8110  5941.8110       5941.8110            lnweav-tallgras               wr:bentmidi:138:1:5
+3                885955     0.0000 -5175.4451  5175.4451       5175.4451        lnmaud_tap-earlsbrh       okge:maud_tapforst1:138:1:5
+4                791309 -4756.7706     0.0000 -4756.7706       4756.7706        lnosage_og-webbtap4  grdaokge:clevlnd7whtetail:345:1:
+5                776592     0.0000 -3711.7210  3711.7210       3711.7210          xfmrduncan-duncan  wfec:anadarkofletch3comanch2:138
+6                650291     0.0000 -3555.4346  3555.4346       3555.4346      xfmrcimarron-cimarron    okge:cimarronxfa31:345138:5:17
+7                894057     0.0000 -3545.7807  3545.7807       3545.7807  lnommarlo4-rsh_sprg_rev23  csws:law_escomancheduncan:138:4:
+8                649753     0.0000 -2914.3352  2914.3352       2914.3352           lnrussett-sbrown   okge:brown2bodlecaney1:138:7:34
+9                801513     0.0000 -2616.1164  2616.1164       2616.1164           lnmonett-aur1241     aeci:jasper7blackbry:345:1:12
+10               870900     0.0000 -2596.7470  2596.7470       2596.7470            lnknoll1-redlin        seci:setab1mingo1:345:2:13
+11               791481     0.0000 -2351.7966  2351.7966       2351.7966        lnosage_og-webbtap4  grdaokge:clevlnd7whtetail:345:1:
+12               805089     0.0000 -1989.1240  1989.1240       1989.1240    xfmrnowst1-nowst1_rev23    okge:nowst1xfxf3t:34513813.8:3
+13               626867     0.0000 -1801.7250  1801.7250       1801.7250            ln29eveng3-29ga               wr:hoytjeff:345:1:6
+14               901010     0.0000 -1710.6073  1710.6073       1710.6073        lnfirstcrk-roanrdge             mps:kcipltcty:161:1:6
+15               489575     0.0000 -1680.3972  1680.3972       1680.3972             lncraig-lenexa         kcpl:lenexacraig:161:1:11
+16               609805     0.0000 -1644.6703  1644.6703       1644.6703          lnftrandl-spence1        nppd:meadw_grkelly:230:1:6
+17               287144     0.0000 -1641.7814  1641.7814       1641.7814        lnclevlnd7-clev_aec  cswsgrda:tulsa_noclevlnd7:345:1:
+18               539122     0.0000 -1630.2290  1630.2290       1630.2290            lnpecan1-agncy1          okge:pecan1five1:161:1:8
+19               801901 -1551.7018     0.0000 -1551.7018       1551.7018           lnmonett-aur1241     aeci:jasper7blackbry:345:1:12
+20               763067 -1508.7896     0.0000 -1508.7896       1508.7896          xfmrduncan-duncan  wfec:anadarkofletch3comanch2:138
+21               903205     0.0000 -1429.0620  1429.0620       1429.0620                lnmoun-jade             wr:burnempec:345:1:10
+22               673940     0.0000 -1136.0607  1136.0607       1136.0607           lnvinetap3-nhays         midw:knoll1xfa:230115:1:6
+23               792948     0.0000  -943.6855   943.6855        943.6855        lnjay_hawk-frankln5          edewr:ram452nses:161:1:5
+24               556227     0.0000  -910.5713   910.5713        910.5713          xfmrmonett-monett         ede:monettaur1241:161:1:3
+25               850374     0.0000  -872.4665   872.4665        872.4665        lnmaud_tap-earlsbrh    okge:muskogeeseminole:345:1:11
+26               670493     0.0000  -820.7960   820.7960        820.7960         lnatl1091-carthage        ede:car395asb3491:161:2:11
+27               902646     0.0000  -750.5208   750.5208        750.5208          lnholcom1-grdnct1       seci:holcom1setab1:345:1:12
+28               825403     0.0000  -749.8264   749.8264        749.8264        xfmrlex1611-lex1611      kcpl:nortonmaltabn5:161:2:11
+29               901530     0.0000  -681.3548   681.3548        681.3548        lncommtap4-bois_tap    csws:santafe4cornvill:138:1:11
+30               894881     0.0000  -643.4262   643.4262        643.4262      xfmrpotter_s-potter_s   sps:hitchxfhitch_230_345:345230
+31               903104  -587.6795     0.0000  -587.6795        587.6795                lnmoun-jade             wr:burnempec:345:1:10
+32               294336  -530.2172     0.0000  -530.2172        530.2172        lnclevlnd7-clev_aec  cswsgrda:tulsa_noclevlnd7:345:1:
+33               568166     0.0000  -525.4068   525.4068        525.4068      lnmain1-batfld5_rev23  sprmaeci:junctn5brook_ln:161:1:1
+34               673559  -519.9230     0.0000  -519.9230        519.9230           lnvinetap3-nhays         midw:knoll1xfa:230115:1:6
+35               650796  -484.9130     0.0000  -484.9130        484.9130      xfmrcimarron-cimarron    okge:cimarronxfa31:345138:5:17
+37               307014  -475.2764     0.0000  -475.2764        475.2764        lnmaud_tap-earlsbrh    okge:muskogeeseminole:345:1:11
+54               712969     0.0000  -210.7643   210.7643        210.7643        lnjay_hawk-frankln5       kcpl:cntrvillpaola:161:1:11
+60               894147  -160.0731     0.0000  -160.0731        160.0731      xfmrpotter_s-potter_s   sps:hitchxfhitch_230_345:345230
+64               587267     0.0000  -133.1058   133.1058        133.1058           lnvinetap3-nhays        midw:postrockshays:230:1:7
+66               852761  -104.1846     0.0000  -104.1846        104.1846          xfmrnowst1-nowst1    okge:nowst1xfxf3t:34513813.8:3
+82               710185     0.0000   -36.1613    36.1613         36.1613          lnftrandl-spence1      nppd:stapletnmaxwell:115:1:8
+start_dt: 2026-08-12, end_dt: 2026-08-13, Market: SPP
+Fetching RT mvalues...
+Fetching DA mvalues...
+RT constraints: 53, DA constraints: 100
+Fetching constraint details...
+     oops_constraint_num    rt_total    da_total       rt_da  abs_rt_da_diff            monitored                       contingency
+0                 901009      0.0000 -16077.9155  16077.9155      16077.9155         ln6_me4-sw51         okge:cunclmstng1:138:1:12
+1                 852761 -12832.0506      0.0000 -12832.0506      12832.0506    xfmrnowst1-nowst1    okge:nowst1xfxf3t:34513813.8:3
+2                 870900      0.0000 -12404.1325  12404.1325      12404.1325      lnknoll1-redlin        seci:setab1mingo1:345:2:13
+3                 680789      0.0000 -11665.9834  11665.9834      11665.9834      lnweav-tallgras               wr:bentmidi:138:1:5
+4                 885955      0.0000  -9996.5696   9996.5696       9996.5696  lnmaud_tap-earlsbrh       okge:maud_tapforst1:138:1:5
+..                   ...         ...         ...         ...             ...                  ...                               ...
+127               710185      0.0000    -36.1613     36.1613         36.1613    lnftrandl-spence1      nppd:stapletnmaxwell:115:1:8
+132               305665    -27.3124      0.0000    -27.3124         27.3124    lnstilwell-redel5  mpskcpl:peculia7stilwell:345:1:1
+136               705929      0.0000    -23.2816     23.2816         23.2816  lnseminole-maud_tap  okge:seminolemaud_tap:138:1:8:1x
+140               719029    -12.1617      0.0000    -12.1617         12.1617      lnmarshal3-knob          wr:marshal3ssen:115:2:12
+148               655003      0.0000     -5.0381      5.0381          5.0381      lnmarshal3-knob       oppd:sub975sub1399:161:2:17
+
+[87 rows x 7 columns]
+
+DA candidates for 2026-08-14: 28
+RT binders 2026-08-12 to 2026-08-13: 30
+RT-only (not in tomorrow DA): ['lnanta_tp-anita', 'lnaur1241-rdspg5', 'lncrescent-ctnwd1', 'lnharbine-beatrice', 'lnharbingr-walkmy1', 'lnjeff-aubu', 'lnksc10-farb', 'lnmarshal3-knob', 'lnnormhll-turner4', 'lnseminole-maud_tap', 'lnstilwell-redel5', 'xfmrbrook_ln-brook_ln', 'xfmrholcom1-holcom1', 'xfmrredwlo1-redwlo1']
+RT active constraint-days: 2213
+DA active constraint-days: 4132
+   oops_constraint_num          dt  hr  rt_mvalue  da_mvalue     rt_da
+0               282063  2025-01-13  19        0.0   -69.0333   69.0333
+1               282063  2025-01-13  20        0.0   -95.7432   95.7432
+2               282063  2025-01-13  21        0.0   -96.5111   96.5111
+3               282063  2025-01-13  22        0.0   -99.0827   99.0827
+4               282063  2025-01-13  23        0.0  -119.5744  119.5744
+
+Merged hourly rows: 49448
+       oops_constraint_num          dt  hr  rt_mvalue  da_mvalue     rt_da              monitored                       contingency
+0                   282063  2025-01-13  19        0.0   -69.0333   69.0333  xfmrstilwell-stilwell  mpskcpl:peculia7stilwell:345:1:1
+1                   282063  2025-01-13  20        0.0   -95.7432   95.7432  xfmrstilwell-stilwell  mpskcpl:peculia7stilwell:345:1:1
+2                   282063  2025-01-13  21        0.0   -96.5111   96.5111  xfmrstilwell-stilwell  mpskcpl:peculia7stilwell:345:1:1
+3                   282063  2025-01-13  22        0.0   -99.0827   99.0827  xfmrstilwell-stilwell  mpskcpl:peculia7stilwell:345:1:1
+4                   282063  2025-01-13  23        0.0  -119.5744  119.5744  xfmrstilwell-stilwell  mpskcpl:peculia7stilwell:345:1:1
+...                    ...         ...  ..        ...        ...       ...                    ...                               ...
+49443               903205  2026-08-13   8        0.0   -28.4935   28.4935            lnmoun-jade             wr:burnempec:345:1:10
+49444               903205  2026-08-13   9        0.0    -7.7743    7.7743            lnmoun-jade             wr:burnempec:345:1:10
+49445               903207  2026-08-12  18        0.0  -162.0009  162.0009         lnbrmall-sub_n    kcplindn:blue_vlysub_n:161:1:5
+49446               903208  2026-08-12  23        0.0   -50.7730   50.7730        lnknoll1-redlin     nppd:macon345axtell1:345:1:13
+49447               903208  2026-08-12  24        0.0   -22.5790   22.5790        lnknoll1-redlin     nppd:macon345axtell1:345:1:13
+
+[49448 rows x 8 columns]
+
+--- today 2026-08-13 hours 1-8, RT ---
+                       rt_mvalue  da_mvalue
+monitored                                  
+lnosage_og-webbtap4   -4756.7706  -559.4445
+lnmonett-aur1241      -1551.7018  -688.3473
+xfmrduncan-duncan     -1508.7896 -2158.3236
+lnmoun-jade            -587.6795 -1421.2877
+lnclevlnd7-clev_aec    -530.2172 -1153.5873
+lnvinetap3-nhays       -519.9230  -504.1514
+xfmrcimarron-cimarron  -484.9130  -494.6546
+lnmaud_tap-earlsbrh    -475.2764  -555.3642
+lncrescent-ctnwd1      -360.9947  -299.6947
+lnaur1241-rdspg5       -274.9651     0.0000
+xfmrpotter_s-potter_s  -160.0731  -218.4967
+xfmrnowst1-nowst1      -104.1846     0.0000
+lnmarshal3-knob          -8.4316  -164.7115
+lnknoll1-redlin           0.0000  -221.0616
+lnholcom1-grdnct1         0.0000   -77.7727
+lnjay_hawk-frankln5       0.0000  -286.0470
+lnstilwell-redel5         0.0000    -9.0596
+lnrussett-sbrown          0.0000 -1689.7479
+lnksc10-farb              0.0000   -20.7743
+lnatl1091-carthage        0.0000    -7.8697
+lnharbingr-walkmy1        0.0000   -49.0963
+lnweav-tallgras           0.0000 -1813.5095
+xfmrredwlo1-redwlo1       0.0000  -313.1323
+
+--- yesterday 2026-08-12 full day ---
+                            rt_mvalue  da_mvalue
+monitored                                       
+xfmrnowst1-nowst1         -15174.8982 -6555.5330
+lnmaud_tap-earlsbrh       -10055.1110 -4821.1245
+xfmrduncan-duncan          -7688.0736 -4161.0471
+ln6_me4-sw51               -6038.9649 -8245.8408
+xfmrholcom1-holcom1        -3785.8766  -107.2724
+lnseminole-maud_tap        -2678.8440   -23.2816
+lnksc10-farb               -1792.9757   -83.9787
+lnvinetap3-nhays           -1633.2841  -471.2652
+lnanta_tp-anita            -1116.8843     0.0000
+lnmonett-aur1241            -914.6988 -2107.2662
+lnnormhll-turner4           -906.7235     0.0000
+xfmrredwlo1-redwlo1         -903.4239 -2024.7162
+xfmrbrook_ln-brook_ln       -885.9037     0.0000
+lnholcom1-grdnct1           -858.9135  -936.9186
+lnmarshal3-knob             -839.3915  -277.1373
+lnjeff-aubu                 -833.7465  -473.6659
+lnclevlnd7-clev_aec         -768.4957 -1244.5568
+xfmrcimarron-cimarron       -521.8403 -2666.1205
+lnharbine-beatrice          -506.7108  -221.4935
+lnmoun-jade                 -440.6746  -260.9578
+lncommtap4-bois_tap         -428.1439  -104.2565
+lnknoll1-redlin             -387.3721 -9880.7375
+lnaur1241-rdspg5            -382.1206     0.0000
+lnharbingr-walkmy1          -373.6239  -697.6630
+xfmrpotter_s-potter_s       -372.1448  -476.8526
+lnpecan1-agncy1             -169.3604   -56.5557
+lncrescent-ctnwd1           -133.7360  -361.5436
+lnosage_og-webbtap4          -82.6166  -200.5864
+lnrussett-sbrown             -45.6427 -1951.2855
+lnstilwell-redel5            -27.3124 -1075.9591
+lnjay_hawk-frankln5            0.0000  -242.7949
+lnanta_tp-exirawa_rev23        0.0000  -671.8542
+lntallgras-butl                0.0000 -3399.1695
+lnommarlo4-rsh_sprg_rev23      0.0000 -1784.2917
+lnnebrcty-sub3456              0.0000 -1058.7870
+lnatl1091-carthage             0.0000  -217.9136
+lnbrmall-sub_n                 0.0000  -287.1500
+lncraig-lenexa                 0.0000 -1344.8905
+lniatan-easttown               0.0000  -717.3262
+lnweav-tallgras                0.0000 -5724.1724
+xfmrmonett-monett              0.0000   -26.1618
+xfmrlex1611-lex1611            0.0000  -188.7069
+xfmrstilwell-stilwell          0.0000 -3760.7652
+
+--- RT binding days in the last 30 ---
+monitored
+xfmrpotter_s-potter_s    31
+lnrussett-sbrown         26
+xfmrbrook_ln-brook_ln    23
+xfmrnowst1-nowst1        20
+lnmonett-aur1241         19
+lnseminole-maud_tap      19
+lnosage_og-webbtap4      16
+lnstilwell-redel5        16
+lnmaud_tap-earlsbrh      15
+lnjeff-aubu              13
+xfmrcimarron-cimarron    13
+lnmarshal3-knob          12
+lnanta_tp-anita          11
+lnclevlnd7-clev_aec      11
+lnaur1241-rdspg5         11
+xfmrduncan-duncan        10
+xfmrredwlo1-redwlo1       9
+lnvinetap3-nhays          9
+ln6_me4-sw51              9
+lnharbingr-walkmy1        8
+lnksc10-farb              7
+lncommtap4-bois_tap       6
+lncrescent-ctnwd1         6
+lnpecan1-agncy1           4
+lnharbine-beatrice        4
+lnknoll1-redlin           3
+lnmoun-jade               3
+lnholcom1-grdnct1         2
+lnnormhll-turner4         2
+xfmrholcom1-holcom1       1
+Reserve zones available: [1, 2, 3, 4, 5, 21]
+Wind cols: ['rz1_spp_res_zonal_wind_forecast_f', 'rz2_spp_res_zonal_wind_forecast_f', 'rz3_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_wind_forecast_f', 'rz5_spp_res_zonal_wind_forecast_f', 'rz21_spp_res_zonal_wind_forecast_f']
+Load cols: ['rz1_spp_res_zonal_load_forecast_f', 'rz2_spp_res_zonal_load_forecast_f', 'rz3_spp_res_zonal_load_forecast_f', 'rz4_spp_res_zonal_load_forecast_f', 'rz5_spp_res_zonal_load_forecast_f', 'rz21_spp_res_zonal_load_forecast_f']
+
+--- Zone 1 ---
+    hr  wind_value  wind_pct  load_value  load_pct
+0    1      1098.0      38.7      5660.6      58.1
+1    2      1002.0      35.5      5466.1      61.3
+2    3       948.3      35.5      5290.2      54.8
+3    4       896.1      32.3      5293.0      61.3
+4    5       857.6      29.0      5301.3      61.3
+5    6       724.6      25.8      5331.0      54.8
+6    7       632.1      19.4      5649.6      80.6
+7    8       601.7      25.8      5774.2      80.6
+8    9       553.0      38.7      5931.2      77.4
+9   10       485.3      58.1      6064.1      64.5
+10  11       413.4      45.2      6114.9      38.7
+11  12       355.5      41.9      6307.8      38.7
+12  13       313.2      29.0      6569.7      38.7
+13  14       288.1      22.6      7037.8      51.6
+14  15       252.5      12.9      7189.4      54.8
+15  16       213.3       9.7      7279.5      54.8
+16  17       179.7       9.7      7302.3      58.1
+17  18       143.9       3.2      7299.1      58.1
+18  19       138.3       3.2      7225.3      58.1
+19  20       158.6       3.2      7067.9      51.6
+20  21       186.3       0.0      6898.7      61.3
+21  22       221.0       0.0      6544.0      64.5
+22  23       233.2       0.0      6350.7      64.5
+23  24       218.7       0.0      5934.8      71.0
+
+--- Zone 2 ---
+    hr  wind_value  wind_pct  load_value  load_pct
+0    1      4275.2      51.6       928.7      87.1
+1    2      4126.9      54.8       893.3      87.1
+2    3      3924.7      58.1       869.9      83.9
+3    4      3603.2      54.8       852.2      90.3
+4    5      3201.9      58.1       830.1      74.2
+5    6      2876.1      51.6       830.2      71.0
+6    7      2663.6      51.6       843.4      67.7
+7    8      2401.1      51.6       861.7      67.7
+8    9      2094.7      51.6       896.9      64.5
+9   10      1915.2      51.6       937.8      61.3
+10  11      1747.4      51.6       985.6      64.5
+11  12      1516.6      48.4      1022.8      58.1
+12  13      1394.5      48.4      1080.9      80.6
+13  14      1388.0      41.9      1121.2      80.6
+14  15      1466.8      41.9      1139.7      77.4
+15  16      1658.3      45.2      1141.7      64.5
+16  17      1856.2      45.2      1157.4      74.2
+17  18      2102.4      45.2      1162.4      83.9
+18  19      2433.0      45.2      1155.7      80.6
+19  20      2565.4      41.9      1133.0      67.7
+20  21      2735.9      35.5      1025.7      29.0
+21  22      3043.3      25.8       997.1      38.7
+22  23      3241.2      19.4       985.9      67.7
+23  24      3323.6      16.1       973.6      90.3
+
+--- Zone 3 ---
+    hr  wind_value  wind_pct  load_value  load_pct
+0    1      2095.7      80.6      5266.7      93.5
+1    2      2097.1      87.1      5084.1      77.4
+2    3      2093.4      93.5      5050.5      74.2
+3    4      2095.3      96.8      5038.7      80.6
+4    5      2061.9      96.8      5018.1      90.3
+5    6      1998.2      96.8      5018.2      90.3
+6    7      1908.7      96.8      5042.7      90.3
+7    8      1745.8      96.8      5064.1      93.5
+8    9      1428.5      96.8      5056.5      80.6
+9   10      1165.7      87.1      5112.0      51.6
+10  11       980.4      77.4      5314.4      61.3
+11  12       772.8      74.2      5635.6      71.0
+12  13       669.6      74.2      5812.8      61.3
+13  14       694.5      77.4      6051.0      67.7
+14  15       784.2      77.4      6214.8      83.9
+15  16       927.4      80.6      6319.1      93.5
+16  17      1154.0      83.9      6385.8      96.8
+17  18      1360.5      96.8      6339.1      87.1
+18  19      1523.5      96.8      6281.0      87.1
+19  20      1658.4      96.8      6148.1      87.1
+20  21      1698.2      90.3      5926.2      74.2
+21  22      1750.4      77.4      5824.2      90.3
+22  23      1894.6      67.7      5609.4      83.9
+23  24      1953.7      64.5      5484.7      90.3
+
+--- Zone 4 ---
+    hr  wind_value  wind_pct  load_value  load_pct
+0    1     14964.2      87.1     26074.0      83.9
+1    2     14921.1      87.1     25109.2      83.9
+2    3     14684.9      83.9     24099.8      87.1
+3    4     14286.7      80.6     23267.1      83.9
+4    5     13896.2      80.6     23054.7      83.9
+5    6     13584.9      87.1     22925.3      77.4
+6    7     13214.3      90.3     23507.0      77.4
+7    8     12803.9      93.5     24102.7      77.4
+8    9     12429.4      96.8     25535.5      77.4
+9   10     12267.7      96.8     27370.7      74.2
+10  11     12041.7      96.8     29345.4      74.2
+11  12     11526.3      96.8     31410.8      80.6
+12  13     11017.8      96.8     33025.1      83.9
+13  14     10777.1      96.8     33939.8      83.9
+14  15     10665.0      93.5     34597.9      87.1
+15  16     10660.4      93.5     34727.9      83.9
+16  17     10750.0      93.5     34601.7      83.9
+17  18     10855.2      87.1     34337.2      83.9
+18  19     10899.3      83.9     33849.8      77.4
+19  20     10854.5      83.9     32943.8      74.2
+20  21     11256.0      74.2     31339.5      71.0
+21  22     12312.8      74.2     29909.3      67.7
+22  23     13059.7      74.2     28030.8      64.5
+23  24     13349.5      74.2     26593.8      64.5
+
+--- Zone 5 ---
+    hr  wind_value  wind_pct  load_value  load_pct
+0    1      1785.3      48.4      4006.6      48.4
+1    2      1781.6      51.6      3944.2      58.1
+2    3      1736.2      54.8      3855.9      48.4
+3    4      1698.1      61.3      3828.5      54.8
+4    5      1627.5      58.1      3825.9      58.1
+5    6      1569.6      58.1      3861.9      54.8
+6    7      1535.2      61.3      3966.0      48.4
+7    8      1449.4      67.7      4078.7      54.8
+8    9      1321.8      71.0      4166.6      51.6
+9   10      1269.5      77.4      4208.7      35.5
+10  11      1252.0      80.6      4227.4      19.4
+11  12      1195.9      71.0      4319.6      19.4
+12  13      1150.3      67.7      4385.1      12.9
+13  14      1114.2      64.5      4425.3       0.0
+14  15      1036.2      64.5      4467.1       0.0
+15  16       944.5      54.8      4507.7       0.0
+16  17       846.5      45.2      4474.7       0.0
+17  18       770.8      32.3      4471.8       0.0
+18  19       749.8      29.0      4441.6       0.0
+19  20       743.5      25.8      4415.8       0.0
+20  21       757.5      19.4      4392.9       3.2
+21  22       782.7       9.7      4268.6       6.5
+22  23       793.8       6.5      4116.2       9.7
+23  24       799.2       9.7      3968.6       9.7
+
+--- Zone 21 ---
+    hr  wind_value  wind_pct  load_value  load_pct
+0    1       274.0       6.5      3478.8      29.0
+1    2       225.1       3.2      3296.6      29.0
+2    3       188.0       0.0      3151.9      32.3
+3    4       178.3       0.0      3173.0      71.0
+4    5       175.6       0.0      3106.1      71.0
+5    6       164.1      12.9      3087.0      61.3
+6    7       152.6      12.9      3141.1      71.0
+7    8       133.1      12.9      3114.1      48.4
+8    9       106.9      12.9      3238.8      48.4
+9   10        81.5       9.7      3398.8      74.2
+10  11        75.0       9.7      3600.2      74.2
+11  12        79.3      12.9      3842.9      77.4
+12  13        75.5      12.9      4079.2      80.6
+13  14        68.5      12.9      4281.3      80.6
+14  15        67.3       9.7      4481.3      83.9
+15  16        80.5      12.9      4596.1      83.9
+16  17        90.5       6.5      4638.2      77.4
+17  18       105.4      12.9      4677.4      71.0
+18  19       176.0      22.6      4600.1      48.4
+19  20       246.7      25.8      4522.8      41.9
+20  21       279.6      22.6      4401.0      38.7
+21  22       301.5       9.7      4275.5      48.4
+22  23       308.4       6.5      4085.7      41.9
+23  24       290.6       6.5      3793.4      38.7
+
+--- Summary (median pct by zone / peak) ---
+1: ow: 11, fw: 30, ol: 58, fl: 61
+2: ow: 45, fw: 53, ol: 67, fl: 85
+3: ow: 82, fw: 95, ol: 83, fl: 90
+4: ow: 93, fw: 85, ol: 77, fl: 83
+5: ow: 59, fw: 56, ol: 4, fl: 51
+21: ow: 12, fw: 4, ol: 72, fl: 50
+
+--- tomorrow (2026-08-14) zonal percentiles ---
+     zone  hr  wind_value  wind_pct  load_value  load_pct peak
+0       1   1      1098.0      38.7      5660.6      58.1  off
+1       1   2      1002.0      35.5      5466.1      61.3  off
+2       1   3       948.3      35.5      5290.2      54.8  off
+3       1   4       896.1      32.3      5293.0      61.3  off
+4       1   5       857.6      29.0      5301.3      61.3  off
+5       1   6       724.6      25.8      5331.0      54.8  off
+6       1   7       632.1      19.4      5649.6      80.6  off
+7       1   8       601.7      25.8      5774.2      80.6   on
+8       1   9       553.0      38.7      5931.2      77.4   on
+9       1  10       485.3      58.1      6064.1      64.5   on
+10      1  11       413.4      45.2      6114.9      38.7   on
+11      1  12       355.5      41.9      6307.8      38.7   on
+12      1  13       313.2      29.0      6569.7      38.7   on
+13      1  14       288.1      22.6      7037.8      51.6   on
+14      1  15       252.5      12.9      7189.4      54.8   on
+15      1  16       213.3       9.7      7279.5      54.8   on
+16      1  17       179.7       9.7      7302.3      58.1   on
+17      1  18       143.9       3.2      7299.1      58.1   on
+18      1  19       138.3       3.2      7225.3      58.1   on
+19      1  20       158.6       3.2      7067.9      51.6   on
+20      1  21       186.3       0.0      6898.7      61.3   on
+21      1  22       221.0       0.0      6544.0      64.5   on
+22      1  23       233.2       0.0      6350.7      64.5   on
+23      1  24       218.7       0.0      5934.8      71.0  off
+24      2   1      4275.2      51.6       928.7      87.1  off
+25      2   2      4126.9      54.8       893.3      87.1  off
+26      2   3      3924.7      58.1       869.9      83.9  off
+27      2   4      3603.2      54.8       852.2      90.3  off
+28      2   5      3201.9      58.1       830.1      74.2  off
+29      2   6      2876.1      51.6       830.2      71.0  off
+30      2   7      2663.6      51.6       843.4      67.7  off
+31      2   8      2401.1      51.6       861.7      67.7   on
+32      2   9      2094.7      51.6       896.9      64.5   on
+33      2  10      1915.2      51.6       937.8      61.3   on
+34      2  11      1747.4      51.6       985.6      64.5   on
+35      2  12      1516.6      48.4      1022.8      58.1   on
+36      2  13      1394.5      48.4      1080.9      80.6   on
+37      2  14      1388.0      41.9      1121.2      80.6   on
+38      2  15      1466.8      41.9      1139.7      77.4   on
+39      2  16      1658.3      45.2      1141.7      64.5   on
+40      2  17      1856.2      45.2      1157.4      74.2   on
+41      2  18      2102.4      45.2      1162.4      83.9   on
+42      2  19      2433.0      45.2      1155.7      80.6   on
+43      2  20      2565.4      41.9      1133.0      67.7   on
+44      2  21      2735.9      35.5      1025.7      29.0   on
+45      2  22      3043.3      25.8       997.1      38.7   on
+46      2  23      3241.2      19.4       985.9      67.7   on
+47      2  24      3323.6      16.1       973.6      90.3  off
+48      3   1      2095.7      80.6      5266.7      93.5  off
+49      3   2      2097.1      87.1      5084.1      77.4  off
+50      3   3      2093.4      93.5      5050.5      74.2  off
+51      3   4      2095.3      96.8      5038.7      80.6  off
+52      3   5      2061.9      96.8      5018.1      90.3  off
+53      3   6      1998.2      96.8      5018.2      90.3  off
+54      3   7      1908.7      96.8      5042.7      90.3  off
+55      3   8      1745.8      96.8      5064.1      93.5   on
+56      3   9      1428.5      96.8      5056.5      80.6   on
+57      3  10      1165.7      87.1      5112.0      51.6   on
+58      3  11       980.4      77.4      5314.4      61.3   on
+59      3  12       772.8      74.2      5635.6      71.0   on
+60      3  13       669.6      74.2      5812.8      61.3   on
+61      3  14       694.5      77.4      6051.0      67.7   on
+62      3  15       784.2      77.4      6214.8      83.9   on
+63      3  16       927.4      80.6      6319.1      93.5   on
+64      3  17      1154.0      83.9      6385.8      96.8   on
+65      3  18      1360.5      96.8      6339.1      87.1   on
+66      3  19      1523.5      96.8      6281.0      87.1   on
+67      3  20      1658.4      96.8      6148.1      87.1   on
+68      3  21      1698.2      90.3      5926.2      74.2   on
+69      3  22      1750.4      77.4      5824.2      90.3   on
+70      3  23      1894.6      67.7      5609.4      83.9   on
+71      3  24      1953.7      64.5      5484.7      90.3  off
+72      4   1     14964.2      87.1     26074.0      83.9  off
+73      4   2     14921.1      87.1     25109.2      83.9  off
+74      4   3     14684.9      83.9     24099.8      87.1  off
+75      4   4     14286.7      80.6     23267.1      83.9  off
+76      4   5     13896.2      80.6     23054.7      83.9  off
+77      4   6     13584.9      87.1     22925.3      77.4  off
+78      4   7     13214.3      90.3     23507.0      77.4  off
+79      4   8     12803.9      93.5     24102.7      77.4   on
+80      4   9     12429.4      96.8     25535.5      77.4   on
+81      4  10     12267.7      96.8     27370.7      74.2   on
+82      4  11     12041.7      96.8     29345.4      74.2   on
+83      4  12     11526.3      96.8     31410.8      80.6   on
+84      4  13     11017.8      96.8     33025.1      83.9   on
+85      4  14     10777.1      96.8     33939.8      83.9   on
+86      4  15     10665.0      93.5     34597.9      87.1   on
+87      4  16     10660.4      93.5     34727.9      83.9   on
+88      4  17     10750.0      93.5     34601.7      83.9   on
+89      4  18     10855.2      87.1     34337.2      83.9   on
+90      4  19     10899.3      83.9     33849.8      77.4   on
+91      4  20     10854.5      83.9     32943.8      74.2   on
+92      4  21     11256.0      74.2     31339.5      71.0   on
+93      4  22     12312.8      74.2     29909.3      67.7   on
+94      4  23     13059.7      74.2     28030.8      64.5   on
+95      4  24     13349.5      74.2     26593.8      64.5  off
+96      5   1      1785.3      48.4      4006.6      48.4  off
+97      5   2      1781.6      51.6      3944.2      58.1  off
+98      5   3      1736.2      54.8      3855.9      48.4  off
+99      5   4      1698.1      61.3      3828.5      54.8  off
+100     5   5      1627.5      58.1      3825.9      58.1  off
+101     5   6      1569.6      58.1      3861.9      54.8  off
+102     5   7      1535.2      61.3      3966.0      48.4  off
+103     5   8      1449.4      67.7      4078.7      54.8   on
+104     5   9      1321.8      71.0      4166.6      51.6   on
+105     5  10      1269.5      77.4      4208.7      35.5   on
+106     5  11      1252.0      80.6      4227.4      19.4   on
+107     5  12      1195.9      71.0      4319.6      19.4   on
+108     5  13      1150.3      67.7      4385.1      12.9   on
+109     5  14      1114.2      64.5      4425.3       0.0   on
+110     5  15      1036.2      64.5      4467.1       0.0   on
+111     5  16       944.5      54.8      4507.7       0.0   on
+112     5  17       846.5      45.2      4474.7       0.0   on
+113     5  18       770.8      32.3      4471.8       0.0   on
+114     5  19       749.8      29.0      4441.6       0.0   on
+115     5  20       743.5      25.8      4415.8       0.0   on
+116     5  21       757.5      19.4      4392.9       3.2   on
+117     5  22       782.7       9.7      4268.6       6.5   on
+118     5  23       793.8       6.5      4116.2       9.7   on
+119     5  24       799.2       9.7      3968.6       9.7  off
+120    21   1       274.0       6.5      3478.8      29.0  off
+121    21   2       225.1       3.2      3296.6      29.0  off
+122    21   3       188.0       0.0      3151.9      32.3  off
+123    21   4       178.3       0.0      3173.0      71.0  off
+124    21   5       175.6       0.0      3106.1      71.0  off
+125    21   6       164.1      12.9      3087.0      61.3  off
+126    21   7       152.6      12.9      3141.1      71.0  off
+127    21   8       133.1      12.9      3114.1      48.4   on
+128    21   9       106.9      12.9      3238.8      48.4   on
+129    21  10        81.5       9.7      3398.8      74.2   on
+130    21  11        75.0       9.7      3600.2      74.2   on
+131    21  12        79.3      12.9      3842.9      77.4   on
+132    21  13        75.5      12.9      4079.2      80.6   on
+133    21  14        68.5      12.9      4281.3      80.6   on
+134    21  15        67.3       9.7      4481.3      83.9   on
+135    21  16        80.5      12.9      4596.1      83.9   on
+136    21  17        90.5       6.5      4638.2      77.4   on
+137    21  18       105.4      12.9      4677.4      71.0   on
+138    21  19       176.0      22.6      4600.1      48.4   on
+139    21  20       246.7      25.8      4522.8      41.9   on
+140    21  21       279.6      22.6      4401.0      38.7   on
+141    21  22       301.5       9.7      4275.5      48.4   on
+142    21  23       308.4       6.5      4085.7      41.9   on
+143    21  24       290.6       6.5      3793.4      38.7  off/var/www/python/Prod/nighthawk/nighthawk/data/network/constraint.py:1277: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  rt_end = pd.to_datetime(rt["outageEndDtTime"], errors="coerce")
+/var/www/python/Prod/nighthawk/nighthawk/data/network/constraint.py:1305: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(combined_outages["actual_end_dt"], errors="coerce")
+
+
+linked outages:
+   oops_constraint_num                                                                linkedOutage
+0               554091   Cooper to Fairport 345kV (Line) FROM 2026-06-08 13:00 TO 2026-08-21 16:00
+1               849249  Avoca Co Op - East Rogers 161 kV FROM 2026-07-01 18:40 TO 2026-08-31 16:00
+2               870900            SALINE - KNOLL1 115 kV FROM 2026-08-12 06:00 TO 2026-08-19 17:00
+3               872853            SALINE - KNOLL1 115 kV FROM 2026-08-12 06:00 TO 2026-08-19 17:00
+4               903208            SALINE - KNOLL1 115 kV FROM 2026-08-12 06:00 TO 2026-08-19 17:00
+
+scheduled outages in effect on 2026-08-14: 114
+                                                  outageName    eqNum   outageStartDtTime     outageEndDtTime  voltage
+                             St Joe to Fairport 345kV (Line)  19268.0 2026-06-08 13:00:00 2026-08-21 16:00:00      345
+                             Cooper to Fairport 345kV (Line)  19269.0 2026-06-08 13:00:00 2026-08-21 16:00:00      345
+                                 2MARIES / 2NEWBRG 1 69.0 KV  20393.0 2026-06-15 08:00:00 2026-12-15 16:00:00       69
+                   Karnack - Karnack Switching Station 69 kV  27443.0 2019-04-02 12:00:00 2026-12-31 16:00:00       69
+           Sub 410 Forsyth North - Sub 457 Ozark South 69 kV  32158.0 2022-07-22 13:50:00 2029-07-21 16:00:00       69
+        Port Robson - Woodchuck (Benteler Steel) CKT 2 138kV  27185.0 2023-01-19 08:00:00 2026-08-31 16:00:00      138
+                             Catoosa GRDA 161/138 kV XFMR #1  27697.0 2023-05-22 08:00:00 2026-12-31 16:00:00      138
+                                  Five Tribes - Oktaha 69 kV 110727.0 2023-09-08 11:33:00 2026-12-31 17:00:00       69
+                                Oktaha 161/69 kV Transformer 111257.0 2023-09-08 11:33:00 2026-12-31 17:00:00        0
+                                Oktaha - Checotah OKGE 69 kV 111260.0 2023-09-08 11:33:00 2026-12-31 17:00:00       69
+                       El Reno Junction - Red Corn Tap 69 kV 105870.0 2026-05-18 16:01:00 2026-09-25 16:00:00       69
+                           Springfield SPA 161/69 kV XFMR #3  26888.0 2025-06-12 12:00:00 2030-06-01 16:00:00        0
+                           Springfield SPA 161/69 kV XFMR #3  26888.0 2025-06-12 12:00:00 2030-06-01 16:00:00       69
+                                  Hugoton - Moscow Tap 69 kV  30614.0 2025-07-24 09:29:00 2027-12-31 16:00:00       69
+                             Spencer - Spencer S. Jct. 69 kV  84646.0 2025-08-25 08:00:00 2026-09-03 16:00:00       69
+                               Cooper NPPD - Fairport 345 kV  19269.0 2026-04-10 08:30:00 2026-10-16 16:00:00      345
+                                Denison - Exira 161 kV Ckt 1  34981.0 2025-09-12 10:05:00 2028-12-31 16:00:00      161
+                              Denison WAUE 161/1 Transformer  58290.0 2025-09-12 10:05:00 2028-12-31 16:00:00      161
+                      Carlsbad Interchange 115/69 kV XFMR #1  30380.0 2025-10-20 13:01:00 2027-10-21 16:00:00       69
+                      Carlsbad Interchange 115/69 kV XFMR #1  30380.0 2025-10-20 13:01:00 2027-10-21 16:00:00        0
+                    Hale Center Sub - Tuco Interchange 69 kV  29949.0 2025-11-24 08:00:00 2026-11-06 16:00:00       69
+                                  RIDGROTP - CIMARRON 138 kV 162570.0 2025-12-01 00:00:00 2026-11-19 16:00:00      138
+                                  RIDGROTP - TUTCONTP 138 kV 162572.0 2025-12-01 00:00:00 2026-11-20 16:00:00      138
+                                              K319 - L9 69kV  68422.0 2026-02-05 08:00:00 2026-12-31 16:00:00       69
+                                    Humboldt - Webster 69 kV  59350.0 2026-06-16 08:30:00 2026-09-10 15:00:00       69
+                                    Comanche - Walters 69 kV  29197.0 2026-08-13 16:01:00 2026-09-24 16:00:00       69
+                                  RIDGROTP - RIDGEROA 138 kV 162571.0 2026-02-01 00:00:00 2026-11-19 16:00:00      138
+Lonesome Creek Switchyard - Patent Gate 115 115 kV ckt2 West 111289.0 2026-04-10 16:00:00 2026-12-31 07:59:00      115
+                                     S1209 - S1250 161 kV #1  34469.0 2026-07-06 07:00:00 2026-12-18 15:30:00      161
+                                     SUB1358 - SUB1209 161kV 142730.0 2026-07-06 07:00:00 2026-12-18 15:30:00      161
+                                     S1209 - S1250 161 kV #2  34469.0 2026-07-06 07:00:00 2027-06-30 16:30:00      161
+                                 Collinsville - Owasso 69 kV  20253.0 2026-05-18 08:00:00 2026-09-19 16:00:00       69
+                     Woodward District EHV 345/138 kV XFMR 2  84165.0 2026-02-03 12:29:00 2026-12-31 17:00:00      138
+                                   Sedalia 161/69 kV XFMR #1  31734.0 2026-03-09 08:00:00 2026-12-31 16:00:00       69
+                                     DIERKS - UMPIRETP 69 kV 135555.0 2026-04-06 07:00:00 2026-11-17 16:00:00       69
+                  Maddox Plant 115/13.8 Transformer CKT XF_2  30398.0 2026-02-25 08:00:00 2026-09-30 16:00:00      115
+                                       GATUSI - ONETA 345 kV 154462.0 2026-03-01 00:00:00 2027-03-29 07:59:00      345
+                                     GATUSI - NE_COAL 345 kV 154461.0 2026-03-01 00:00:00 2027-03-29 07:59:00      345
+                           Igloo Valley - Tulsa North 345 kV 105698.0 2026-03-03 00:00:00 2026-09-02 00:00:00      345
+                             Clinton City - Thomas Tap 69 kV  27936.0 2026-03-06 08:00:00 2026-08-31 16:00:00       69
+                                    Fairport - St Joe 345 kV  19268.0 2026-06-08 08:00:00 2026-08-21 16:00:00      345
+                              Branch - North Magazine 161 kV  27052.0 2026-04-08 15:01:00 2026-10-15 16:00:00      161
+                            Leland Olds - Logan 230 kV Ckt 1  35078.0 2026-06-01 08:00:00 2026-11-15 16:00:00      230
+                                 DefSmREC 230/115 kV XFMR #1  29754.0 2026-04-10 15:06:00 2026-08-31 23:19:00      115
+                                 DefSmREC 230/115 kV XFMR #1  29754.0 2026-04-10 15:06:00 2026-08-31 23:19:00        0
+                        Seven Rv Interchange 230/115 kV XFMR  30371.0 2026-04-15 16:01:00 2027-01-29 16:00:00      115
+                       Canadian River 345/138 kV Transformer  26522.0 2026-04-17 08:00:00 2026-08-14 16:00:00      138
+                                    MacArthur - Seneca 69 kV  31491.0 2026-05-04 10:00:00 2026-09-18 15:00:00       69
+                             New Underwood - Rushmore 115 kV  34841.0 2026-08-10 08:00:00 2026-08-20 16:00:00      115
+                             New Underwood - Rushmore 115 kV  58209.0 2026-08-10 08:00:00 2026-08-20 16:00:00      115
+                                            K105 - K132 69kV  68522.0 2026-07-15 16:01:00 2026-08-19 08:59:00       69
+                                              K132 - J9 69kV  68523.0 2026-07-15 16:01:00 2026-08-19 08:59:00       69
+                  33rd & Superior - 59th & Cornhusker 115 kV  34641.0 2026-08-10 08:00:00 2026-08-21 16:00:00      115
+                               CROSSRDS - HOBBS 345 kV Ckt 1 152040.0 2026-08-12 08:00:00 2026-09-08 16:00:00      345
+                   Illinois River - Webbers Falls OKGE 69 kV  28844.0 2026-06-26 09:00:00 2026-11-27 17:30:00       69
+                           Warner - Webbers Falls OKGE 69 kV  28845.0 2026-06-26 09:00:00 2026-11-27 17:30:00       69
+                                     Lakeview - Hanlon 69 kV 111661.0 2026-06-04 16:00:00 2026-08-21 16:00:00       69
+                         Dequeen Co Op - Foreman Co Op 69 kV  26781.0 2026-06-08 14:41:00 2026-08-15 16:00:00       69
+                                Lockesburg - Nashville 69 kV  27073.0 2026-06-08 14:41:00 2026-08-15 16:00:00       69
+                             Malta - Richardson Coulee 161kV  68047.0 2026-06-10 16:01:00 2026-11-18 12:33:00      161
+                         Fort Peck - Richardson Coulee 161kV  68048.0 2026-06-10 16:01:00 2026-11-18 12:33:00      161
+                           Glasgow West - Cotton Switch 69kV  68066.0 2026-06-10 16:01:00 2026-11-18 12:33:00       69
+                                 Whatley - Glasgow East 69kV  68067.0 2026-06-10 16:01:00 2026-11-18 12:33:00       69
+                                     Whatley - New Deal 69kV  68068.0 2026-06-10 16:01:00 2026-11-18 12:33:00       69
+                      Richardson Coulee - Cotton Switch 69kV  68069.0 2026-06-10 16:01:00 2026-11-18 12:33:00       69
+                                        Harlem - Malta 161kV  69243.0 2026-06-10 16:01:00 2026-11-18 12:33:00      161
+                              Fort Peck - New Deal 69kV Ct 1  69250.0 2026-06-10 16:01:00 2026-11-18 12:33:00       69
+                                      Leoti - Selkirk 115 kV  30665.0 2026-08-10 08:00:00 2026-08-14 16:00:00      115
+                           13 & 40 - Warrensburg Plant 69 kV  31816.0 2026-08-03 08:00:00 2026-10-30 16:00:00       69
+                         Spencer Center - Spencer West 69 kV  84711.0 2026-07-01 13:00:00 2026-09-03 16:00:00       69
+                    Eddy Co Interchange - Eddy DC Tie 230 kV  30313.0 2026-06-19 11:55:00 2026-08-17 17:00:00      230
+                             Split Rock - White 345 kV Ckt 1  58272.0 2026-07-29 07:00:00 2026-08-20 16:00:00      345
+                              Clarksville SPA - Ozark 161 kV  26907.0 2026-08-10 09:00:00 2026-08-14 14:00:00      161
+                         Chapelle - Leland Olds 345 kV Ckt 1 111027.0 2026-06-29 06:08:00 2026-09-30 17:00:00      345
+                       Chapelle - Fort Thompson 345 kV Ckt 1 110774.0 2026-06-29 06:09:00 2026-08-15 17:00:00      345
+                                Mustang OKGE - SW 5th 138 kV  28436.0 2026-08-03 08:00:00 2026-08-27 14:00:00      138
+                            Avoca Co Op - East Rogers 161 kV  26755.0 2026-07-01 18:40:00 2026-08-31 16:00:00      161
+                               Canton Lake - Southard 138 kV 105748.0 2026-08-10 07:00:00 2026-08-27 07:00:00      138
+                                Hobart - Roosevelt Tap 69 kV  86249.0 2026-07-05 10:30:00 2026-08-31 16:00:00       69
+                                     Shamrock 115/69 kV XFMR  26510.0 2026-08-12 16:01:00 2026-08-28 17:00:00       69
+                 North Memphis REC - Northwest Memphis 69 kV  28052.0 2026-08-12 16:01:00 2026-08-28 17:00:00       69
+                          McLean Rural Sub - Shamrock 115 kV  28074.0 2026-08-12 16:01:00 2026-08-28 17:00:00      115
+                          Northwest Memphis - Caracara 69 kV 105720.0 2026-08-12 16:01:00 2026-08-28 17:00:00       69
+                        Riverside Station 345/138 kV XFMR #2  27588.0 2026-07-06 11:16:00 2026-08-15 16:00:00      138
+                                 El Reno WFEC 138/69 kV XFMR  29232.0 2026-07-13 08:00:00 2026-08-14 16:00:00       69
+                          Morris County - Union Ridge 230 kV  30831.0 2026-08-10 07:00:00 2026-08-14 17:00:00      230
+                                    Morrison - Sooner 138 kV  28349.0 2026-07-23 08:00:00 2026-09-17 15:30:00      138
+                  Hitchland Interchange 345/230 kV XFMR West  29445.0 2026-07-09 15:21:00 2026-08-31 01:42:00      230
+                     Grand Saline - Grand Saline Co Op 69 kV  27312.0 2026-08-14 07:30:00 2026-08-14 17:30:00       69
+                        Pilgrams Rest Co Op - Westwood 69 kV  27328.0 2026-08-14 05:00:00 2026-08-14 11:00:00       69
+                            Canby OTP - Granite Falls 115 kV  33382.0 2026-08-11 14:00:00 2026-08-15 13:00:00      115
+                      Granite Falls 115/69 kV Transformer #1  58281.0 2026-08-11 14:00:00 2026-08-15 13:00:00       69
+Granite Falls - Minnesota Valley Tap NSP/Panther 230 kV Ckt   32653.0 2026-08-11 14:30:00 2026-08-17 15:00:00      230
+Granite Falls - Minnesota Valley Tap NSP/Panther 230 kV Ckt   57403.0 2026-08-11 14:30:00 2026-08-17 15:00:00      230
+                                     Mont - Strandahl 115 kV  59439.0 2026-07-27 08:00:00 2026-10-29 16:00:00      115
+                                        Baker - Neosho 69 kV  84294.0 2026-08-12 07:00:00 2026-09-09 17:00:00       69
+                           Pleasant Hill MPS - Raymore 69 kV  31830.0 2026-08-03 08:00:00 2026-09-04 16:00:00       69
+                                        Mohawk Bus Tie 138kV  26548.0 2026-07-21 14:15:00 2026-08-15 16:00:00      138
+                               South 4th Street - Imo 138 kV  28255.0 2026-08-14 09:00:00 2026-08-14 11:30:00      138
+                                    KENT_MPS - STALEY2 69 kV 156966.0 2026-08-10 08:00:00 2026-09-11 16:00:00       69
+                                      SALINE - KNOLL1 115 kV  30455.0 2026-08-14 06:00:00 2026-08-18 17:00:00      115
+                                    Dearing - Liberty 138 kV  30900.0 2026-08-14 07:00:00 2026-08-14 15:00:00      138
+                                        Agate - Rolla 115 kV  58112.0 2026-08-10 08:00:00 2026-09-03 16:00:00      115
+                                       SUB976 - FREM_D8 69kV 111562.0 2026-07-31 09:40:00 2026-08-19 09:34:00       69
+                                         Duke - Gypsum 69 kV 105859.0 2026-08-11 06:00:00 2026-08-14 13:50:00       69
+                            OFallon Creek - Terry Tap 115 kV  34720.0 2026-08-10 09:00:00 2026-08-14 17:00:00      115
+                                        Depaul - Rouse 69 kV  31433.0 2026-08-14 07:00:00 2026-08-14 17:00:00       69
+                                              K319 - L9 69kV  68422.0 2026-08-10 08:00:00 2026-12-31 16:00:00       69
+        Port Robson - Woodchuck (Benteler Steel) CKT 1 138kV  27186.0 2026-08-06 12:00:00 2026-08-17 07:59:00      138
+                     Williston 115/57.2 Transformer CKT KY4A  58141.0 2026-08-10 00:13:00 2028-12-31 23:59:00      115
+                  Water Valley EES - Water Valley SPA 161 kV  23103.0 2026-08-10 04:51:00 2026-08-14 16:30:00      161
+                              Maryville - Braddyville 161 kV 111192.0 2026-08-10 12:24:00 2026-08-14 12:24:00      161
+                              Franklin WFEC - Liddell 138 kV  29259.0 2026-08-12 17:32:00 2026-08-14 16:00:00      138
+                                    Madison - Norfolk 115 kV  34343.0 2026-08-13 02:43:00 2026-08-14 16:04:00      115
+
+sheet rows: 1158 | latest bid_date: 2026-08-13 | zone mappings: 59
+
+candidates (48): ['ln29eveng3-29ga', 'ln6_me4-sw51', 'lnanta_tp-anita', 'lnanta_tp-exirawa_rev23', 'lnatl1091-carthage', 'lnaur1241-rdspg5', 'lnbrmall-sub_n', 'lnclevlnd7-clev_aec', 'lncommtap4-bois_tap', 'lncraig-lenexa', 'lncrescent-ctnwd1', 'lnfirstcrk-roanrdge', 'lnftrandl-spence1', 'lnharbine-beatrice', 'lnharbingr-walkmy1', 'lnholcom1-grdnct1', 'lniatan-easttown', 'lnjay_hawk-frankln5', 'lnjeff-aubu', 'lnknoll1-redlin', 'lnksc10-farb', 'lnmain1-batfld5_rev23', 'lnmarshal3-knob', 'lnmaud_tap-earlsbrh', 'lnmonett-aur1241', 'lnmoun-jade', 'lnnebrcty-sub3456', 'lnnormhll-turner4', 'lnommarlo4-rsh_sprg_rev23', 'lnosage_og-webbtap4', 'lnpecan1-agncy1', 'lnrussett-sbrown', 'lnseminole-maud_tap', 'lnstilwell-redel5', 'lntallgras-butl', 'lnvinetap3-nhays', 'lnweav-tallgras', 'xfmrbrook_ln-brook_ln', 'xfmrcimarron-cimarron', 'xfmrduncan-duncan', 'xfmrholcom1-holcom1', 'xfmrlex1611-lex1611', 'xfmrmonett-monett', 'xfmrnowst1-nowst1', 'xfmrnowst1-nowst1_rev23', 'xfmrpotter_s-potter_s', 'xfmrredwlo1-redwlo1', 'xfmrstilwell-stilwell']
+
+======================================================================
+ln29eveng3-29ga  |  source: DA only  |  zone 4  |  RT days last 30: 0
+Constraint  : 'ln29eveng3-29ga'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0217  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  ln29eveng3-29ga             4  rz4_spp_res_zonal_load_forecast_f         0.0217              0.2411     10.10
+0  ln29eveng3-29ga             4  rz4_spp_res_zonal_wind_forecast_f         0.0217              0.0011     -0.95
+
+======================================================================
+ln6_me4-sw51  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 9
+Constraint  : 'ln6_me4-sw51'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0067  |  Total hours: 17496
+      monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  ln6_me4-sw51             4  rz4_spp_res_zonal_load_forecast_f         0.0067              0.1143     16.09
+0  ln6_me4-sw51             4  rz4_spp_res_zonal_wind_forecast_f         0.0067              0.0000     -1.00
+
+======================================================================
+lnanta_tp-anita  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 11
+Constraint  : 'lnanta_tp-anita'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0153  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnanta_tp-anita             4  rz4_spp_res_zonal_load_forecast_f         0.0153              0.1223      6.98
+0  lnanta_tp-anita             4  rz4_spp_res_zonal_wind_forecast_f         0.0153              0.0000     -1.00
+
+======================================================================
+lnanta_tp-exirawa_rev23  |  source: recent DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnanta_tp-exirawa_rev23'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0063  |  Total hours: 17496
+                 monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnanta_tp-exirawa_rev23             4  rz4_spp_res_zonal_load_forecast_f         0.0063              0.0754     10.89
+0  lnanta_tp-exirawa_rev23             4  rz4_spp_res_zonal_wind_forecast_f         0.0063              0.0000     -1.00
+
+======================================================================
+lnatl1091-carthage  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnatl1091-carthage'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0243  |  Total hours: 17496
+            monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnatl1091-carthage             4  rz4_spp_res_zonal_load_forecast_f         0.0243              0.0857      2.53
+0  lnatl1091-carthage             4  rz4_spp_res_zonal_wind_forecast_f         0.0243              0.0274      0.13
+
+======================================================================
+lnaur1241-rdspg5  |  source: RT only  |  zone 4  |  RT days last 30: 11
+Constraint  : 'lnaur1241-rdspg5'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0154  |  Total hours: 17496
+          monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnaur1241-rdspg5             4  rz4_spp_res_zonal_wind_forecast_f         0.0154              0.0423      1.74
+1  lnaur1241-rdspg5             4  rz4_spp_res_zonal_load_forecast_f         0.0154              0.0069     -0.56
+
+======================================================================
+lnbrmall-sub_n  |  source: recent DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnbrmall-sub_n'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0013  |  Total hours: 17496
+        monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnbrmall-sub_n             4  rz4_spp_res_zonal_load_forecast_f         0.0013               0.024     17.26
+0  lnbrmall-sub_n             4  rz4_spp_res_zonal_wind_forecast_f         0.0013               0.000     -1.00
+
+======================================================================
+lnclevlnd7-clev_aec  |  source: DA+RT  |  zone 4  |  RT days last 30: 11
+Constraint  : 'lnclevlnd7-clev_aec'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1275  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnclevlnd7-clev_aec             4  rz4_spp_res_zonal_wind_forecast_f         0.1275              0.2229      0.75
+1  lnclevlnd7-clev_aec             4  rz4_spp_res_zonal_load_forecast_f         0.1275              0.1714      0.34
+
+======================================================================
+lncommtap4-bois_tap  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 6
+Constraint  : 'lncommtap4-bois_tap'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0074  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lncommtap4-bois_tap             4  rz4_spp_res_zonal_load_forecast_f         0.0074              0.0949     11.77
+0  lncommtap4-bois_tap             4  rz4_spp_res_zonal_wind_forecast_f         0.0074              0.0000     -1.00
+
+======================================================================
+lncraig-lenexa  |  source: DA only  |  zone 4  |  RT days last 30: 0
+Constraint  : 'lncraig-lenexa'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0090  |  Total hours: 17496
+        monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lncraig-lenexa             4  rz4_spp_res_zonal_load_forecast_f          0.009               0.144     14.95
+0  lncraig-lenexa             4  rz4_spp_res_zonal_wind_forecast_f          0.009               0.024      1.66
+
+======================================================================
+lncrescent-ctnwd1  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 6
+Constraint  : 'lncrescent-ctnwd1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1568  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lncrescent-ctnwd1             4  rz4_spp_res_zonal_wind_forecast_f         0.1568              0.8674      4.53
+1  lncrescent-ctnwd1             4  rz4_spp_res_zonal_load_forecast_f         0.1568              0.0880     -0.44
+
+======================================================================
+lnfirstcrk-roanrdge  |  source: DA only  |  zone 4  |  RT days last 30: 0
+Constraint  : 'lnfirstcrk-roanrdge'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0011  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnfirstcrk-roanrdge             4  rz4_spp_res_zonal_load_forecast_f         0.0011              0.0183     15.84
+0  lnfirstcrk-roanrdge             4  rz4_spp_res_zonal_wind_forecast_f         0.0011              0.0000     -1.00
+
+======================================================================
+lnftrandl-spence1  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnftrandl-spence1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0148  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnftrandl-spence1             4  rz4_spp_res_zonal_load_forecast_f         0.0148              0.1394      8.42
+0  lnftrandl-spence1             4  rz4_spp_res_zonal_wind_forecast_f         0.0148              0.0000     -1.00
+
+======================================================================
+lnharbine-beatrice  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 4
+Constraint  : 'lnharbine-beatrice'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0102  |  Total hours: 17496
+            monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnharbine-beatrice             4  rz4_spp_res_zonal_wind_forecast_f         0.0102              0.0377      2.69
+1  lnharbine-beatrice             4  rz4_spp_res_zonal_load_forecast_f         0.0102              0.0034     -0.66
+
+======================================================================
+lnharbingr-walkmy1  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 8
+Constraint  : 'lnharbingr-walkmy1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0047  |  Total hours: 17496
+            monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnharbingr-walkmy1             4  rz4_spp_res_zonal_load_forecast_f         0.0047              0.0377      6.95
+0  lnharbingr-walkmy1             4  rz4_spp_res_zonal_wind_forecast_f         0.0047              0.0023     -0.52
+
+======================================================================
+lnholcom1-grdnct1  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 2
+Constraint  : 'lnholcom1-grdnct1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0034  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnholcom1-grdnct1             4  rz4_spp_res_zonal_load_forecast_f         0.0034              0.0411      11.0
+0  lnholcom1-grdnct1             4  rz4_spp_res_zonal_wind_forecast_f         0.0034              0.0000      -1.0
+
+======================================================================
+lniatan-easttown  |  source: recent DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lniatan-easttown'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0202  |  Total hours: 17496
+          monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lniatan-easttown             4  rz4_spp_res_zonal_load_forecast_f         0.0202              0.0663      2.28
+0  lniatan-easttown             4  rz4_spp_res_zonal_wind_forecast_f         0.0202              0.0000     -1.00
+
+======================================================================
+lnjay_hawk-frankln5  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnjay_hawk-frankln5'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1008  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnjay_hawk-frankln5             4  rz4_spp_res_zonal_wind_forecast_f         0.1008              0.4023      2.99
+1  lnjay_hawk-frankln5             4  rz4_spp_res_zonal_load_forecast_f         0.1008              0.1371      0.36
+
+======================================================================
+lnjeff-aubu  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 13
+Constraint  : 'lnjeff-aubu'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0586  |  Total hours: 17496
+     monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnjeff-aubu             4  rz4_spp_res_zonal_load_forecast_f         0.0586              0.2057      2.51
+0  lnjeff-aubu             4  rz4_spp_res_zonal_wind_forecast_f         0.0586              0.0000     -1.00
+
+======================================================================
+lnknoll1-redlin  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 3
+Constraint  : 'lnknoll1-redlin'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0082  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnknoll1-redlin             4  rz4_spp_res_zonal_load_forecast_f         0.0082              0.0446      4.45
+0  lnknoll1-redlin             4  rz4_spp_res_zonal_wind_forecast_f         0.0082              0.0114      0.40
+
+======================================================================
+lnksc10-farb  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 7
+Constraint  : 'lnksc10-farb'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0091  |  Total hours: 17496
+      monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnksc10-farb             4  rz4_spp_res_zonal_load_forecast_f         0.0091              0.0606      5.67
+0  lnksc10-farb             4  rz4_spp_res_zonal_wind_forecast_f         0.0091              0.0000     -1.00
+
+======================================================================
+lnmain1-batfld5_rev23  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnmain1-batfld5_rev23'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0138  |  Total hours: 17496
+               monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnmain1-batfld5_rev23             4  rz4_spp_res_zonal_load_forecast_f         0.0138                0.16     10.62
+0  lnmain1-batfld5_rev23             4  rz4_spp_res_zonal_wind_forecast_f         0.0138                0.00     -1.00
+
+======================================================================
+lnmarshal3-knob  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 12
+Constraint  : 'lnmarshal3-knob'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1118  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnmarshal3-knob             4  rz4_spp_res_zonal_wind_forecast_f         0.1118              0.2754      1.46
+1  lnmarshal3-knob             4  rz4_spp_res_zonal_load_forecast_f         0.1118              0.2629      1.35
+
+======================================================================
+lnmaud_tap-earlsbrh  |  source: DA+RT  |  zone 4  |  RT days last 30: 15
+Constraint  : 'lnmaud_tap-earlsbrh'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0195  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnmaud_tap-earlsbrh             4  rz4_spp_res_zonal_load_forecast_f         0.0195              0.1509      6.74
+0  lnmaud_tap-earlsbrh             4  rz4_spp_res_zonal_wind_forecast_f         0.0195              0.0617      2.17
+
+======================================================================
+lnmonett-aur1241  |  source: DA+RT  |  zone 4  |  RT days last 30: 19
+Constraint  : 'lnmonett-aur1241'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0877  |  Total hours: 17496
+          monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnmonett-aur1241             4  rz4_spp_res_zonal_wind_forecast_f         0.0877              0.2629      2.00
+1  lnmonett-aur1241             4  rz4_spp_res_zonal_load_forecast_f         0.0877              0.2537      1.89
+
+======================================================================
+lnmoun-jade  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 3
+Constraint  : 'lnmoun-jade'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0010  |  Total hours: 17496
+     monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnmoun-jade             4  rz4_spp_res_zonal_wind_forecast_f          0.001                 0.0      -1.0
+1  lnmoun-jade             4  rz4_spp_res_zonal_load_forecast_f          0.001                 0.0      -1.0
+
+======================================================================
+lnnebrcty-sub3456  |  source: recent DA only  |  zone 1  |  RT days last 30: 0
+Constraint  : 'lnnebrcty-sub3456'
+Reserve zone: 1  |  Columns: ['rz1_spp_res_zonal_wind_forecast_f', 'rz1_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1237  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnnebrcty-sub3456             1  rz1_spp_res_zonal_load_forecast_f         0.1237              0.4526      2.66
+0  lnnebrcty-sub3456             1  rz1_spp_res_zonal_wind_forecast_f         0.1237              0.0091     -0.93
+
+======================================================================
+lnnormhll-turner4  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 2
+Constraint  : 'lnnormhll-turner4'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0003  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnnormhll-turner4             4  rz4_spp_res_zonal_load_forecast_f         0.0003              0.0057      19.0
+0  lnnormhll-turner4             4  rz4_spp_res_zonal_wind_forecast_f         0.0003              0.0000      -1.0
+
+======================================================================
+lnommarlo4-rsh_sprg_rev23  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lnommarlo4-rsh_sprg_rev23'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0057  |  Total hours: 17496
+                   monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnommarlo4-rsh_sprg_rev23             4  rz4_spp_res_zonal_load_forecast_f         0.0057              0.1109     18.59
+0  lnommarlo4-rsh_sprg_rev23             4  rz4_spp_res_zonal_wind_forecast_f         0.0057              0.0000     -1.00
+
+======================================================================
+lnosage_og-webbtap4  |  source: DA+RT  |  zone 3  |  RT days last 30: 16
+Constraint  : 'lnosage_og-webbtap4'
+Reserve zone: 3  |  Columns: ['rz3_spp_res_zonal_wind_forecast_f', 'rz3_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1429  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnosage_og-webbtap4             3  rz3_spp_res_zonal_wind_forecast_f         0.1429              0.3600      1.52
+1  lnosage_og-webbtap4             3  rz3_spp_res_zonal_load_forecast_f         0.1429              0.1394     -0.02
+
+======================================================================
+lnpecan1-agncy1  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 4
+Constraint  : 'lnpecan1-agncy1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0064  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnpecan1-agncy1             4  rz4_spp_res_zonal_load_forecast_f         0.0064              0.0823     11.85
+0  lnpecan1-agncy1             4  rz4_spp_res_zonal_wind_forecast_f         0.0064              0.0000     -1.00
+
+======================================================================
+lnrussett-sbrown  |  source: DA+RT  |  zone 3  |  RT days last 30: 26
+Constraint  : 'lnrussett-sbrown'
+Reserve zone: 3  |  Columns: ['rz3_spp_res_zonal_wind_forecast_f', 'rz3_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.3540  |  Total hours: 17496
+          monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  lnrussett-sbrown             3  rz3_spp_res_zonal_wind_forecast_f          0.354              0.7337      1.07
+1  lnrussett-sbrown             3  rz3_spp_res_zonal_load_forecast_f          0.354              0.1989     -0.44
+
+======================================================================
+lnseminole-maud_tap  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 19
+Constraint  : 'lnseminole-maud_tap'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0161  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnseminole-maud_tap             4  rz4_spp_res_zonal_load_forecast_f         0.0161              0.2549     14.81
+0  lnseminole-maud_tap             4  rz4_spp_res_zonal_wind_forecast_f         0.0161              0.0000     -1.00
+
+======================================================================
+lnstilwell-redel5  |  source: RT only  |  zone 4  |  RT days last 30: 16
+Constraint  : 'lnstilwell-redel5'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0754  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnstilwell-redel5             4  rz4_spp_res_zonal_load_forecast_f         0.0754              0.2469      2.27
+0  lnstilwell-redel5             4  rz4_spp_res_zonal_wind_forecast_f         0.0754              0.1463      0.94
+
+======================================================================
+lntallgras-butl  |  source: recent DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'lntallgras-butl'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0154  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lntallgras-butl             4  rz4_spp_res_zonal_load_forecast_f         0.0154              0.0857      4.57
+0  lntallgras-butl             4  rz4_spp_res_zonal_wind_forecast_f         0.0154              0.0286      0.86
+
+======================================================================
+lnvinetap3-nhays  |  source: DA+RT  |  zone 2  |  RT days last 30: 9
+Constraint  : 'lnvinetap3-nhays'
+Reserve zone: 2  |  Columns: ['rz2_spp_res_zonal_wind_forecast_f', 'rz2_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1501  |  Total hours: 17496
+          monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnvinetap3-nhays             2  rz2_spp_res_zonal_load_forecast_f         0.1501              0.4217      1.81
+0  lnvinetap3-nhays             2  rz2_spp_res_zonal_wind_forecast_f         0.1501              0.3246      1.16
+
+======================================================================
+lnweav-tallgras  |  source: DA only  |  zone 4  |  RT days last 30: 0
+Constraint  : 'lnweav-tallgras'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1607  |  Total hours: 17496
+         monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  lnweav-tallgras             4  rz4_spp_res_zonal_load_forecast_f         0.1607              0.6651      3.14
+0  lnweav-tallgras             4  rz4_spp_res_zonal_wind_forecast_f         0.1607              0.2526      0.57
+
+======================================================================
+xfmrbrook_ln-brook_ln  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 23
+Constraint  : 'xfmrbrook_ln-brook_ln'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0272  |  Total hours: 17496
+               monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrbrook_ln-brook_ln             4  rz4_spp_res_zonal_load_forecast_f         0.0272              0.1291      3.75
+0  xfmrbrook_ln-brook_ln             4  rz4_spp_res_zonal_wind_forecast_f         0.0272              0.0183     -0.33
+
+======================================================================
+xfmrcimarron-cimarron  |  source: DA+RT  |  zone 2  |  RT days last 30: 13
+Constraint  : 'xfmrcimarron-cimarron'
+Reserve zone: 2  |  Columns: ['rz2_spp_res_zonal_wind_forecast_f', 'rz2_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1309  |  Total hours: 17496
+               monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrcimarron-cimarron             2  rz2_spp_res_zonal_load_forecast_f         0.1309              0.3109      1.38
+0  xfmrcimarron-cimarron             2  rz2_spp_res_zonal_wind_forecast_f         0.1309              0.1726      0.32
+
+======================================================================
+xfmrduncan-duncan  |  source: DA+RT  |  zone 2  |  RT days last 30: 10
+Constraint  : 'xfmrduncan-duncan'
+Reserve zone: 2  |  Columns: ['rz2_spp_res_zonal_wind_forecast_f', 'rz2_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.1179  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrduncan-duncan             2  rz2_spp_res_zonal_load_forecast_f         0.1179              0.3371      1.86
+0  xfmrduncan-duncan             2  rz2_spp_res_zonal_wind_forecast_f         0.1179              0.1829      0.55
+
+======================================================================
+xfmrholcom1-holcom1  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 1
+Constraint  : 'xfmrholcom1-holcom1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0097  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+0  xfmrholcom1-holcom1             4  rz4_spp_res_zonal_wind_forecast_f         0.0097              0.0309      2.18
+1  xfmrholcom1-holcom1             4  rz4_spp_res_zonal_load_forecast_f         0.0097              0.0309      2.18
+
+======================================================================
+xfmrlex1611-lex1611  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'xfmrlex1611-lex1611'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0067  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrlex1611-lex1611             4  rz4_spp_res_zonal_load_forecast_f         0.0067              0.0480      6.12
+0  xfmrlex1611-lex1611             4  rz4_spp_res_zonal_wind_forecast_f         0.0067              0.0034     -0.49
+
+======================================================================
+xfmrmonett-monett  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'xfmrmonett-monett'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0011  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrmonett-monett             4  rz4_spp_res_zonal_load_forecast_f         0.0011              0.0080       6.0
+0  xfmrmonett-monett             4  rz4_spp_res_zonal_wind_forecast_f         0.0011              0.0046       3.0
+
+======================================================================
+xfmrnowst1-nowst1  |  source: DA+RT  |  zone 4  |  RT days last 30: 20
+Constraint  : 'xfmrnowst1-nowst1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0268  |  Total hours: 17496
+           monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrnowst1-nowst1             4  rz4_spp_res_zonal_load_forecast_f         0.0268              0.2811      9.49
+0  xfmrnowst1-nowst1             4  rz4_spp_res_zonal_wind_forecast_f         0.0268              0.0606      1.26
+
+======================================================================
+xfmrnowst1-nowst1_rev23  |  source: DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'xfmrnowst1-nowst1_rev23'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0003  |  Total hours: 17496
+                 monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrnowst1-nowst1_rev23             4  rz4_spp_res_zonal_load_forecast_f         0.0003              0.0069      19.0
+0  xfmrnowst1-nowst1_rev23             4  rz4_spp_res_zonal_wind_forecast_f         0.0003              0.0000      -1.0
+
+======================================================================
+xfmrpotter_s-potter_s  |  source: DA+RT  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 31
+Constraint  : 'xfmrpotter_s-potter_s'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0257  |  Total hours: 17496
+               monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrpotter_s-potter_s             4  rz4_spp_res_zonal_load_forecast_f         0.0257              0.1223      3.75
+0  xfmrpotter_s-potter_s             4  rz4_spp_res_zonal_wind_forecast_f         0.0257              0.0000     -1.00
+
+======================================================================
+xfmrredwlo1-redwlo1  |  source: RT only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 9
+Constraint  : 'xfmrredwlo1-redwlo1'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0066  |  Total hours: 17496
+             monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrredwlo1-redwlo1             4  rz4_spp_res_zonal_load_forecast_f         0.0066              0.0320      3.83
+0  xfmrredwlo1-redwlo1             4  rz4_spp_res_zonal_wind_forecast_f         0.0066              0.0057     -0.14
+
+======================================================================
+xfmrstilwell-stilwell  |  source: recent DA only  |  zone 4 (DEFAULT - attribution unreliable)  |  RT days last 30: 0
+Constraint  : 'xfmrstilwell-stilwell'
+Reserve zone: 4  |  Columns: ['rz4_spp_res_zonal_wind_forecast_f', 'rz4_spp_res_zonal_load_forecast_f']
+Baseline binding rate: 0.0304  |  Total hours: 17496
+               monitored  reserve_zone                        fundamental  baseline_prob  cond_prob_top95pct  lift_pct
+1  xfmrstilwell-stilwell             4  rz4_spp_res_zonal_load_forecast_f         0.0304              0.0903      1.97
+0  xfmrstilwell-stilwell             4  rz4_spp_res_zonal_wind_forecast_f         0.0304              0.0320      0.05

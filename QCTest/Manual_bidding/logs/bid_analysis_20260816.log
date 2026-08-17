@@ -1,0 +1,99 @@
+Both steps ran clean. Here's the briefing.
+
+---
+
+# SPP bid date 2026-08-17 — long/short calls
+
+**Run basis.** `bid_dt` = 2026-08-17. The most recently cleared DA is 2026-08-16's (the 8/17 DA had not posted at run time), so "DA side" below means 8/16's cleared DA used as the proxy for what the market says binds. Real RT evidence is 8/15 in full plus 8/16 hours 1–8. 25 candidates, 8 on the DA side, 19 binding in RT.
+
+**Attribution PDF window: 2026-08-07 → 2026-08-13.** It stops three days short of the bid date. 24 sections, and only **4 of 25 candidates** appear in it (`lnfulton_c-pat_wx`, `lnksc10-farb`, `lnmdwst-frnkln1`, `lnstilwell-redel5`, plus `xfmrnowst1-nowst1_rev23` as a name variant of `xfmrnowst1-nowst1`). For the other 21 there is no write-up and the calls fall through to outages, RT and zonal evidence. Nothing below presents a stale write-up as describing tomorrow.
+
+**Tomorrow's zonal setup (median percentile, on-peak / off-peak):**
+
+| Zone | wind on/off | load on/off | |
+|---|---|---|---|
+| 1 | 54 / **6** | 35 / 21 | off-peak wind floor |
+| 2 | **9 / 0** | 45 / 45 | wind floor both peaks |
+| 3 | **9 / 4** | **77** / 40 | wind floor, load firm (hrs 15–20 at 83–93 pct) |
+| 4 | **0 / 3** | 41 / 48 | wind at the absolute floor hrs 15–24 |
+| 5 | 37 / 30 | 29 / **9** | |
+| 21 | 48 / 38 | **9 / 0** | load floor |
+
+The single dominant fact tomorrow is **system-wide low wind** — zone 4 on-peak wind sits at the 0th percentile, zones 2 and 3 in the bottom decile. Load is only middling (zone 4 at 41–48), firm only in zone 3. That combination rewards constraints that bind on thermal redispatch and punishes anything that needs a wind push or a peak-load day.
+
+---
+
+## LONG
+
+**Rung 1 — outage-driven (a known change to the network, not an inference)**
+
+| Constraint | Why |
+|---|---|
+| **ln6_me4-sw51** | Linked outage *Mustang OKGE – SW 5th 138 kV*, 08-03 → **08-27**, confirmed in effect on 8/17. On the DA side (-2,617) and in RT 12 of the last 30 days, up to -10,308 on 8/13. Both sides agree; the outage runs another 10 days. |
+| **lnbrookngs-aurorawa** | Linked outage *Split Rock – White 345 kV Ckt 1*, 07-29 → **08-20 16:00**, live on the bid date. Largest RT binder yesterday at **-14,537** (and -20,129 on 8/6) — and it is **absent from the DA side entirely**. This is the highest-value disagreement on the board. |
+| **lnaurorawa-flandru** | Same Split Rock – White outage, same corridor. RT -4,827 yesterday, its first bind in 30 days. Reinforced by a new MN 115 kV cluster on 8/17: *Granite Falls – S3 115 kV* (8/17→8/20), *Granite Falls 230/115 XFMR #2* (8/15→8/20), *Morris 115/230* group (8/17 13:00–16:00). Size it below brookngs — 1 RT day in 30, baseline 0.0005, so its 16.5× lift rests on ~9 binding hours out of 17,496. |
+| **lnfulton_c-pat_wx** | **Highest-conviction PDF-backed call.** The 8/13 write-up: *"a 5,582 MW system-wide wind under-forecast… SPP redispatched… heavily leaning on local CSWS Natural Gas and Coal units… pushed the line to its thermal limit,"* with structural predisposition from the *Umpire Tap – Dierks 69 kV* outage. All three outages in its table are still live on 8/17 — DIERKS-UMPIRETP (→11/17), Lockesburg-Nashville (→9/19, plus a fresh 8/17 07:30–17:00 window), Dequeen-Foreman (→9/19). And tomorrow's wind floor is exactly the low-wind/thermal-redispatch mechanism the PDF describes. Bound RT every day 8/07→8/15, 11 days in 30. |
+| **lnmdwst-frnkln1** | The 8/07 PDF named *Pittsburg – Valliant 345 kV* as the aggravating outage (LODF 1.8%, flow impact 4.2%, **risk multiplier 1.61×**) that "ended early in RT." **It returns on the bid date**: 2026-08-17 07:30 → 08-21 17:00. On the DA side at -1,317, 16 RT days in 30. Note the PDF's weather leg (WFEC peak load) is *not* reproduced — zone-4 load is only 41–48 pct — so this call rests on the outage returning, not the weather. |
+| **lnhoyt-54mr** | On the DA side at -1,772 with only 3 RT days in 30 — which reads short until you check the outages: *Hoyt – Northland 115 kV* is out 08-14 23:34 → **08-19 15:00**, and its contingency is `wr:hoytstra:345:1:7`. Its -4,467 RT blowout on 8/15 lands one day after that outage started. Long on the outage, not the record. |
+| **lnmonett-aur1241** | Fading in RT (-3,832 on 8/13 → -1,155, -69, -60) — but its contingency is `aeci:jasper7blackbry:345:1:12` and **Blackberry – Neosho 345 kV is brand new on 8/17** (08:00 → 08-21, two equipment numbers). A new outage on the exact AECI 345 corridor upgrades a decaying constraint. 22 RT days in 30. |
+| **lnvinetap3-nhays** | Contingency `midw:knoll1xfa` and *SALINE – KNOLL1 115 kV* is out 08-14 → **08-18 17:00**, in effect on 8/17. 11 RT days in 30, -7,983 on 8/11. Seasonal precedent: same window last year bound 4 RT days at -7,496. Zone 2, load lift 2.18× — tomorrow's zone-2 load is middling (45/45) and the wind leg (1.36×) is contradicted by the wind floor, so this is an outage-and-precedent call. Moderate size. |
+| **xfmrmidj-midj** | Contingency `wr:lawhxflawh_29`, and *Haysville Tap – Midland WR 69 kV* is **new on 8/17** 06:00 → 09-04. Small but persistent: 12 RT days in 30, -67 to -746. Small size — the numbers are small. |
+
+**Rung 3 — new and frequent in RT, absent from the DA side**
+
+| Constraint | Why |
+|---|---|
+| **lnmaud_tap-earlsbrh** | 16 RT days in 30 and **escalating hard**: -439, -406, -901, -1,967, -1,272, -3,862, -6,404, -7,731 across 8/06→8/13, then -1,311, -1,872. Zero on the DA side. Zone 4 (sheet-mapped), load-driven at 16.7× lift, wind lift -1.00 — tomorrow's wind floor is at least not adverse, though zone-4 load at 41–48 does not reproduce the peak-load condition. Rung 3, moderate size. |
+| **lnstilwell-redel5** | 16 RT days in 30 and blowing out late: -2,837 on 8/14, **-6,524 on 8/15**. Absent from the DA side. The 8/10 PDF names MPS peak load + high OKG wind, acute trigger the *Jasper – Morgan 345 kV* forced outage (11.83× risk multiplier, **no end time given**). Jasper-Morgan is not in tomorrow's scheduled list, but the new Blackberry–Neosho 345 work sits on the same AECI corridor. **Tomorrow contradicts the high-wind half of the PDF driver** — this is a momentum call (rung 3/4), not a condition match. Say that when sizing. Seasonal precedent: 7 RT days same window last year. |
+| **lnmanfl7-clec_pel** | 13 RT days in 30, steady -2,288 / -2,436 / -2,077 on 8/09, 8/14, 8/15. Zero on the DA side. CLECO-side element; zone-4 fallback makes its lift meaningless. Small size, on the RT record alone. |
+
+**Rung 4 — momentum**
+
+| Constraint | Why |
+|---|---|
+| **lnrussett-sbrown** | **30 of 30 RT days** — the only perfect record on the board — bound this morning hours 1–8 at -894 and -4,578 yesterday, and it is on the DA side too. But state the contradiction: zone 3 (sheet-mapped), wind-driven (wind lift 1.07×, load lift **-0.43**), and tomorrow's zone-3 wind is at the 4th–9th percentile. Its 0.354 baseline means it binds a third of all hours regardless, which is what carries it. Long, but sized below the outage-driven names — rung 4 running into a rung-2 mismatch. |
+| **lnseminole-maud_tap** | On the DA side at -646, 18 RT days in 30 (-2,306 / -2,679 on 8/11–8/12), and its sibling `lnmaud_tap-earlsbrh` is escalating on the same Maud Tap path. Small size — its own RT has cooled (0 today). |
+
+---
+
+## SHORT
+
+| Constraint | Why |
+|---|---|
+| **xfmrnowst1-nowst1** | **The headline short, and the clearest condition mismatch on the board.** Biggest DA-side number (-3,458) and huge recent RT (-26,978 on 8/13, -23,634 on 8/14). But the 8/13 PDF is explicit: OKGE **load** is the dominant structural driver, *"SPP system load reached the 99.7th percentile,"* and it bound DA-only (-1,989 vs RT 0) precisely because of a **5,626 MW wind over-forecast**. Tomorrow reproduces neither leg — zone-4 load is at the 41st–48th percentile, nowhere near a 99.7th-percentile day, and its wind lift is *positive* (+1.47×) against a 0th-percentile wind forecast. Both legs point the same way. RT today: 0. |
+| **lnosage_og-webbtap4** | Clean condition mismatch. Zone 3 (sheet-mapped), **purely wind-driven** — wind lift 1.54×, load lift -0.01 — and tomorrow's zone-3 wind is at the 4th–9th percentile. RT already collapsing: -5,204 on 8/13 → -637, -708, -157. 19 RT days in 30 is the only thing arguing the other way. |
+| **lnksc10-farb** | The 8/12 PDF drivers are *"high wind generation in the WR and OKGE zones (specifically Slate Creek Wind)"* plus peak load. **Tomorrow contradicts both** — zone-1 off-peak wind at 6, zone-4 at 0. The relief-removing *BUTL – OTTERCRK 138 kV* outage is live through 8/21, but that mechanism was a DA/RT schedule mismatch, not a repeatable driver. Only 6 RT days in 30, absent from the DA side. |
+| **lncommtap4-bois_tap** | On the DA side at -760 with **RT exactly 0 on all 14 of the last 14 days** and 0 RT days in 30. DA phantom. |
+| **lnbrook_ln-junctn5** | DA side -787, RT 0 for 14 straight days, 0 RT days in 30. Same phantom. |
+| **xfmrduncan-duncan** | 11 RT days in 30 but **collapsed**: -7,739 on 8/12 → 0, -16, 0. Zone 2 load-driven (1.82×) against middling zone-2 load. Watch the new *Med Park Jct – Cache Junction 138 kV* outage (8/17) on the WFEC/Comanche path in its contingency — that is the one thing that could flip it. |
+| **lnsiouxfl-moodyco** | The tempting one. Its contingency `waue:brookngsaurorawa` is the *same corridor* as the big Split Rock–White long above, and it sits on the DA side at -743. But it has bound **0 RT days in 30 while that outage has been live since 7/29** — direct evidence the outage does not bind *this* element in RT. The DA is pricing the corridor through the wrong element. |
+| **ln29eveng3-29ga** | DA-side only, 0 RT days in 30, RT 0 every day. Same window last year: DA -1,776, RT **0**. A structural DA-only element. Caveat: contingency `wr:hoytjeff` shares the Hoyt area with the live Hoyt–Northland outage, so it is not a free short. |
+| **lnjeff-aubu** | Identical profile — DA-only, 0 RT days in 30, and last year same window DA -1,491 / RT 0. Same Hoyt caveat. |
+| **xfmrlex1611-lex1611** | DA side -562, 0 RT days in 30, RT 0 for 14 days. Note *Northeast KCPL – Riverside KCPL 161 kV* is out 8/17 07:00–16:00 in the same KC pocket — a short-window risk, not enough to hold it. |
+| **xfmrsub975-sub975** | Genuinely marginal. Only 4 RT days in 30, but it **woke up yesterday at -1,564** after eight straight zeros, and last year's same window bound 3 RT days at -2,676. Zone 1 (sheet-mapped), load-driven at 2.42× with wind lift -0.92 — and tomorrow's zone-1 load is soft (35 on-peak / 21 off). The load condition it needs is absent. Short, small, and the one I would most readily be talked out of. |
+
+---
+
+## Surprise risk — outages on 8/17 with no constraint attached
+
+134 outages are in effect on the bid date. These are new on 8/17 and sit on paths nothing has bound recently:
+
+- **Port Robson – Woodchuck (Benteler Steel) CKT 1 138 kV** starts 8/17 08:00 → 8/21 **while CKT 2 is already out through 8/31**. Both circuits of a double-circuit 138 kV out simultaneously, and no candidate touches it. The single most likely source of a surprise tomorrow.
+- **Ozarks / SPA-AECI cluster on 8/17:** Blackberry–Neosho 345 kV (×2), Clarksville SPA–Ozark 161, Neosho SPA–Sub 184 161, Independence SPA–Jonesboro 161, Baker–Neosho 69, Norfork–Viola 69. That whole Missouri/Arkansas corner is heavily worked in one day; only `lnmonett-aur1241` picks it up.
+- **Pittsburg (PSO) – Valliant 345 kV** returning 8/17 07:30 — attached to `lnmdwst-frnkln1` above, but a 345 kV return can move more than one element.
+- **MN 115 kV pocket:** Granite Falls–S3, Granite Falls 230/115 XFMR #2, the Morris 115/230 group and Morris–Ortonville / Grant County OTP–Morris (8/17 13:00–16:00 only).
+- **Expiring on the bid date** (relief returning mid-day): Eddy Co Interchange–Eddy DC Tie 230 kV (17:00), Grandy County–Wellsburg (15:00), Granite Falls–Minnesota Valley Tap 230 kV (15:00).
+
+---
+
+## Gaps
+
+- **PDF is 3 days stale and covers 4 of 25 candidates.** 21 candidates have no attribution at all; their calls rest entirely on outages, RT record and zonal fit. `xfmrnowst1-nowst1` matched only via the `_rev23` name variant — I read it deliberately rather than letting it fall through as "NOT IN PDF."
+- **15 of 25 candidates fell back to zone 4** because the sheet has no mapping, so their lift was measured against the wrong zone's forecast — **low-confidence attribution** for: ln6_me4-sw51, lnaurorawa-flandru, lnbrook_ln-junctn5, lnbrookngs-aurorawa, lncommtap4-bois_tap, lnfulton_c-pat_wx, lnhoyt-54mr, lnjeff-aubu, lnksc10-farb, lnmanfl7-clec_pel, lnmdwst-frnkln1, lnseminole-maud_tap, lnsiouxfl-moodyco, xfmrlex1611-lex1611, xfmrmidj-midj. Several of these are clearly not zone 4 — brookngs/aurorawa/flandru are WAUE-NSP, fulton_c-pat_wx is CSWS, manfl7-clec_pel is CLECO. Where the PDF names a zone I used it (CSWS for fulton, OKGE/WFEC for mdwst-frnkln1) and noted the disagreement.
+- **`linked_outages` returned only 4 rows for 25 candidates.** Tier-1 outage matching for the other 21 is my own cross-reference of `sched_outages` by element name against the contingency string — reliable for Split Rock–White, Mustang–SW 5th, Pittsburg–Valliant, Hoyt–Northland and Saline–Knoll1; fuzzier for Haysville Tap–Midland WR against `xfmrmidj-midj`.
+- **`lnaurorawa-flandru`'s lift is statistically thin** — baseline 0.0005 over 17,496 hours means the 16.5× figure comes off roughly 9 binding hours.
+- **The 8/17 DA had not cleared at run time**, so the "DA side" throughout is 8/16's cleared DA standing in for it.
+- **Sheet's latest `bid_date` is 2026-08-16**, one day behind the bid date; 1,209 rows, 59 zone mappings. No row exists for 8/17 yet.
+- **No uplift failures and no forecast holes** — all 25 candidates returned a lift, and all 6 zones × 24 hours are populated for 8/17.
+
+Housekeeping deleted 8 stale scratch files and 1 run log; no PDFs touched. Nothing was written to the bidding sheet.

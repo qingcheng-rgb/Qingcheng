@@ -26,7 +26,9 @@
       "Bash(nohup python3 /tmp/claude-1028/-var-www-python-Qingcheng/d80afbeb-74a7-4450-8315-36eb69a6cd75/scratchpad/solver_probe.py)",
       "Bash(timeout 900 python3 /tmp/claude-1028/-var-www-python-Qingcheng/d80afbeb-74a7-4450-8315-36eb69a6cd75/scratchpad/inspect_extreme.py)",
       "Bash(timeout 1500 python3 /tmp/claude-1028/-var-www-python-Qingcheng/d80afbeb-74a7-4450-8315-36eb69a6cd75/scratchpad/darwin_vs_eigen.py)",
-      "Bash(grep -n \"cumulativeRisk_ceil$\\\\|mergedDF\\\\['ROR'\\\\]\\\\|mergedDF\\\\['ROC'\\\\]\\\\|mergedDF\\\\['RORSq'\\\\]\\\\|mergedDF\\\\['expectedProfit'\\\\]\\\\|mergedDF\\\\['collateral'\\\\]\\\\|minimumROR\\\\]\" ve_portfolio_constructor_darwin.py)"
+      "Bash(grep -n \"cumulativeRisk_ceil$\\\\|mergedDF\\\\['ROR'\\\\]\\\\|mergedDF\\\\['ROC'\\\\]\\\\|mergedDF\\\\['RORSq'\\\\]\\\\|mergedDF\\\\['expectedProfit'\\\\]\\\\|mergedDF\\\\['collateral'\\\\]\\\\|minimumROR\\\\]\" ve_portfolio_constructor_darwin.py)",
+      "Bash(timeout 120 bq --format=prettyjson ls -n 200 spp)",
+      "Bash(timeout 120 bq show --format=prettyjson spp.eigen_bids_overall)"
     ]
   }
 }

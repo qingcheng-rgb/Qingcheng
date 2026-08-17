@@ -1,0 +1,90 @@
+## Daily SPP constraint briefing — bid date **2026-08-14**
+
+**Housekeeping:** 8 files deleted (7 stale scratch, 1 run log >3 days). No PDFs touched.
+
+**Timing caveat, read this first.** It's 08:00 CT, *before* the 10am cutoff, so the bid-date rule gives `bid_dt=2026-08-14` and `dt=2026-08-13` — i.e. `dt` is **today**, not tomorrow. The command text assumes a 13:00 cron. Consequence: the "DA cleared" day and the "today hours 1–8" day are the same date, so today's RT hrs 1–8 and today's DA are both live evidence and don't conflict. Yesterday (08-12) is the only full RT day.
+
+**Attribution PDF window: 2026-08-01 → 2026-08-07.** That is 6–13 days stale and does **not** reach the last few days. 54 sections; **19 of 48 candidates matched, 29 absent.** For those 29 the calls rest on RT/outage/zonal evidence only — no write-up. Several PDF triggers have since expired; flagged individually below.
+
+**Zonal setup for 08-14** (median pct, on-peak/off-peak):
+
+| zone | ow | fw | ol | fl | flag |
+|---|---|---|---|---|---|
+| 1 | **11** | 30 | 58 | 61 | on-peak wind collapse (0–3 pct hrs 18–24) |
+| 2 | 45 | 53 | 67 | **85** | off-peak load 85–90 overnight |
+| 3 | 82 | **95** | 83 | **90** | wind *and* load both high |
+| 4 | **93** | **85** | 77 | 83 | on-peak wind 93–97 pct hrs 9–14 |
+| 5 | 59 | 56 | **4** | 51 | on-peak load collapse (0 pct hrs 14–20) |
+| 21 | **12** | **4** | 72 | 50 | wind collapse both peaks |
+
+The day is **high wind in zones 3/4, wind-dead in zones 1/21, load-dead on-peak in zone 5.**
+
+---
+
+### LONG (expect binding)
+
+**Rung 1 — outage-driven** (a scheduled network change, not an inference)
+
+1. **xfmrduncan-duncan** — strongest call on the board. The PDF's acute trigger (Walters 2 69 kV, **32.3% LODF**) ends 08-13 16:00 — but **Comanche–Walters 69 kV starts 08-13 16:01 and runs to 09-24.** Same corridor, seamless handover, so the topology deficit persists into 08-14. RT **7/7** last week, 10/30, and huge: −7688 yesterday, −1509 today hrs 1–8. **Load**, zone 2 (mapped; 1.86x load vs 0.55x wind) and the hour profile is overnight-heavy (hrs 24, 1–3 largest) — matching Z2 off-peak load at 85–90 pct.
+2. **lnknoll1-redlin** — **SALINE–KNOLL1 115 kV in effect 08-14 06:00→08-18 17:00**, confirmed in both `linked_outages` (three constraint nums) and `sched_outages`. Bound 3 of last 7 RT days; DA was −9881 on 08-12. Profile hrs 6–20. **Load** (4.45x vs 0.40x) but zone-4 **default** → low-confidence attribution; not in PDF. The outage carries this, not the lift.
+3. **lnosage_og-webbtap4** — **Morrison–Sooner 138 kV live through 09-17** (PDF: 1.79x risk multiplier, "increasing the odds of binding by 7.17x"). PDF driver quoted: *"peak wind generation in the OKGE zone pushing power toward CSWS."* Tomorrow **reproduces it** — Z3 off-peak wind 95th, Z4 on-peak 93rd. **Wind**, zone 3 (mapped; 1.52x wind vs −0.02x load). Overnight profile hrs 1–8 lines up with the Z3 off-peak wind peak. Biggest RT print today (−4757).
+4. **lnanta_tp-anita** — **Denison–Exira 161 kV, 58.5% LODF, runs to 2028-12-31** — permanent structural predisposition. PDF: *"a severe drop in wind generation that removed critical counter-flow relief."* Tomorrow's Z1 on-peak wind 11th and Z21 wind 4–12th **reproduce the wind collapse.** 11/30, 4/7, −1117 yesterday. **Zone disagreement:** fell back to zone 4, where wind is 93rd — the opposite — so the −1.00x wind lift is measured against the wrong zone. Prefer the PDF's named ALT/ALTW/MEC (northern) zones, where wind really is dead. Call rests on the PDF's zone.
+5. **lnclevlnd7-clev_aec** — GATUSI–ONETA 345, GATUSI–NE_COAL 345 and Igloo Valley–**Tulsa North** 345 all in effect 08-14; the contingency is literally `cswsgrda:tulsa_noclevlnd7`. 11/30, 6/7. Last year same window: **10 RT / 10 DA days** — solid seasonal precedent. Not in PDF. **Wind**-leaning but weak separation (0.75x vs 0.34x), zone 4 mapped; Z4 wind 93rd.
+6. **ln6_me4-sw51** — **Mustang OKGE–SW 5th 138 kV, 08-03→08-27**, sits on the monitored path (SW 5th–36th & Meridian, contingency Council–Mustang). PDF: *"extreme peak load conditions in the OKGE zone during a summer heat wave"*, 5.0x. **Load** 16.09x — but zone-4 **default**, so treat the magnitude as indicative only; Z4 load 77/83 is supportive, not extreme. 9/30, 5/7. Largest single DA print today (−7832).
+7. **xfmrbrook_ln-brook_ln** — **E Rogers–Beaver 161 kV live through 08-31** (10.5% LODF, 2.09x). PDF: SPRM/EES peak load, structurally loaded by regional wind flowing to those load centers. 23/30, 6/7 both weeks, RT-only (absent from today's DA). **Load** 3.75x vs −0.33x, zone-4 **default**. Midday profile hrs 11–14 plus hr 21.
+8. **lnaur1241-rdspg5** — **E Rogers–Beaver live through 08-31** (7.3% LODF, **2.13x**). PDF: *"driven by a massive 1,602 MW wind over-forecast… wind is a strong historical load driver (3.06x), while EDE load provides relief."* Tomorrow **reproduces both halves** — Z4 wind 93rd on-peak, and the lift agrees for once (**wind** 1.74x, load −0.56x, zone 4 mapped). 11/30, 4/7, RT-only.
+
+**Rung 3 — new and frequent** (RT binding repeatedly but absent or thin in DA)
+
+9. **lnmaud_tap-earlsbrh** — sharpest acceleration on the board: **7/7 last week vs 1 in the prior week**, 15/30, −10055 yesterday. Explicitly **not** on the PDF: its stated primary cause, Seminole–Pittsburg 345 (PITTSB9), **expired 08-07** — and the run-up happened *after* that, so the write-up's mechanism isn't what's driving it. Resting on frequency + zonal: **load** 6.74x, wind 2.17x, zone 4 mapped; Z4 load 77/83 and wind 93rd both supportive. Evening profile hrs 19–23.
+10. **lnmarshal3-knob** — **7/7 last week vs 2 prior**, 12/30, RT-only (DA −165 today). Last year same window: **9 RT / 10 DA days** — genuine seasonal precedent. Not in PDF. Wind 1.46x ≈ load 1.35x on a zone-4 **default** — **neither family separates**; the call is momentum + seasonality, not attribution.
+11. **lncrescent-ctnwd1** — brand-new: **6 of last 7 days vs 0 in the prior 7**, RT-only. Cleanest **wind** separation on the board (4.53x, conditional prob 0.87 vs 0.157 baseline; load −0.44x) — but zone-4 **default**, so low confidence on which zone's wind. Z4 wind 93rd/97th. Last year 2 RT / 5 DA in the window — thin but non-zero.
+12. **lnstilwell-redel5** — 16/30, 5/7, RT-only. Last year **10 RT days** in the same window. PDF: *"high peak load in the MPS zone, which acts as the primary aggravating driver."* Two of its PDF outages (SHEF, SEDPLT) ended 08-12; the survivors are 0.14x and 0.00x — so no outage support left. **Load** 2.27x, zone 4 mapped; Z4 load 77/83. Evening profile hrs 18–24. Modest size.
+13. **lnmonett-aur1241** — 19/30, 6/7. PDF: *"peak regional wind generation and peak local load in the EDE zone"*, 2.5x Peak Wind. Stockton–Morgan (4.97x) **expired 08-06**; E Rogers–Beaver (1.47x) still live. Tomorrow's Z3/Z4 wind reproduces the wind half. Wind 2.00x ≈ load 1.89x — **doesn't separate**. Overnight profile hrs 1–8.
+14. **xfmrnowst1-nowst1** — 20/30, 6/7 both weeks, **largest RT magnitudes on the board** (−15175 yesterday). PDF: *"extreme peak load in the OKGE zone… actual OKGE load exceeded the DA forecast by 237 MW."* **Load** 9.49x, zone 4 mapped; Z4 load 77/83 supportive but this is a heat-wave name and tomorrow is not an extreme-load day — sizing should reflect that. Profile hrs 12–24. El Reno XFMR (1.00x) expires 08-14 16:00 — immaterial.
+15. **lnrussett-sbrown** — 26/30, 6/7. Acute trigger **PITTSB9 expired 08-07**; Canadian River XFMR expires 08-14 16:00. Left with the PDF's structural claim — *"predisposed to binding during high wind and peak load conditions in the OKGE zone"* — which tomorrow **does** reproduce: Z3 wind 82/95 **and** load 83/90. **Wind** 1.07x, load −0.44x, zone 3 mapped. Overnight hrs 1–8 profile matches Z3 off-peak wind 95th. Momentum rung, outage support gone.
+
+**Rung 4 — momentum**
+
+16. **xfmrcimarron-cimarron** — 13/30, 6/7. PDF: *"peak OKGE zonal load and high OKGE wind… RT priced more severely than DA, driven by wind coming in 355 MW higher than forecast."* Tomorrow reproduces the wind half squarely. **Load** 1.38x > wind 0.32x, zone 2 mapped; Z2 off-peak load 85–90. Last year 5 RT / 8 DA.
+17. **lnvinetap3-nhays** — 9/30, **5/7 vs 1 prior**. PDF: *"high wind generation in the WR MIDW and OKGE zones… Peak Wind conditions drove flows to the limit."* Z4 wind 93rd reproduces it. Zone 2 mapped, but there **load** leads (1.81x vs 1.16x) and Z2 off-peak load is 85–90 — so both readings point the same way. Last year 6 RT / 13 DA.
+18. **xfmrpotter_s-potter_s** — bound **31 of the last 30 days** and 7/7 in both weeks; nothing else is that persistent. **Hitchland Interchange 345/230 XFMR West live through 08-31**, directly on the PDF's named contingency path (loss of Hitchland–Moore County 230). But the PDF's stated predisposition, DeGrasse–Knob Hill, **expired 08-05**, and its driver is **SPS peak load** — SPS maps to zone 5, where tomorrow's on-peak load is the **4th percentile**. That **contradicts** the write-up. Magnitudes are small and flat (~−100/hr, with hrs 19–20 the only bump). **Long, but sized small:** pure momentum, driver against it.
+
+---
+
+### SHORT (DA priced it; expect RT not to follow)
+
+1. **lnommarlo4-rsh_sprg_rev23** — highest-conviction short, straight from the PDF: *"exclusively driven by peak load conditions"* in WFEC, and the 08-07 event was a **DA over-forecast of WFEC load by 231 MW that cleared at $0/MWh in RT.** Textbook DA-overpriced. DA −1784 on 08-12, **0/30 RT days**. Tomorrow Z2 on-peak load only 67th — nowhere near the 81st-percentile WFEC load the write-up needs. **Load**, zone-4 default (18.59x, ignore the magnitude).
+2. **lnseminole-maud_tap** — the notable *rejection*: 19/30 RT days and 5/7 last week would normally make it a rung-3 long, but **all three acute outages expired** (Arbuckle–Vanoss 11.20x and Sulphur–Arbuckle 11.66x ended 08-05; PITTSB9 2.80x ended 08-07), and the PDF's condition was *"Very Low Wind (3.06x multiple)"* — tomorrow is the **93rd–97th percentile wind**, the direct opposite. Expired trigger plus inverted driver turns this from long to short. Zone-4 default, so the 14.81x load lift is low-confidence too.
+3. **lnweav-tallgras** — DA −1814 today, −5724 on 08-12, but **0/30 RT days** and **0 RT / 15 DA last year in the same window** — chronically a DA-only name. Both PDF outages are gone: Canal–Fowler (6.18x) ended 08-07 13:00, and BUTL–OTTERCRK — the *relief* outage whose real-time cancellation caused the whole −3867 RT blowout — ended 08-07 too, so the divergence mechanism no longer exists in either market. **Load** 3.14x, zone 4 mapped; Z4 load 77/83 is the one thing arguing against the short.
+4. **lnftrandl-spence1** — PDF: NPPD **peak load**, 4.7x, triggered by a *"massive day-ahead under-forecast of NPPD load, over 500 MW higher than scheduled."* Tomorrow Z1 (NPPD) load is 58/61 — mid-range, not peak. **0/30 RT**, and **0 RT / 3 DA last year.** Condition mismatch. Mild counterweight: Madison–Norfolk 115 kV is out in NPPD territory through 08-14 16:04.
+5. **lnnebrcty-sub3456** — DA-only, **0/30 RT**, **0 RT / 11 DA last year** in this window. Zone 1 mapped: **load** 2.66x, wind −0.93x. Honest caveat: the negative wind lift means it binds when wind is *low*, and Z1 on-peak wind is the 11th percentile tomorrow — nominally supportive. Shorting on the RT-never-materialises record, against the zonal read.
+6. **lntallgras-butl** (DA −3399 on 08-12) / **xfmrstilwell-stilwell** (DA −3761) / **lncraig-lenexa** (DA −1345) — all three: **0/30 RT days**, absent from the PDF, load-driven on zone-4 or zone-4-default lifts. Z4 load 77/83 is supportive but has not converted to RT once in a month. Short the RT side.
+7. **lnjay_hawk-frankln5** — DA −286 today, **0/30 RT**, **0 RT / 1 DA last year.** Wind 2.99x on a zone-4 default with Z4 wind at 93rd is nominally supportive, so this is the weakest short here — low conviction, small.
+8. **ln29eveng3-29ga**, **lniatan-easttown**, **lnatl1091-carthage**, **xfmrlex1611-lex1611**, **xfmrmonett-monett**, **lnmain1-batfld5_rev23**, **lnbrmall-sub_n**, **lnanta_tp-exirawa_rev23**, **xfmrnowst1-nowst1_rev23** — residual DA-side names, all **0/30 RT days**, none in the PDF, most on zone-4 defaults with tiny baselines (0.03%–2%). Short as a block, minimum size; nothing here is worth individual attention.
+
+---
+
+### New outages on 08-14 with no constraint attached yet
+These are the surprise sources — a fresh outage on a path that hasn't bound recently:
+
+- **Grand Saline–Grand Saline Co Op 69 kV** (07:30–17:30) — brand-new, same-day
+- **Pilgrams Rest Co Op–Westwood 69 kV** (05:00–11:00)
+- **South 4th Street–Imo 138 kV** (09:00–11:30)
+- **Dearing–Liberty 138 kV** (07:00–15:00)
+- **Depaul–Rouse 69 kV** (07:00–17:00)
+- **Duke–Gypsum 69 kV** (→13:50), **Leoti–Selkirk 115 kV** (→16:00), **Morris County–Union Ridge 230 kV** (→17:00), **OFallon Creek–Terry Tap 115 kV** (→17:00), **Maryville–Braddyville 161 kV** (→12:24), **Clarksville SPA–Ozark 161 kV** (→14:00), **Water Valley 161 kV** (→16:30) — all expiring during 08-14, so partial-day effects
+
+114 outages in effect on `bid_dt` total; only 5 constraint→outage links returned from `linked_outages`, and 2 of those 5 (Cooper–Fairport, Avoca/E Rogers) map to constraints I've called above.
+
+---
+
+### Gaps
+
+- **PDF window 08-01→08-07 does not reach the last few days.** 29 of 48 candidates have **no write-up at all** — including four of my longs (lnknoll1-redlin, lnclevlnd7-clev_aec, lnmarshal3-knob, lncrescent-ctnwd1). Those rest on outage + RT + zonal evidence only.
+- **Expired PDF triggers** (a long turned short or downgraded in each case): PITTSB9/Seminole–Pittsburg 345 ended 08-07 → hits lnmaud_tap-earlsbrh, lnrussett-sbrown, lnseminole-maud_tap. Arbuckle–Vanoss + Sulphur–Arbuckle ended 08-05 → lnseminole-maud_tap. Stockton–Morgan ended 08-06 → lnmonett-aur1241. Canal–Fowler + BUTL–OTTERCRK ended 08-07 → lnweav-tallgras. DeGrasse–Knob Hill ended 08-05 → xfmrpotter_s-potter_s.
+- **Zone-4 fallback on 19 of 48 candidates** — the sheet has only 59 mappings. For these the lift was measured against the wrong zone's forecast and the magnitudes are not trustworthy. Worst case is **lnanta_tp-anita**, where zone 4 (wind 93rd) is the exact inverse of the PDF's northern zones (wind 4th–12th); I went with the PDF. Also default and load-driven with implausibly large lifts on tiny baselines: lnnormhll-turner4 (19.0x on a 0.03% baseline), xfmrnowst1-nowst1_rev23 (19.0x on 0.03%), lnbrmall-sub_n (17.26x on 0.13%).
+- **xfmrholcom1-holcom1 — watch, not a call.** Bound **−3786 yesterday from nowhere** on only 1/30 RT days, afternoon hrs 15–19, RT-only. No PDF section, no outage on the Holcomb path for 08-14, **zero seasonal precedent** last year, and wind = load = 2.18x so nothing separates. Either a one-off or the start of something; not enough to trade either way.
+- **lnmoun-jade** — 3/30, 3/7 last week, DA+RT, but the uplift returned **−1.00x on both wind and load** (zero conditional probability, 0.10% baseline) — the model cannot say anything about it. Not in PDF, zone-4 default. Excluded from both lists.
+- **No uplift failures, no empty forecast dates.** `predict_tomorrow_percentile` returned all 6 zones × 24 hours for 08-14. Two benign pandas date-format warnings from `nighthawk/data/network/constraint.py:1277,1305`.
+- **Sheet's latest `bid_date` is 2026-08-13** — one day behind `bid_dt`, so no 08-14 row exists yet. Only used for zone mapping, as specified; nothing written.
